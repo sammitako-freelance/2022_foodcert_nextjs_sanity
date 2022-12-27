@@ -20,6 +20,14 @@
       }
     ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "components/main/HeroSection.jsx",
+    "components/header/libs/jotai.js",
+    "components/header/libs/jotai.js"
+  ],
   "exclude": ["node_modules"]
 }

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import LogoImg from "../../public/assets/img/house-boutique-logo.png";
+import LogoImg from "../../assets/img/house-boutique-logo.png";
 const StudioLogo = (props: any) => {
   const { renderDefault, title } = props;
   return (

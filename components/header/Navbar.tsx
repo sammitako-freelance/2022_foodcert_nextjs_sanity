@@ -1,93 +1,123 @@
 import { useAtom } from "jotai";
 import Link from "next/link";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { MdOutlineClose } from "react-icons/md";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import { clickedMenuJotai, showMenuJotai } from "../../libs/jotai";
-import { headerMenus, subMenus } from "../../libs/header-menus";
+import ScrollLink from "../main/ScrollLink";
 
-const Navbar = () => {
+type Props = {
+  isTopOfPage: boolean;
+};
+const Navbar = ({ isTopOfPage }: Props) => {
   const [show, setShow] = useAtom(showMenuJotai);
   const [clickedMenu, setClickedMenu] = useAtom(clickedMenuJotai);
+  const flexBetween = "flex items-center justify-between";
+  const borderLine = "border-b-[3px] border-[#f1f1e7] inline-block";
+  const navbarBackground = isTopOfPage
+    ? "text-black"
+    : "bg-[#243665] drop-shadow";
 
   return (
     <>
-      <header className="w-full bg-[#243665] uppercase font-bold font-Noto text-[#F1F1E7]">
-        <div className="flex justify-between items-center px-5 py-3 md:px-10 md:py-5">
+      <nav
+        className={`${flexBetween} ${navbarBackground} fixed w-full top-0 z-30 py-6  uppercase font-bold text-[#F1F1E7]`}
+      >
+        <div className={`${flexBetween} mx-auto w-11/12`}>
+          {/* LEFT SIDE */}
           <Link href="/">
-            <div className="hover:text-gray-200 uppercase">House Boutique</div>
+            <div className="hover:text-gray-200 transition duration-500 uppercase">
+              House Boutique
+            </div>
           </Link>
+          {/* RIGHT SIDE */}
           <div
             data-cy="nav-btn"
             className="flex md:hidden hover:cursor-pointer"
             onClick={() => setShow(!show)}
           >
             {show ? (
-              <MdOutlineClose className="w-5 h-8 text-[#F1F1E7]" />
+              <XMarkIcon className="w-8 h-8 text-[#F1F1E7]" />
             ) : (
-              <GiHamburgerMenu className="w-5 h-8" />
+              <Bars3Icon className="w-8 h-8" />
             )}
           </div>
 
           {/* DEFAULT */}
-          <ul className="hidden space-x-8 md:flex">
-            {headerMenus?.map((menu) => (
-              <li key={menu?.title} className="relative group">
-                <Link
-                  href={
-                    menu?.title.toLowerCase() == "home" ? "/" : `/${menu.slug}`
-                  }
-                >
-                  <div
-                    data-cy="nav-item"
-                    id={`${
-                      clickedMenu != menu?.title.toLowerCase()
-                        ? "hover-line"
-                        : ""
-                    }`}
-                    className={`${
-                      clickedMenu == menu?.title.toLowerCase()
-                        ? "border-b-[3px] border-[#f1f1e7] inline-block"
-                        : ""
-                    }`}
-                    onClick={() => setClickedMenu(menu?.title.toLowerCase())}
-                  >
-                    {menu?.title}
+          <div className="hidden md:flex">
+            <div className={`${flexBetween} gap-8 `}>
+              <div
+                id={`${clickedMenu !== "home" ? "hover-line" : ""}`}
+                className={`cursor-pointer`}
+              >
+                <ScrollLink
+                  page="Home"
+                  clickedPage={clickedMenu}
+                  setClickedPage={setClickedMenu}
+                />
+              </div>
+              <div
+                id={`${clickedMenu !== "about" ? "hover-line" : ""}`}
+                className={`cursor-pointer`}
+              >
+                <ScrollLink
+                  page="About"
+                  clickedPage={clickedMenu}
+                  setClickedPage={setClickedMenu}
+                />
+              </div>
+              <div
+                id={`${clickedMenu !== "services" ? "hover-line" : ""}`}
+                className={`${
+                  clickedMenu !== "services" ? "" : borderLine
+                } relative group cursor-pointer`}
+              >
+                <ScrollLink
+                  page="Services"
+                  clickedPage={clickedMenu}
+                  setClickedPage={setClickedMenu}
+                />
+                <div className="w-full absolute pt-1 hidden group-hover:block">
+                  <div className="bg-black py-2 text-center space-y-1">
+                    <p
+                      id={`${clickedMenu !== "efsa" ? "hover-line" : ""}`}
+                      className={`cursor-pointer`}
+                      onClick={() => setClickedMenu("efsa")}
+                    >
+                      EFSA
+                    </p>
+                    <p
+                      id={`${clickedMenu !== "fssai" ? "hover-line" : ""}`}
+                      className={`cursor-pointer`}
+                      onClick={() => setClickedMenu("fssai")}
+                    >
+                      FSSAI
+                    </p>
                   </div>
-                  <div className="w-full absolute pt-1 hidden group-hover:block">
-                    {menu.childItems > 0 ? (
-                      <ul className="bg-black py-2 text-center space-y-1">
-                        {subMenus.map((item) => (
-                          <li key={item.title}>
-                            <Link href={`/${item.slug}`}>
-                              <div
-                                id={`${
-                                  clickedMenu != item?.title.toLowerCase()
-                                    ? "hover-line"
-                                    : ""
-                                }`}
-                                className={`${
-                                  clickedMenu == item?.title.toLowerCase()
-                                    ? "border-b-[3px] border-[#f1f1e7] inline-block"
-                                    : ""
-                                }`}
-                                onClick={() =>
-                                  setClickedMenu(item?.title.toLowerCase())
-                                }
-                              >
-                                {item.title}
-                              </div>
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    ) : null}
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
+                </div>
+              </div>
+              <div
+                id={`${clickedMenu !== "news" ? "hover-line" : ""}`}
+                className={`cursor-pointer`}
+              >
+                <ScrollLink
+                  page="News"
+                  clickedPage={clickedMenu}
+                  setClickedPage={setClickedMenu}
+                />
+              </div>
+              <div
+                id={`${clickedMenu !== "contact" ? "hover-line" : ""}`}
+                className={`cursor-pointer`}
+              >
+                <ScrollLink
+                  page="Contact"
+                  clickedPage={clickedMenu}
+                  setClickedPage={setClickedMenu}
+                />
+              </div>
+            </div>
+          </div>
         </div>
-      </header>
+      </nav>
       <style jsx>{`
         #hover-line {
           position: relative;
