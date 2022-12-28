@@ -36,7 +36,8 @@ export default function ClientLayout({
     <html>
       <body>
         <Header />
-        <div className="h-body-height">{children}</div>
+        {/* <div className="h-body-height">{children}</div> */}
+        <div>{children}</div>
         <Footer />
       </body>
     </html>

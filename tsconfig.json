@@ -25,7 +25,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "components/main/HeroSection.jsx",
+    "components/main/HeroSection.tsx",
     "components/header/libs/jotai.js",
     "components/header/libs/jotai.js"
   ],

@@ -75,8 +75,8 @@ const Navbar = ({ isTopOfPage }: Props) => {
                   clickedPage={clickedMenu}
                   setClickedPage={setClickedMenu}
                 />
-                <div className="w-full absolute pt-1 hidden group-hover:block">
-                  <div className="bg-black py-2 text-center space-y-1">
+                <div className="w-full absolute pt-2 hidden group-hover:block">
+                  <div className="bg-black rounded-lg py-4 text-center space-y-2">
                     <p
                       id={`${clickedMenu !== "efsa" ? "hover-line" : ""}`}
                       className={`cursor-pointer`}

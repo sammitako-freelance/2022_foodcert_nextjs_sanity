@@ -10,6 +10,7 @@
     "@portabletext/react": "^2.0.0",
     "@sanity/image-url": "^1.0.1",
     "@sanity/vision": "^3.0.0",
+    "@types/react-slick": "^0.23.10",
     "framer-motion": "^8.0.2",
     "jotai": "^1.12.0",
     "next": "latest",
@@ -19,9 +20,11 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
     "react-scroll": "^1.8.9",
+    "react-slick": "^0.29.0",
     "sanity": "^3.0.0",
     "sass": "^1.57.1",
-    "styled-components": "^5.2.0",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^5.3.6",
     "swiper": "^8.4.5"
   },
   "devDependencies": {
@@ -30,6 +33,7 @@
     "@types/react": "18.0.21",
     "@types/react-anchor-link-smooth-scroll": "^1.0.2",
     "@types/react-dom": "18.0.6",
+    "@types/styled-components": "^5.1.26",
     "autoprefixer": "^10.4.12",
     "postcss": "^8.4.18",
     "tailwindcss": "^3.2.4",
