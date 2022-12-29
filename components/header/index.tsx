@@ -1,19 +1,19 @@
 "use client";
 import Navbar from "./Navbar";
 import { isTopOfPageJotai, showMenuJotai } from "../../libs/jotai";
-import { useAtom } from "jotai";
+import { useAtom, useAtomValue } from "jotai";
 import MobileNavbar from "./MobileNavbar";
 
-const Header = () => {
+const Header = ({}) => {
   const [show, setShow] = useAtom(showMenuJotai);
-  const [isTopOfPage, setIsTopOfPage] = useAtom(isTopOfPageJotai);
+  const isTopOfPage = useAtomValue(isTopOfPageJotai);
 
   return (
     <header>
       {show ? (
         <>
           <Navbar isTopOfPage={isTopOfPage} />
-          <MobileNavbar isTopOfPage={isTopOfPage} />
+          <MobileNavbar />
         </>
       ) : (
         <Navbar isTopOfPage={isTopOfPage} />

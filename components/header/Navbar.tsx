@@ -1,25 +1,32 @@
+"use client";
+import { useEffect } from "react";
 import { useAtom } from "jotai";
 import Link from "next/link";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-import { clickedMenuJotai, showMenuJotai } from "../../libs/jotai";
+import {
+  clickedMenuJotai,
+  showMenuJotai,
+  isTopOfPageJotai,
+} from "../../libs/jotai";
 import ScrollLink from "../main/ScrollLink";
 
 type Props = {
   isTopOfPage: boolean;
 };
+
 const Navbar = ({ isTopOfPage }: Props) => {
   const [show, setShow] = useAtom(showMenuJotai);
   const [clickedMenu, setClickedMenu] = useAtom(clickedMenuJotai);
+
   const flexBetween = "flex items-center justify-between";
-  const borderLine = "border-b-[3px] border-[#f1f1e7] inline-block";
   const navbarBackground = isTopOfPage
-    ? "text-black"
-    : "bg-[#243665] drop-shadow";
+    ? "text-custom-beige"
+    : "text-custom-black bg-custom-beige drop-shadow";
 
   return (
     <>
       <nav
-        className={`${flexBetween} ${navbarBackground} fixed w-full top-0 z-30 py-6  uppercase font-bold text-[#F1F1E7]`}
+        className={`${flexBetween} ${navbarBackground} fixed w-full top-0 z-30 py-6 uppercase font-bold`}
       >
         <div className={`${flexBetween} mx-auto w-11/12`}>
           {/* LEFT SIDE */}
@@ -35,9 +42,13 @@ const Navbar = ({ isTopOfPage }: Props) => {
             onClick={() => setShow(!show)}
           >
             {show ? (
-              <XMarkIcon className="w-8 h-8 text-[#F1F1E7]" />
+              <XMarkIcon className="w-8 h-8 text-custom-beige hover:x-7 hover:h-7" />
             ) : (
-              <Bars3Icon className="w-8 h-8" />
+              <Bars3Icon
+                className={`${
+                  isTopOfPage ? "text-custom-beige" : "text-custom-black"
+                } w-8 h-8`}
+              />
             )}
           </div>
 
@@ -54,21 +65,10 @@ const Navbar = ({ isTopOfPage }: Props) => {
                   setClickedPage={setClickedMenu}
                 />
               </div>
-              <div
-                id={`${clickedMenu !== "about" ? "hover-line" : ""}`}
-                className={`cursor-pointer`}
-              >
-                <ScrollLink
-                  page="About"
-                  clickedPage={clickedMenu}
-                  setClickedPage={setClickedMenu}
-                />
-              </div>
+
               <div
                 id={`${clickedMenu !== "services" ? "hover-line" : ""}`}
-                className={`${
-                  clickedMenu !== "services" ? "" : borderLine
-                } relative group cursor-pointer`}
+                className={`relative group cursor-pointer`}
               >
                 <ScrollLink
                   page="Services"
@@ -79,14 +79,14 @@ const Navbar = ({ isTopOfPage }: Props) => {
                   <div className="bg-black rounded-lg py-4 text-center space-y-2">
                     <p
                       id={`${clickedMenu !== "efsa" ? "hover-line" : ""}`}
-                      className={`cursor-pointer`}
+                      className={`cursor-pointer !text-custom-beige`}
                       onClick={() => setClickedMenu("efsa")}
                     >
                       EFSA
                     </p>
                     <p
                       id={`${clickedMenu !== "fssai" ? "hover-line" : ""}`}
-                      className={`cursor-pointer`}
+                      className={`cursor-pointer !text-custom-beige`}
                       onClick={() => setClickedMenu("fssai")}
                     >
                       FSSAI
@@ -100,6 +100,16 @@ const Navbar = ({ isTopOfPage }: Props) => {
               >
                 <ScrollLink
                   page="News"
+                  clickedPage={clickedMenu}
+                  setClickedPage={setClickedMenu}
+                />
+              </div>
+              <div
+                id={`${clickedMenu !== "faq" ? "hover-line" : ""}`}
+                className={`cursor-pointer`}
+              >
+                <ScrollLink
+                  page="Faq"
                   clickedPage={clickedMenu}
                   setClickedPage={setClickedMenu}
                 />

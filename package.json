@@ -7,10 +7,12 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.13",
+    "@material-tailwind/react": "^1.2.4",
     "@portabletext/react": "^2.0.0",
     "@sanity/image-url": "^1.0.1",
     "@sanity/vision": "^3.0.0",
     "@types/react-slick": "^0.23.10",
+    "classnames": "^2.3.2",
     "framer-motion": "^8.0.2",
     "jotai": "^1.12.0",
     "next": "latest",

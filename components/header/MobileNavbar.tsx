@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Link from "next/link";
 import {
   MdOutlineKeyboardArrowUp,
   MdOutlineKeyboardArrowDown,
@@ -9,11 +8,7 @@ import { clickedMenuJotai, showMenuJotai } from "../../libs/jotai";
 import { useAtom } from "jotai";
 import ScrollLink from "../main/ScrollLink";
 
-type Props = {
-  isTopOfPage: boolean;
-};
-
-const MobileNavbar = ({ isTopOfPage }: Props) => {
+const MobileNavbar = () => {
   const centerScreen = "min-h-screen flex justify-center items-center";
   const sideBar = "fixed right-0 bottom-0 z-40 h-full w-[300px] drop-shadow-xl";
   const [subMenu, setSubmenu] = useState<boolean>(false);
@@ -24,20 +19,18 @@ const MobileNavbar = ({ isTopOfPage }: Props) => {
     setShow(false);
     setClickedMenu(name);
   };
-  const navbarBackground = isTopOfPage
-    ? "text-black"
-    : "bg-[#243665] drop-shadow";
+
   return (
     <>
       <nav
-        className={`${sideBar} ${centerScreen} ${navbarBackground} bg-black uppercase font-bold text-center text-[#f1f1e7]`}
+        className={`${sideBar} ${centerScreen} bg-custom-black uppercase font-bold text-center text-[#f1f1e7]`}
       >
         <div
           data-cy="nav-btn"
-          className="right-7 top-6 fixed hover:cursor-pointer"
+          className="right-7 top-6 hover:right-6 hover:top-7 fixed hover:cursor-pointer"
           onClick={() => setShow(false)}
         >
-          <XMarkIcon className="w-8 h-8 text-[#f1f1e7] hover:text-gray-200" />
+          <XMarkIcon className="w-8 h-8 text-[#f1f1e7] hover:x-7 hover:h-7" />
         </div>
         <div className="flex flex-col gap-3">
           <div
@@ -51,24 +44,10 @@ const MobileNavbar = ({ isTopOfPage }: Props) => {
               setClickedPage={setClickedMenu}
             />
           </div>
-
-          <div
-            id={`${clickedMenu != "about" ? "hover-line" : ""}`}
-            className={`cursor-pointer`}
-            onClick={() => chooseMenu("about")}
-          >
-            <ScrollLink
-              page="About"
-              clickedPage={clickedMenu}
-              setClickedPage={setClickedMenu}
-            />
-          </div>
           <div
             id={`${clickedMenu != "services" ? "hover-line" : ""}`}
             className="relative flex items-center cursor-pointer"
-            onClick={() => {
-              setSubmenu(!subMenu);
-            }}
+            onClick={() => setSubmenu(!subMenu)}
           >
             <ScrollLink
               page="Services"
@@ -114,6 +93,17 @@ const MobileNavbar = ({ isTopOfPage }: Props) => {
           >
             <ScrollLink
               page="News"
+              clickedPage={clickedMenu}
+              setClickedPage={setClickedMenu}
+            />
+          </div>
+          <div
+            id={`${clickedMenu != "faq" ? "hover-line" : ""}`}
+            className={`cursor-pointer`}
+            onClick={() => chooseMenu("faq")}
+          >
+            <ScrollLink
+              page="Faq"
               clickedPage={clickedMenu}
               setClickedPage={setClickedMenu}
             />

@@ -1,7 +1,7 @@
 "use client";
 import "../../styles/globals.css";
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useAtom } from "jotai";
 import { clickedMenuJotai, isTopOfPageJotai } from "../../libs/jotai";
 

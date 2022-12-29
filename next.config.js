@@ -5,6 +5,6 @@ module.exports = {
     appDir: true,
   },
   images: {
-    domains: ["localhost", "*"],
+    domains: ["localhost", "*", "images.unsplash.com"],
   },
 };
