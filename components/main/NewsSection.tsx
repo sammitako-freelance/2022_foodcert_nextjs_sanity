@@ -17,7 +17,10 @@ const NewsSection = (props: Props) => {
     },
   };
   return (
-    <section id="news" className="mx-auto min-h-full w-4/6 py-20 bg-white">
+    <section
+      id="news"
+      className="mx-auto min-h-full w-5/6 sm:w-4/6 py-20 bg-white"
+    >
       <motion.div onViewportEnter={() => setClickedMenu("news")}>
         <div className="flex flex-col">
           <div className="mx-auto">
@@ -86,14 +89,24 @@ const NewsSection = (props: Props) => {
                   textColor="text-custom-green"
                 />
               </motion.div>
-              <div className="flex justify-center items-center mt-10">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+                variants={{
+                  hidden: { opacity: 0, x: -100 },
+                  visible: { opacity: 1, x: 0 },
+                }}
+                className="flex justify-center items-center mt-10"
+              >
                 <LinkButton
                   title="더 보러가기"
                   textColor="text-custom-beige"
                   backgroundColor="bg-black"
                   borderColor=""
                 />
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>

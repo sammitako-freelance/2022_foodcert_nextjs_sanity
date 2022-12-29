@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import ContactSection from "./ContactSection";
 import FaqSection from "./FaqSection";

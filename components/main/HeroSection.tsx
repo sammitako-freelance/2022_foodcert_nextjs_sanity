@@ -1,5 +1,3 @@
-"use client";
-
 import LinkButton from "../LinkButton";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";

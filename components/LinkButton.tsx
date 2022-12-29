@@ -18,7 +18,7 @@ export default function LinkButton({
       className={`${backgroundColor} ${textColor} ${
         borderColor && "border"
       } ${borderColor} 
-      uppercase py-3 px-6 rounded-3xl font-bold text-sm hover:drop-shadow-md`}
+      uppercase py-3 px-6 rounded-3xl font-bold text-sm hover:drop-shadow-md hover:opacity-80`}
     >
       {title}
     </button>

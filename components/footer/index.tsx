@@ -25,7 +25,12 @@ const Footer = () => {
       <div className="text-xs text-center flex flex-col pt-4">
         <div className="pb-1">{year} © House Boutique. All rights reserved</div>
         {/* LOGIN PAGE */}
-        <Link href="/studio" className="inline italic">
+        <Link
+          href="/studio"
+          rel="noopener noreferrer"
+          target="_blank"
+          className="inline italic"
+        >
           manager
         </Link>
       </div>

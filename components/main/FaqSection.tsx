@@ -33,7 +33,17 @@ const FaqSection = (props: Props) => {
             </TitleText>
           </div>
 
-          <div className="w-4/6 my-10 text-custom-black border rounded-lg p-5 bg-white text-left">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+            variants={{
+              hidden: { opacity: 0, x: -100 },
+              visible: { opacity: 1, x: 0 },
+            }}
+            className="w-5/6 sm:w-4/6 my-10 text-custom-black border rounded-lg p-5 bg-white text-left"
+          >
             <Fragment>
               <Accordion open={open === 1}>
                 <AccordionHeader
@@ -78,7 +88,7 @@ const FaqSection = (props: Props) => {
                 </AccordionBody>
               </Accordion>
             </Fragment>
-          </div>
+          </motion.div>
         </div>
       </motion.div>
     </section>

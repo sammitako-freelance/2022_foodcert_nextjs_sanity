@@ -1,4 +1,3 @@
-"use client";
 import Navbar from "./Navbar";
 import { isTopOfPageJotai, showMenuJotai } from "../../libs/jotai";
 import { useAtom, useAtomValue } from "jotai";
