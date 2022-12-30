@@ -1,4 +1,3 @@
-"use client";
 import { useEffect, useState } from "react";
 import { debounce } from "../../libs/utils";
 import { useAtom } from "jotai";
@@ -23,6 +22,12 @@ const Navbar = () => {
     ? "text-custom-beige"
     : "text-custom-beige bg-custom-black drop-shadow";
 
+  const controlMobile = () => {
+    setShow(!show);
+    if (show === true) {
+      setShowNavbar(true);
+    }
+  };
   const controlNavbar = debounce(() => {
     if (window.scrollY === 0) {
       setClickedMenu("home");
@@ -67,7 +72,7 @@ const Navbar = () => {
             <div
               data-cy="nav-btn"
               className="flex md:hidden hover:cursor-pointer"
-              onClick={() => setShow(!show)}
+              onClick={controlMobile}
             >
               {show ? (
                 <XMarkIcon className="w-8 h-8 text-custom-beige hover:x-7 hover:h-7" />
