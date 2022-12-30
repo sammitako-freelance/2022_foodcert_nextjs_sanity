@@ -8,8 +8,8 @@ export default defineType({
     defineField({
       name: "categories",
       title: "Categories",
-      type: "array",
-      of: [{ type: "reference", to: { type: "category" } }],
+      type: "reference",
+      to: { type: "category" },
     }),
     defineField({
       name: "slug",
@@ -21,38 +21,53 @@ export default defineType({
       },
     }),
     defineField({
-      name: "mainImage",
-      title: "Main image",
+      name: "mainImageFile",
+      title: "Main Image File",
       type: "image",
       options: {
         hotspot: true,
       },
     }),
     defineField({
+      name: "mainImageUrl",
+      title: "Main Image URL",
+      type: "url",
+    }),
+    defineField({
       name: "title",
       title: "Title",
-      type: "string",
+      type: "text",
     }),
     defineField({
       name: "subTitle",
-      title: "SubTitle",
+      title: "Sub Title",
       type: "array",
-      of: [{ type: "string" }],
+      of: [{ type: "text" }],
     }),
     defineField({
-      name: "documentation",
-      title: "Documentation",
-      type: "object",
-      fields: [
-        { name: "name", type: "string", title: "Documentation Name" },
-        { name: "info", type: "string", title: "Documentation Info" },
+      name: "documentationTitle",
+      title: "Documentation Title",
+      type: "text",
+    }),
+    defineField({
+      name: "documentationList",
+      title: "Documentation List",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            { name: "name", type: "text", title: "Documentation Name" },
+            { name: "info", type: "text", title: "Documentation Info" },
+          ],
+        },
       ],
     }),
     defineField({
       name: "labeling",
       title: "Labeling",
       type: "array",
-      of: [{ type: "string" }],
+      of: [{ type: "text" }],
     }),
   ],
 

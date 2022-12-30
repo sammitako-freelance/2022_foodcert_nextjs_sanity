@@ -3,8 +3,14 @@ import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
 import { useAtom } from "jotai";
 import { clickedMenuJotai } from "../../libs/jotai";
+import { MainHero } from "../../typings";
 
-export default function HeroSection() {
+interface Props {
+  hero: MainHero;
+}
+
+export default function HeroSection({ hero }: Props) {
+  // console.log(hero);
   const [clickedMenu, setClickedMenu] = useAtom(clickedMenuJotai);
   return (
     <section

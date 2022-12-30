@@ -1,26 +1,24 @@
 import { defineField, defineType } from "sanity";
 
 export default defineType({
-  name: "mainService",
-  title: "MainService",
+  name: "contact",
+  title: "Contact",
   type: "document",
   fields: [
     defineField({
-      name: "categories",
-      title: "Categories",
-      type: "reference",
-      to: { type: "category" },
-    }),
-    defineField({
       name: "title",
       title: "Title",
-      type: "text",
+      type: "string",
     }),
     defineField({
-      name: "list",
-      title: "List",
-      type: "array",
-      of: [{ type: "text" }],
+      name: "subTitle",
+      title: "Sub Title",
+      type: "string",
+    }),
+    defineField({
+      name: "location",
+      title: "Location",
+      type: "geopoint",
     }),
   ],
 

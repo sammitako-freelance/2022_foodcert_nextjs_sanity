@@ -19,7 +19,7 @@ const ServiceSection = (props: Props) => {
   return (
     <section
       id="contact"
-      className="mx-auto min-h-full w-full py-20 bg-no-repeat bg-cover bg-top bg-[url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1073&q=80')]"
+      className="mx-auto min-h-[500px] w-full py-20 contact-bg"
     >
       <motion.div onViewportEnter={() => setClickedMenu("contact")}>
         <div className="flex flex-col justify-center items-center">
@@ -39,13 +39,7 @@ const ServiceSection = (props: Props) => {
               하우스부티크와 함께 시작하세요.
             </motion.div>
           </div>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-            variants={container}
-            className="py-10 space-y-8 md:space-y-0 md:flex md:space-x-10"
-          >
+          <div className="pt-6 sm:pt-8 space-y-8 md:space-y-0 md:flex md:space-x-10">
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -64,11 +58,23 @@ const ServiceSection = (props: Props) => {
                 borderColor=""
               />
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </motion.div>
+      <style jsx>{`
+        .contact-bg {
+          width: 100%;
+          height: 100%;
+          background: url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1073&q=80")
+            no-repeat;
+          background-attachment: fixed;
+          background-position: 50% 325px;
+          background-size: cover;
+        }
+      `}</style>
     </section>
   );
 };
+// bg-no-repeat bg-cover bg-top bg-[url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1073&q=80')]
 
 export default ServiceSection;

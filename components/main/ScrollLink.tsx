@@ -14,9 +14,7 @@ const ScrollLink = ({ page, clickedPage, setClickedPage }: Props) => {
 
   return (
     <AnchorLink
-      className={`${
-        clickedPage === lowerCasePage ? borderLine : ""
-      } hover:text-gray-200 transition duration-500`}
+      className={`${clickedPage === lowerCasePage ? borderLine : ""}`}
       href={`#${lowerCasePage}`}
       onClick={() => setClickedPage(lowerCasePage)}
     >

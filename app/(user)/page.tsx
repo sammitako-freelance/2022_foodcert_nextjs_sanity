@@ -1,18 +1,12 @@
 import { previewData } from "next/headers";
-import { groq } from "next-sanity";
-import { client } from "../../libs/sanity.client";
 import MainPageLayout from "../../components/main/MainPageLayout";
 import PreviewSuspense from "../../components/PreviewSuspense";
+import { MainHero } from "../../typings";
 
-const query = groq`
-  *[_type=="post"] {
-    ...,
-    author->,
-    categories[]->
-  } | order(_createdAt desc)
-`;
-
-export default async function Home() {
+interface Props {
+  hero: MainHero;
+}
+export default async function Home({ hero }: Props) {
   if (previewData()) {
     return (
       <PreviewSuspense
@@ -28,11 +22,9 @@ export default async function Home() {
       </PreviewSuspense>
     );
   }
-  const posts = await client.fetch(query);
-  console.log(posts);
   return (
     <div>
-      <MainPageLayout />
+      <MainPageLayout hero={hero} />
     </div>
   );
 }
