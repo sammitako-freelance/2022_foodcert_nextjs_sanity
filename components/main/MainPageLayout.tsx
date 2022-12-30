@@ -6,11 +6,9 @@ import FaqSection from "./FaqSection";
 import HeroSection from "./HeroSection";
 import NewsSection from "./NewsSection";
 import ServiceSection from "./ServiceSection";
-import { GetServerSideProps } from "next";
-import { fetchMainHero } from "../../libs/fetchMainHero";
 
 interface Props {
-  hero: MainHero;
+  hero: MainHero[];
 }
 
 const MainPageLayout = ({ hero }: Props) => {
@@ -27,11 +25,11 @@ const MainPageLayout = ({ hero }: Props) => {
 
 export default MainPageLayout;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const hero = await fetchMainHero();
-  return {
-    props: {
-      hero,
-    },
-  };
-};
+// export const getServerSideProps: GetServerSideProps = async (context) => {
+//   const hero = await fetchMainHero();
+//   return {
+//     props: {
+//       hero,
+//     },
+//   };
+// };

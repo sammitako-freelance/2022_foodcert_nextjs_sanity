@@ -31,12 +31,14 @@ const ServiceSection = (props: Props) => {
             className="py-10 space-y-8 md:space-y-0 md:flex md:space-x-10"
           >
             <Card
+              pathLink="/services/efsa"
               textColor="text-custom-blue"
               backgroundColor="bg-custom-blue"
               borderColor="border-custom-blue"
               service="efsa"
             />
             <Card
+              pathLink="/services/fssai"
               textColor="text-custom-green"
               backgroundColor="bg-custom-green"
               borderColor="border-custom-green"

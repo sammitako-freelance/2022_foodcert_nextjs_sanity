@@ -14,7 +14,7 @@ const childVariant = {
   visible: { opacity: 1, scale: 1 },
 };
 
-const NewsList = ({ title, category, textColor, date }: Props) => {
+const MainNewsList = ({ title, category, textColor, date }: Props) => {
   return (
     <section className="mx-auto w-full items-center justify-center h-full hover:cursor-pointer hover:shadow-md">
       <motion.div
@@ -36,4 +36,4 @@ const NewsList = ({ title, category, textColor, date }: Props) => {
   );
 };
 
-export default NewsList;
+export default MainNewsList;

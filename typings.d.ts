@@ -7,9 +7,11 @@ export interface MainHero extends MainHeroData {
 }
 
 export type MainHeroData = {
-  title: string;
+  title: Array<string>;
   email: string;
   tel: string;
   imageFile?: string;
   imageUrl?: string;
 };
+
+//1:25"06 BLOG

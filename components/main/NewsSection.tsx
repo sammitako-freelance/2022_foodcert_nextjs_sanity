@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useAtom } from "jotai";
 import { clickedMenuJotai } from "../../libs/jotai";
 import TitleText from "../TitleText";
-import NewsList from "../NewsList";
+import MainNewsList from "../MainNewsList";
 import LinkButton from "../LinkButton";
 
 type Props = {};
@@ -33,7 +33,7 @@ const NewsSection = (props: Props) => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.5 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
+                transition={{ duration: 0.5 }}
                 variants={{
                   hidden: { opacity: 0, x: -100 },
                   visible: { opacity: 1, x: 0 },
@@ -58,31 +58,31 @@ const NewsSection = (props: Props) => {
                 variants={container}
                 className="mt-10 grid-cols-1 divide-y-2"
               >
-                <NewsList
+                <MainNewsList
                   title="북, 나흘 만에 또 대규모 포사격... '9.19 위반'"
                   category="EFSA"
                   date="2022.10.18"
                   textColor="text-custom-blue"
                 />
-                <NewsList
+                <MainNewsList
                   title="북, 나흘 만에 또 대규모 포사격... '9.19 위반'"
                   category="FSSAI"
                   date="2022.10.18"
                   textColor="text-custom-green"
                 />
-                <NewsList
+                <MainNewsList
                   title="북, 나흘 만에 또 대규모 포사격... '9.19 위반'"
                   category="EFSA"
                   date="2022.10.18"
                   textColor="text-custom-blue"
                 />
-                <NewsList
+                <MainNewsList
                   title="북, 나흘 만에 또 대규모 포사격... '9.19 위반'"
                   category="EFSA"
                   date="2022.10.18"
                   textColor="text-custom-blue"
                 />
-                <NewsList
+                <MainNewsList
                   title="북, 나흘 만에 또 대규모 포사격... '9.19 위반'"
                   category="FSSAI"
                   date="2022.10.18"
@@ -101,6 +101,7 @@ const NewsSection = (props: Props) => {
                 className="flex justify-center items-center mt-10"
               >
                 <LinkButton
+                  pathLink="/news"
                   title="더 보러가기"
                   textColor="text-custom-beige"
                   backgroundColor="bg-black"

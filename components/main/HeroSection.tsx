@@ -5,12 +5,12 @@ import { useAtom } from "jotai";
 import { clickedMenuJotai } from "../../libs/jotai";
 import { MainHero } from "../../typings";
 
-interface Props {
-  hero: MainHero;
-}
+type Props = {
+  hero: MainHero[];
+};
 
 export default function HeroSection({ hero }: Props) {
-  // console.log(hero);
+  const sanityHero = hero[0];
   const [clickedMenu, setClickedMenu] = useAtom(clickedMenuJotai);
   return (
     <section
@@ -34,9 +34,9 @@ export default function HeroSection({ hero }: Props) {
           }}
           className="z-10 mt-32 mb-14 text-2xl font-bold tracking-widest leading-relaxed"
         >
-          <div>Beauty & Health</div>
-          <div>최고의 해외 진출 파트너</div>
-          <div>HOUSE BOUTIQUE</div>
+          {sanityHero.title.map((item, idx) => (
+            <div key={idx}>{item}</div>
+          ))}
         </motion.div>
         {/* BUTTON */}
         <div className="flex flex-col gap-4 sm:flex-row sm:gap-5 pb-20 md:pb-28">
@@ -51,6 +51,7 @@ export default function HeroSection({ hero }: Props) {
             }}
           >
             <LinkButton
+              pathLink="/contact"
               title="contact us"
               textColor="text-custom-blue"
               backgroundColor="bg-custom-mint"
@@ -68,15 +69,22 @@ export default function HeroSection({ hero }: Props) {
             }}
             className="text-sm"
           >
-            <div>Email: inf@house-boutique.net</div>
-            <div>Tel: 010 - 4250 - 3160</div>
+            <div>Email: {sanityHero.email}</div>
+            <div>Tel: {sanityHero.tel}</div>
           </motion.div>
         </div>
         <div className="flex items-center justify-center pb-3">
-          <ChevronDownIcon className="w-5 h-5 " />
-          {/* animate-bounce */}
+          <ChevronDownIcon className="w-5 h-5 animate-bounce" />
         </div>
       </motion.div>
     </section>
   );
 }
+// export async function generateStaticParams() {
+//   const hero = await fetchMainHero();
+//   return {
+//     props: {
+//       hero,
+//     },
+//   };
+// }

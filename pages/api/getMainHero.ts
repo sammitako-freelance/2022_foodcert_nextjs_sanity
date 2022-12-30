@@ -11,13 +11,13 @@ const mainHeroQuery = groq`
 `;
 
 type Data = {
-  hero: MainHero;
+  hero: MainHero[];
 };
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const hero: MainHero = await client.fetch(mainHeroQuery);
+  const hero: MainHero[] = await client.fetch(mainHeroQuery);
   res.status(200).json({ hero });
 }

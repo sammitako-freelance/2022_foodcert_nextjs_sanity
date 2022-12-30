@@ -8,13 +8,20 @@ const childVariant = {
 };
 
 type Props = {
+  pathLink: string;
   textColor: string;
   backgroundColor: string;
   borderColor: string;
   service: string;
 };
 
-const Card = ({ textColor, borderColor, backgroundColor, service }: Props) => {
+const Card = ({
+  pathLink,
+  textColor,
+  borderColor,
+  backgroundColor,
+  service,
+}: Props) => {
   return (
     <motion.div
       variants={childVariant}
@@ -41,6 +48,7 @@ const Card = ({ textColor, borderColor, backgroundColor, service }: Props) => {
       </ul>
       <div className="flex justify-center items-center pt-10">
         <LinkButton
+          pathLink={pathLink}
           title="더 알아보기"
           textColor={textColor}
           borderColor={borderColor}

@@ -1,12 +1,9 @@
 import { previewData } from "next/headers";
 import MainPageLayout from "../../components/main/MainPageLayout";
 import PreviewSuspense from "../../components/PreviewSuspense";
-import { MainHero } from "../../typings";
+import { fetchMainHero } from "../../libs/fetchMainHero";
 
-interface Props {
-  hero: MainHero;
-}
-export default async function Home({ hero }: Props) {
+export default async function Home() {
   if (previewData()) {
     return (
       <PreviewSuspense
@@ -22,6 +19,7 @@ export default async function Home({ hero }: Props) {
       </PreviewSuspense>
     );
   }
+  const hero = await fetchMainHero();
   return (
     <div>
       <MainPageLayout hero={hero} />

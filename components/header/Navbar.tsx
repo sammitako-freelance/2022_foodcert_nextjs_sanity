@@ -115,14 +115,14 @@ const Navbar = () => {
                         className={`cursor-pointer !text-custom-beige`}
                         onClick={() => setClickedMenu("efsa")}
                       >
-                        EFSA
+                        <Link href="/services/efsa">EFSA</Link>
                       </p>
                       <p
                         id={`${clickedMenu !== "fssai" ? "hover-line" : ""}`}
                         className={`cursor-pointer !text-custom-beige`}
                         onClick={() => setClickedMenu("fssai")}
                       >
-                        FSSAI
+                        <Link href="/services/fssai">FSSAI</Link>
                       </p>
                     </div>
                   </div>

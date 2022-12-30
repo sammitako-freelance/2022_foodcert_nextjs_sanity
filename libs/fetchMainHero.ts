@@ -5,6 +5,7 @@ export const fetchMainHero = async () => {
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/getMainHero`
   );
   const data = await res.json();
-  const hero: MainHero = data.hero;
+  const hero: MainHero[] = data.hero;
+
   return hero;
 };

@@ -52,6 +52,7 @@ const ServiceSection = (props: Props) => {
               className="z-10"
             >
               <LinkButton
+                pathLink="/contact"
                 title="CONTACT US"
                 backgroundColor="bg-custom-mint"
                 textColor="text-custom-blue"
