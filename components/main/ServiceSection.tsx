@@ -2,9 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useAtom } from "jotai";
 import { clickedMenuJotai } from "../../libs/jotai";
-import Card from "../Card";
 import TitleText from "../TitleText";
 import { MainService } from "../../typings";
+import ServiceCard from "./ServiceCard";
 
 type Props = {
   service: MainService[];
@@ -34,7 +34,7 @@ const ServiceSection = ({ service }: Props) => {
             className="py-10 space-y-8 md:space-y-0 md:flex md:space-x-10"
           >
             {service.map((item, idx) => (
-              <Card
+              <ServiceCard
                 key={idx}
                 category={item?.categories.title}
                 list={item?.list}

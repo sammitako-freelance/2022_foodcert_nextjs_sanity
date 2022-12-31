@@ -10,7 +10,7 @@ type Props = {
 };
 
 const About = ({ service }: Props) => {
-  console.log(service);
+  // console.log(service);
   const contentContainer = "relative pt-[10px]";
   const contentBorder =
     "before:content-[''] before:border-t-custom-blue before:border-t-[4px] before:absolute before:left-[47%] before:md:left-0 before:top-0 before:w-[20px]";
@@ -36,7 +36,7 @@ const About = ({ service }: Props) => {
   return (
     <section>
       {/* HERO BACKGROUND */}
-      <div className="pt-10 md:pt-14 h-[200px] md:h-[300px] bg-cover bg-no-repeat	bg-center bg-[url('https://cdn.sanity.io/images/4k25zhng/production/d3ec2d233309a8daff9e59ff9b45139a69f48964-6000x3376.jpg')] opacity-70">
+      <div className="pt-10 md:pt-14 h-[230px] md:h-[300px] bg-cover bg-no-repeat	bg-center bg-[url('https://cdn.sanity.io/images/4k25zhng/production/d3ec2d233309a8daff9e59ff9b45139a69f48964-6000x3376.jpg')] opacity-70">
         <div
           id="content-container"
           className="mt-20 mb-14 tracking-widest leading-relaxed mx-auto w-5/6 items-center justify-center h-full"
@@ -46,7 +46,7 @@ const About = ({ service }: Props) => {
           </p>
         </div>
       </div>
-      <div className="bg-custom-beige bg-opacity-50 w-full py-20">
+      <div className="bg-custom-beige bg-opacity-50 w-full py-24">
         <div className="w-8/12 mx-auto">
           {/* TITLE */}
           <motion.div

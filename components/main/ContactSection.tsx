@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useAtom } from "jotai";
 import { clickedMenuJotai } from "../../libs/jotai";
-import Card from "../Card";
 import TitleText from "../TitleText";
 import LinkButton from "../LinkButton";
 import { MainContact } from "../../typings";

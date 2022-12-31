@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useAtom } from "jotai";
 import { clickedMenuJotai } from "../../libs/jotai";
 import TitleText from "../TitleText";
-import MainNewsList from "../MainNewsList";
+import MainNewsList from "./MainNewsList";
 import LinkButton from "../LinkButton";
 import { News, Category } from "../../typings";
 
@@ -102,7 +102,7 @@ const NewsSection = ({ news, category }: Props) => {
                 className="flex justify-center items-center mt-10"
               >
                 <LinkButton
-                  pathLink="/news"
+                  pathLink="/notice"
                   title="더 보러가기"
                   textColor="text-custom-beige"
                   backgroundColor="bg-black"

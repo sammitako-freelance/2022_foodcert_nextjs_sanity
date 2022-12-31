@@ -1,5 +1,5 @@
 import React from "react";
-import LinkButton from "./LinkButton";
+import LinkButton from "../LinkButton";
 import { motion } from "framer-motion";
 
 const childVariant = {
@@ -13,7 +13,7 @@ type Props = {
   title: string;
 };
 
-const Card = ({ category, list, title }: Props) => {
+const ServiceCard = ({ category, list, title }: Props) => {
   const textColor =
     category?.toLowerCase() === "efsa"
       ? "text-custom-blue"
@@ -54,4 +54,4 @@ const Card = ({ category, list, title }: Props) => {
   );
 };
 
-export default Card;
+export default ServiceCard;
