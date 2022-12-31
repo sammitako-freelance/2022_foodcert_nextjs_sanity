@@ -32,13 +32,13 @@ const MainPageLayout = ({
   contact,
 }: Props) => {
   return (
-    <>
+    <section>
       <HeroSection hero={hero} />
       <ServiceSection service={service} />
       <NewsSection news={news} category={category} />
       <FaqSection faq={faq} />
       <ContactSection contact={contact} />
-    </>
+    </section>
   );
 };
 

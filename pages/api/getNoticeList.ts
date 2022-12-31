@@ -8,7 +8,7 @@ const noticeListQuery = groq`
   ...,
   categories->,
   author->,
-  } | order(_createdAt desc)
+  } | order(publishedAt desc)
 `;
 
 type Data = {

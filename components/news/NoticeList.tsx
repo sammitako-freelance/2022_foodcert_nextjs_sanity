@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { News } from "../../typings";
+import LinkButton from "../LinkButton";
 import NoticeCard from "./NoticeCard";
 
 type Props = {
@@ -32,8 +33,9 @@ const NoticeList = ({ list }: Props) => {
           </p>
         </div>
       </div>
+      {/* LIST */}
       <div className="bg-custom-light-gray w-full py-24">
-        <div className="w-8/12 mx-auto">
+        <div className="w-5/6 mx-auto">
           <div className="text-2xl font-bold text-custom-black mb-10">
             The latest
           </div>
@@ -42,7 +44,7 @@ const NoticeList = ({ list }: Props) => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
             variants={container}
-            className="grid sm:grid-cols-2 md:grid-cols-3 gap-x-3 gap-y-10"
+            className="grid grid-flow-row sm:gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
           >
             {list.map((item, idx) => (
               <NoticeCard
@@ -53,6 +55,16 @@ const NoticeList = ({ list }: Props) => {
               />
             ))}
           </motion.div>
+        </div>
+        {/* NOTICE가 더 있을 때만 활성화 */}
+        <div className="flex justify-center items-center mt-12">
+          <LinkButton
+            pathLink="/notice"
+            title="Load More"
+            backgroundColor="bg-custom-black"
+            textColor="text-custom-beige"
+            borderColor=""
+          />
         </div>
       </div>
       <style jsx>{`

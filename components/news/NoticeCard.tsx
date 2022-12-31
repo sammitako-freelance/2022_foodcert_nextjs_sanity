@@ -23,19 +23,21 @@ const NoticeCard = ({ category, title, summary }: Props) => {
   return (
     <motion.div
       variants={childVariant}
-      className="min-h-max w-[315px] sm:w-[355px] md:w-[325px] px-6 py-8 shadow-md rounded-md bg-white flex flex-col group hover:cursor-pointer"
+      className="my-8 rounded shadow-md bg-white group hover:cursor-pointer"
     >
-      <div
-        className={`inline-block self-start iuppercase py-1 px-2 rounded-md text-xs text-custom-beige group-hover:opacity-70 ${backgroundColor}`}
-      >
-        {category?.toUpperCase()}
-      </div>
+      <div className="px-10 py-16">
+        <div
+          className={`inline-block self-start iuppercase py-1 px-2 rounded-md text-xs text-custom-beige group-hover:opacity-70 ${backgroundColor}`}
+        >
+          {category?.toUpperCase()}
+        </div>
 
-      <div className="py-5 text-custom-black font-bold group-hover:opacity-70">
-        {title}
-      </div>
-      <div className="space-y-5 text-custom-dark-gray text-sm group-hover:opacity-70">
-        {summary}
+        <div className="py-5 text-custom-black font-bold group-hover:opacity-70">
+          {title}
+        </div>
+        <div className="space-y-5 text-custom-dark-gray text-sm group-hover:opacity-70">
+          {summary}
+        </div>
       </div>
     </motion.div>
   );
