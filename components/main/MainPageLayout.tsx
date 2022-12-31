@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { MainHero } from "../../typings";
+import { MainHero, MainService } from "../../typings";
 import ContactSection from "./ContactSection";
 import FaqSection from "./FaqSection";
 import HeroSection from "./HeroSection";
@@ -9,13 +9,14 @@ import ServiceSection from "./ServiceSection";
 
 interface Props {
   hero: MainHero[];
+  service: MainService[];
 }
 
-const MainPageLayout = ({ hero }: Props) => {
+const MainPageLayout = ({ hero, service }: Props) => {
   return (
     <>
       <HeroSection hero={hero} />
-      <ServiceSection />
+      <ServiceSection service={service} />
       <NewsSection />
       <FaqSection />
       <ContactSection />

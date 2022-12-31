@@ -1,6 +1,8 @@
 import React from "react";
 import LinkButton from "./LinkButton";
 import { motion } from "framer-motion";
+import { Category } from "../typings";
+import { client } from "../libs/sanity.client";
 
 const childVariant = {
   hidden: { opacity: 0, scale: 0.9 },
@@ -8,47 +10,42 @@ const childVariant = {
 };
 
 type Props = {
-  pathLink: string;
-  textColor: string;
-  backgroundColor: string;
-  borderColor: string;
-  service: string;
+  category: string;
+  list: Array<string>;
+  title: string;
 };
 
-const Card = ({
-  pathLink,
-  textColor,
-  borderColor,
-  backgroundColor,
-  service,
-}: Props) => {
+const Card = ({ category, list, title }: Props) => {
+  const textColor =
+    category?.toLowerCase() === "efsa"
+      ? "text-custom-blue"
+      : "text-custom-green";
+  const borderColor =
+    category?.toLowerCase() === "efsa"
+      ? "border-custom-blue"
+      : "border-custom-green";
+  const backgroundColor =
+    category?.toLowerCase() === "efsa" ? "bg-custom-blue" : "bg-custom-green";
   return (
     <motion.div
       variants={childVariant}
-      className="w-[315px] sm:w-[355px] md:w-[325px] px-6 py-8 shadow-md md:max-w-lg rounded-xl bg-white"
+      className="min-h-max w-[315px] sm:w-[355px] md:w-[325px] px-6 py-8 shadow-md rounded-xl bg-white flex flex-col"
     >
       <div
-        className={`inline-block uppercase py-1 px-2 rounded-3xl text-xs text-custom-beige ${backgroundColor}`}
+        className={`inline-block self-start iuppercase py-1 px-2 rounded-3xl text-xs text-custom-beige ${backgroundColor}`}
       >
-        {service}
+        {category?.toUpperCase()}
       </div>
-      <div className="py-5 text-custom-black text-sm font-bold">
-        EU 내에서 식품안전을 감독하며 EU정책 보조를 위해 영양, 식이요법, 위해성
-        사안을 다루는 과학적 자료의 수집 및 분석
-      </div>
+
+      <div className="py-5 text-custom-black text-sm font-bold">{title}</div>
       <ul className="space-y-5 text-custom-dark-gray text-xs list-disc mx-5">
-        <li>
-          식품첨가물, 유아용 식품, 유기농 식품 등 특정용도 식품과 기능 식품, GMO
-          식품의 안정성 평가
-        </li>
-        <li>새롭게 발생하는 식품안전 위해성 식별</li>
-        <li>
-          과학적 자문과 위해성 평가 내용 등의 정보를 EU시민들에게 전달 및 소통
-        </li>
+        {list.map((content, idx) => (
+          <li key={idx}>{content}</li>
+        ))}
       </ul>
-      <div className="flex justify-center items-center pt-10">
+      <div className="flex justify-center items-center mt-auto pt-10">
         <LinkButton
-          pathLink={pathLink}
+          pathLink={`/services/${category?.toLowerCase()}`}
           title="더 알아보기"
           textColor={textColor}
           borderColor={borderColor}

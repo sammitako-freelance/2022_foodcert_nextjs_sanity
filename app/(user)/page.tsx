@@ -2,6 +2,7 @@ import { previewData } from "next/headers";
 import MainPageLayout from "../../components/main/MainPageLayout";
 import PreviewSuspense from "../../components/PreviewSuspense";
 import { fetchMainHero } from "../../libs/fetchMainHero";
+import { fetchMainService } from "../../libs/fetchMainService";
 
 export default async function Home() {
   if (previewData()) {
@@ -20,9 +21,10 @@ export default async function Home() {
     );
   }
   const hero = await fetchMainHero();
+  const service = await fetchMainService();
   return (
     <div>
-      <MainPageLayout hero={hero} />
+      <MainPageLayout hero={hero} service={service} />
     </div>
   );
 }

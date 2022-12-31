@@ -4,10 +4,13 @@ import { useAtom } from "jotai";
 import { clickedMenuJotai } from "../../libs/jotai";
 import Card from "../Card";
 import TitleText from "../TitleText";
+import { MainService } from "../../typings";
 
-type Props = {};
+type Props = {
+  service: MainService[];
+};
 
-const ServiceSection = (props: Props) => {
+const ServiceSection = ({ service }: Props) => {
   const [clickedMenu, setClickedMenu] = useAtom(clickedMenuJotai);
   const container = {
     hidden: {},
@@ -30,20 +33,13 @@ const ServiceSection = (props: Props) => {
             variants={container}
             className="py-10 space-y-8 md:space-y-0 md:flex md:space-x-10"
           >
-            <Card
-              pathLink="/services/efsa"
-              textColor="text-custom-blue"
-              backgroundColor="bg-custom-blue"
-              borderColor="border-custom-blue"
-              service="efsa"
-            />
-            <Card
-              pathLink="/services/fssai"
-              textColor="text-custom-green"
-              backgroundColor="bg-custom-green"
-              borderColor="border-custom-green"
-              service="fssai"
-            />
+            {service.map((item, idx) => (
+              <Card
+                category={item?.categories.title}
+                list={item?.list}
+                title={item?.title}
+              />
+            ))}
           </motion.div>
         </div>
       </motion.div>

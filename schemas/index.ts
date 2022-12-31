@@ -10,7 +10,6 @@ import service from "./service";
 import contact from "./contact";
 
 export const schemaTypes = [
-  news,
   author,
   category,
   blockContent,
