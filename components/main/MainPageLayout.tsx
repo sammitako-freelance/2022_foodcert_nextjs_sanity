@@ -43,12 +43,3 @@ const MainPageLayout = ({
 };
 
 export default MainPageLayout;
-
-// export const getServerSideProps: GetServerSideProps = async (context) => {
-//   const hero = await fetchMainHero();
-//   return {
-//     props: {
-//       hero,
-//     },
-//   };
-// };

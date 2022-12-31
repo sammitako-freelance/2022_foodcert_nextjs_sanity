@@ -80,6 +80,27 @@ export type Contact = {
   title: string;
   subTitle: string;
 };
+
+export interface ServicePage extends Service {
+  _id: string;
+  _type: "service";
+  _createdAt: string;
+  _rev: string;
+  _updatedAt: string;
+}
+
+export type Service = {
+  title: string;
+  subTitle: Array<string>;
+  documentationTitle: string;
+  documentationList: Array<Object>;
+  categories: Category;
+  slug: Slug;
+  mainImageFile: Image;
+  mainImageUrl: string;
+  labeling: Array<string>;
+};
+
 export interface Author extends Base {
   bio: Block[];
   image: Image;
