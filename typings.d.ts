@@ -1,4 +1,4 @@
-import { Reference } from "sanity";
+import { AuthStoreOptions, Reference } from "sanity";
 
 export type Base = {
   _id: string;
@@ -36,6 +36,30 @@ export type MainServiceData = {
   title: string;
   list: Array<string>;
 };
+
+export interface News extends NewsData {
+  _id: string;
+  _type: "news";
+  _createdAt: string;
+  _rev: string;
+  _updatedAt: string;
+}
+
+export type NewsData = {
+  title: string;
+  slug: Slug;
+  author: Author;
+  categories: Category;
+  summary: string;
+  file: File;
+  publishedAt: string;
+};
+export interface Author extends Base {
+  bio: Block[];
+  image: Image;
+  name: string;
+  slug: Slug;
+}
 
 export interface Image {
   _type: "image";
@@ -79,4 +103,10 @@ export interface MainImage {
 export interface Title {
   _type: "string";
   current: string;
+}
+
+export interface File extends Base {
+  _type: "file";
+  asset: Reference;
+  title: string;
 }

@@ -5,10 +5,16 @@ import { clickedMenuJotai } from "../../libs/jotai";
 import TitleText from "../TitleText";
 import MainNewsList from "../MainNewsList";
 import LinkButton from "../LinkButton";
+import { News, Category } from "../../typings";
 
-type Props = {};
+type Props = {
+  news: News[];
+  category: Category[];
+};
 
-const NewsSection = (props: Props) => {
+const NewsSection = ({ news, category }: Props) => {
+  console.log(news);
+
   const [clickedMenu, setClickedMenu] = useAtom(clickedMenuJotai);
   const container = {
     hidden: {},
@@ -16,6 +22,7 @@ const NewsSection = (props: Props) => {
       transition: { delay: 0.4, staggerChildren: 0.2 },
     },
   };
+
   return (
     <section
       id="news"
@@ -41,10 +48,22 @@ const NewsSection = (props: Props) => {
                 className="my-3"
               >
                 <div className="text-xs font-bold content-container">
-                  <div className="content-block">
-                    <div className="text-custom-blue content">EFSA</div>
-                    <div className="text-custom-green content">FSSAI</div>
-                  </div>
+                  <ul className="content-block flex">
+                    {category.map((cat, idx) => (
+                      <li
+                        key={idx}
+                        className={`content group ${
+                          cat.title.toLowerCase() === "efsa"
+                            ? "text-custom-blue"
+                            : "text-custom-green"
+                        }`}
+                      >
+                        <p className="px-2 group-first:pl-0">
+                          {cat.title.toUpperCase()}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
                 <h1 className="font-bold text-custom-black text-lg">
                   House Boutique 주요 소식
@@ -58,36 +77,18 @@ const NewsSection = (props: Props) => {
                 variants={container}
                 className="mt-10 grid-cols-1 divide-y-2"
               >
-                <MainNewsList
-                  title="북, 나흘 만에 또 대규모 포사격... '9.19 위반'"
-                  category="EFSA"
-                  date="2022.10.18"
-                  textColor="text-custom-blue"
-                />
-                <MainNewsList
-                  title="북, 나흘 만에 또 대규모 포사격... '9.19 위반'"
-                  category="FSSAI"
-                  date="2022.10.18"
-                  textColor="text-custom-green"
-                />
-                <MainNewsList
-                  title="북, 나흘 만에 또 대규모 포사격... '9.19 위반'"
-                  category="EFSA"
-                  date="2022.10.18"
-                  textColor="text-custom-blue"
-                />
-                <MainNewsList
-                  title="북, 나흘 만에 또 대규모 포사격... '9.19 위반'"
-                  category="EFSA"
-                  date="2022.10.18"
-                  textColor="text-custom-blue"
-                />
-                <MainNewsList
-                  title="북, 나흘 만에 또 대규모 포사격... '9.19 위반'"
-                  category="FSSAI"
-                  date="2022.10.18"
-                  textColor="text-custom-green"
-                />
+                {news.map((item, idx) => (
+                  <MainNewsList
+                    title={item.title}
+                    category={item.categories.title}
+                    date={item.publishedAt}
+                    textColor={
+                      item.categories.title.toLowerCase() === "efsa"
+                        ? "text-custom-blue"
+                        : "text-custom-green"
+                    }
+                  />
+                ))}
               </motion.div>
               <motion.div
                 initial="hidden"
@@ -113,34 +114,27 @@ const NewsSection = (props: Props) => {
         </div>
       </motion.div>
       <style jsx>{`
-        .content-container {
-          display: grid;
-          width: 100%;
+        .content-container ul li {
+          position: relative;
         }
 
-        .content-block {
-          display: grid;
-          grid-template-columns: repeat(2, 30px); /* CHANGED */
-          grid-gap: 20px;
-        }
-
-        .content {
-          height: 20px;
-          position: relative; /* ADDED */
-        }
-
-        .content:after {
-          /* ADDED */
+        .content-container ul li::before {
           content: "";
+          width: 2px;
+          height: 12px;
+          background-color: #a8aaba;
           position: absolute;
-          border-left: 1px solid #d9d9d9;
-          right: -10px; /* adjust this */
-          height: 80%; /* adjust this */
+          top: 0;
+          bottom: 0;
+          margin: auto;
         }
 
-        .content:last-child:after {
-          /* ADDED */
-          display: none; /* Hide the divider for the last block */
+        .content-container ul .content {
+          display: block;
+        }
+
+        .content-container ul li:first-child::before {
+          display: none;
         }
       `}</style>
     </section>

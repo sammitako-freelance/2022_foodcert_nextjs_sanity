@@ -37,6 +37,11 @@ export default defineType({
       type: "date",
     }),
     defineField({
+      name: "summary",
+      title: "Summary",
+      type: "text",
+    }),
+    defineField({
       name: "file",
       title: "File",
       type: "file",
