@@ -23,7 +23,7 @@ const NoticeList = ({ list }: Props) => {
   return (
     <section>
       {/* HERO BACKGROUND */}
-      <div className="pt-10 md:pt-14 h-[230px] md:h-[300px] bg-cover bg-no-repeat	bg-center bg-notice-background">
+      <div className="pt-10 md:pt-14 h-[230px] md:h-[300px] bg-cover bg-no-repeat	bg-center bg-notice-list-background">
         <div
           id="content-container"
           className="mt-20 mb-14 tracking-widest leading-relaxed mx-auto w-5/6 items-center justify-center h-full"
