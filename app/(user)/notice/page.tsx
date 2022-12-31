@@ -1,8 +1,9 @@
-import React from "react";
+import NoticeList from "../../../components/news/NoticeList";
+import { fetchNoticeList } from "../../../libs/fetchNoticeList";
+
 type Props = {};
 
-const News = (props: Props) => {
-  return <div>NewsList</div>;
-};
-
-export default News;
+export default async function Notice(props: Props) {
+  const list = await fetchNoticeList();
+  return <NoticeList list={list} />;
+}

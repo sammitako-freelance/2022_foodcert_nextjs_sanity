@@ -1,8 +1,12 @@
 import React from "react";
+import { News } from "../../typings";
 
-type Props = {};
+type Props = {
+  list: News[];
+};
 
-const NoticeList = (props: Props) => {
+const NoticeList = ({ list }: Props) => {
+  console.log(list);
   return <div>NoticeList</div>;
 };
 
