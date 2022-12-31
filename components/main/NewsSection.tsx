@@ -13,8 +13,6 @@ type Props = {
 };
 
 const NewsSection = ({ news, category }: Props) => {
-  console.log(news);
-
   const [clickedMenu, setClickedMenu] = useAtom(clickedMenuJotai);
   const container = {
     hidden: {},
@@ -79,6 +77,8 @@ const NewsSection = ({ news, category }: Props) => {
               >
                 {news.map((item, idx) => (
                   <MainNewsList
+                    key={idx}
+                    link={item.slug.current}
                     title={item.title}
                     category={item.categories.title}
                     date={item.publishedAt}

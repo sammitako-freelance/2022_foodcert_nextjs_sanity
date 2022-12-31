@@ -1,6 +1,13 @@
 "use client";
 import React from "react";
-import { MainHero, MainService, News, Category } from "../../typings";
+import {
+  MainHero,
+  MainService,
+  News,
+  Category,
+  FaqData,
+  MainContact,
+} from "../../typings";
 import ContactSection from "./ContactSection";
 import FaqSection from "./FaqSection";
 import HeroSection from "./HeroSection";
@@ -12,16 +19,25 @@ interface Props {
   service: MainService[];
   news: News[];
   category: Category[];
+  faq: FaqData[];
+  contact: MainContact;
 }
 
-const MainPageLayout = ({ hero, service, news, category }: Props) => {
+const MainPageLayout = ({
+  hero,
+  service,
+  news,
+  category,
+  faq,
+  contact,
+}: Props) => {
   return (
     <>
       <HeroSection hero={hero} />
       <ServiceSection service={service} />
       <NewsSection news={news} category={category} />
-      <FaqSection />
-      <ContactSection />
+      <FaqSection faq={faq} />
+      <ContactSection contact={contact} />
     </>
   );
 };

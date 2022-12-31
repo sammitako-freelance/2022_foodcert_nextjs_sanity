@@ -19,7 +19,7 @@ export default defineType({
 
   preview: {
     select: {
-      title: "title",
+      title: "question",
     },
     prepare(selection) {
       return { ...selection };

@@ -1,6 +1,7 @@
 import "../../styles/globals.css";
 import dynamic from "next/dynamic";
 
+<script src="../path/to/flowbite/dist/flowbite.js"></script>;
 export default function ClientLayout({
   children,
 }: {

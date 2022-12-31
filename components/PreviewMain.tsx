@@ -8,6 +8,8 @@ type Props = {
   serviceQuery: string;
   newsQuery: string;
   categoryQuery: string;
+  faqQuery: string;
+  contactQuery: string;
 };
 
 export default function PreviewMain({
@@ -15,11 +17,15 @@ export default function PreviewMain({
   serviceQuery,
   newsQuery,
   categoryQuery,
+  faqQuery,
+  contactQuery,
 }: Props) {
   const hero = usePreview(null, heroQuery);
   const service = usePreview(null, serviceQuery);
   const news = usePreview(null, newsQuery);
   const category = usePreview(null, categoryQuery);
+  const faq = usePreview(null, faqQuery);
+  const contact = usePreview(null, contactQuery);
 
   return (
     <MainPageLayout
@@ -27,6 +33,8 @@ export default function PreviewMain({
       service={service}
       news={news}
       category={category}
+      faq={faq}
+      contact={contact}
     />
   );
 }

@@ -35,6 +35,7 @@ const ServiceSection = ({ service }: Props) => {
           >
             {service.map((item, idx) => (
               <Card
+                key={idx}
                 category={item?.categories.title}
                 list={item?.list}
                 title={item?.title}

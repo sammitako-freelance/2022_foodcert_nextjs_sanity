@@ -8,7 +8,7 @@ const mainNewsQuery = groq`
   ...,
   categories->,
   author->
-  } | order(_createdAt asc) [0...4]
+  } | order(_createdAt asc) [0...5]
 `;
 
 type Data = {

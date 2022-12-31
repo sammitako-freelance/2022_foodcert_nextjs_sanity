@@ -5,10 +5,13 @@ import { clickedMenuJotai } from "../../libs/jotai";
 import Card from "../Card";
 import TitleText from "../TitleText";
 import LinkButton from "../LinkButton";
+import { MainContact } from "../../typings";
 
-type Props = {};
+type Props = {
+  contact: MainContact;
+};
 
-const ServiceSection = (props: Props) => {
+const ContactSection = ({ contact }: Props) => {
   const [clickedMenu, setClickedMenu] = useAtom(clickedMenuJotai);
   const container = {
     hidden: {},
@@ -24,7 +27,7 @@ const ServiceSection = (props: Props) => {
       <motion.div onViewportEnter={() => setClickedMenu("contact")}>
         <div className="flex flex-col justify-center items-center">
           <div className="text-center space-y-2">
-            <TitleText textSize="text-2xl">Let Us Help Your Business</TitleText>
+            <TitleText textSize="text-2xl"> {contact.title}</TitleText>
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -36,7 +39,7 @@ const ServiceSection = (props: Props) => {
               }}
               className="text-sm text-custom-dark-gray"
             >
-              하우스부티크와 함께 시작하세요.
+              {contact.subTitle}
             </motion.div>
           </div>
           <div className="pt-6 sm:pt-8 space-y-8 md:space-y-0 md:flex md:space-x-10">
@@ -78,4 +81,4 @@ const ServiceSection = (props: Props) => {
 };
 // bg-no-repeat bg-cover bg-top bg-[url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1073&q=80')]
 
-export default ServiceSection;
+export default ContactSection;

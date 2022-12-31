@@ -5,6 +5,8 @@ import { fetchMainHero } from "../../libs/fetchMainHero";
 import { fetchMainService } from "../../libs/fetchMainService";
 import { fetchMainNews } from "../../libs/fetchMainNews";
 import { fetchCategories } from "../../libs/fetchCategories";
+import { fetchMainFaq } from "../../libs/fetchMainFaq";
+import { fetchMainContact } from "../../libs/fetchMainContact";
 
 export default async function Home() {
   if (previewData()) {
@@ -26,6 +28,8 @@ export default async function Home() {
   const service = await fetchMainService();
   const news = await fetchMainNews();
   const category = await fetchCategories();
+  const faq = await fetchMainFaq();
+  const contact = await fetchMainContact();
 
   return (
     <div>
@@ -34,6 +38,8 @@ export default async function Home() {
         service={service}
         news={news}
         category={category}
+        faq={faq}
+        contact={contact}
       />
     </div>
   );

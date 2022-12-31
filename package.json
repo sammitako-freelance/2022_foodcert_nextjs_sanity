@@ -14,6 +14,7 @@
     "@sanity/vision": "^3.0.0",
     "@types/react-slick": "^0.23.10",
     "classnames": "^2.3.2",
+    "flowbite": "^1.5.5",
     "framer-motion": "^8.0.2",
     "jotai": "^1.12.0",
     "next": "latest",
@@ -29,7 +30,8 @@
     "sass": "^1.57.1",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.6",
-    "swiper": "^8.4.5"
+    "swiper": "^8.4.5",
+    "tw-elements": "^1.0.0-alpha13"
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^2.0.1",

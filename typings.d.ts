@@ -54,6 +54,32 @@ export type NewsData = {
   file: File;
   publishedAt: string;
 };
+
+export interface FaqData extends Faq {
+  _id: string;
+  _type: "news";
+  _createdAt: string;
+  _rev: string;
+  _updatedAt: string;
+}
+
+export type Faq = {
+  question: string;
+  answer: string;
+};
+
+export interface MainContact extends Contact {
+  _id: string;
+  _type: "news";
+  _createdAt: string;
+  _rev: string;
+  _updatedAt: string;
+}
+
+export type Contact = {
+  title: string;
+  subTitle: string;
+};
 export interface Author extends Base {
   bio: Block[];
   image: Image;
