@@ -3,6 +3,7 @@ import { ServicePage } from "../../typings";
 import Divider from "../Divider";
 import DocumentList from "./DocumentList";
 import LabelList from "./LabelList";
+import { motion } from "framer-motion";
 
 type Props = {
   service: ServicePage[];
@@ -24,6 +25,14 @@ const About = ({ service }: Props) => {
     "영양 성분표 (감미료, 카페인, 알코올, 글리시리진 산 혹은 감초, 암모늄 염을 포함하고 있는 제품군일 경우, 규정에 나와 있는 추가 정보를 표기)";
   const arr = [0, 1, 2, 3, 4, 5, 6, 7];
   const label = [0, 1, 2, 3, 4];
+
+  const container = {
+    hidden: {},
+    visible: {
+      transition: { delay: 0.4, staggerChildren: 0.2 },
+    },
+  };
+
   return (
     <section>
       {/* HERO BACKGROUND */}
@@ -40,7 +49,15 @@ const About = ({ service }: Props) => {
       <div className="bg-custom-beige bg-opacity-50 w-full py-20">
         <div className="w-8/12 mx-auto">
           {/* TITLE */}
-          <div
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5 }}
+            variants={{
+              hidden: { opacity: 0, x: -100 },
+              visible: { opacity: 1, x: 0 },
+            }}
             className={`flex flex-col md:flex-row ${contentContainer} mb-20`}
           >
             <div
@@ -70,9 +87,17 @@ const About = ({ service }: Props) => {
                 </li>
               </ul>
             </div>
-          </div>
+          </motion.div>
           {/* DOCUMENTATION TITLE */}
-          <div
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            variants={{
+              hidden: { opacity: 0, x: -100 },
+              visible: { opacity: 1, x: 0 },
+            }}
             className={`flex flex-col md:flex-row mb-10 ${contentContainer}`}
           >
             <div
@@ -89,10 +114,17 @@ const About = ({ service }: Props) => {
                 해당 제품 엔 주의를 요하며 가급적 유럽내 테스트를 권장드립니다.
               </div>
             </div>
-          </div>
-          {/* DOCUMENTATION LIST */}
+          </motion.div>
+
           <Divider />
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-16">
+          {/* DOCUMENTATION LIST */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={container}
+            className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-16"
+          >
             {arr.map((idx) => (
               <div className="">
                 <DocumentList
@@ -102,40 +134,82 @@ const About = ({ service }: Props) => {
                 />
               </div>
             ))}
-          </div>
+          </motion.div>
           <Divider />
 
           {/* LABELING */}
-          <div className={`flex flex-col mt-20 ${contentContainerCenter}`}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
+            variants={{
+              hidden: { opacity: 0, x: -100 },
+              visible: { opacity: 1, x: 0 },
+            }}
+            className={`flex flex-col mt-20 ${contentContainerCenter}`}
+          >
             <div
               className={`${contentBorderCenter} text-center font-bold text-lg text-custom-blue tracking-widest`}
             >
               필수 표기 정보
             </div>
-          </div>
-          <div className="uppercase text-sm text-custom-dark-gray mx-auto text-center pt-6 mb-20 tracking-wider">
+          </motion.div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
+            variants={{
+              hidden: { opacity: 0, x: -100 },
+              visible: { opacity: 1, x: 0 },
+            }}
+            className="uppercase text-sm text-custom-dark-gray mx-auto text-center pt-6 mb-20 tracking-wider"
+          >
             LABELING
-          </div>
+          </motion.div>
           <div className="text-sm text-custom-blue font-bold pb-5 flex justify-end">
             <div className="basis-11/12 text-sm text-custom-black mr-5 sm:mr-3 md:mr-0 leading-relaxed invisible">
               INVISIBLE
             </div>
-            <div className="basis-1/12">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ delay: 0.7, duration: 0.5 }}
+              variants={{
+                hidden: { opacity: 0, x: -100 },
+                visible: { opacity: 1, x: 0 },
+              }}
+              className="basis-1/12"
+            >
               <div className="flex justify-center">
                 <p className="break-normal">체크</p>
               </div>
-            </div>
+            </motion.div>
           </div>
-          <div className="space-y-3 mb-3">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={container}
+            className="space-y-3 mb-3"
+          >
             {label.map((idx) => (
               <LabelList label={labelShort} />
             ))}
-          </div>
-          <div className="space-y-3">
+          </motion.div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={container}
+            className="space-y-3"
+          >
             {label.map((idx) => (
               <LabelList label={labelLong} />
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
       <style jsx>{`

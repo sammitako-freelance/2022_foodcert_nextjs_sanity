@@ -1,8 +1,6 @@
 import React from "react";
 import LinkButton from "./LinkButton";
 import { motion } from "framer-motion";
-import { Category } from "../typings";
-import { client } from "../libs/sanity.client";
 
 const childVariant = {
   hidden: { opacity: 0, scale: 0.9 },
