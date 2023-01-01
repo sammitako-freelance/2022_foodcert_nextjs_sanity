@@ -1,5 +1,6 @@
 import groq from "groq";
 import React from "react";
+import { getCliClient } from "sanity/cli";
 import NoticeItem from "../../../../components/news/NoticeItem";
 import { client } from "../../../../libs/sanity.client";
 import { News } from "../../../../typings";
@@ -9,6 +10,19 @@ type Props = {
     slug: string;
   };
 };
+
+export async function generateStaticParams() {
+  const query = groq`
+    *[_type=='post'] {
+      slug
+    }
+  `;
+  const slugs: News[] = await client.fetch(query);
+  const slugRoutes = slugs.map((slug) => slug.slug.current);
+  return slugRoutes.map((slug) => ({
+    slug,
+  }));
+}
 
 async function NewsItem({ params: { slug } }: Props) {
   const query = groq`
