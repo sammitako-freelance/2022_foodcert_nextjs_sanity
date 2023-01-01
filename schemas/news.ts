@@ -42,14 +42,39 @@ export default defineType({
       type: "text",
     }),
     defineField({
+      name: "imageFile",
+      title: "Image File",
+      type: "array",
+      of: [
+        {
+          type: "image",
+          options: {
+            hotspot: true, // <-- Defaults to false
+          },
+          fields: [
+            {
+              name: "fileName",
+              type: "string",
+              title: "FileName",
+            },
+          ],
+        },
+      ],
+    }),
+    defineField({
       name: "file",
       title: "File",
-      type: "file",
-      fields: [
+      type: "array",
+      of: [
         {
-          name: "fileName",
-          type: "string",
-          title: "FileName",
+          type: "file",
+          fields: [
+            {
+              name: "fileName",
+              type: "string",
+              title: "FileName",
+            },
+          ],
         },
       ],
     }),

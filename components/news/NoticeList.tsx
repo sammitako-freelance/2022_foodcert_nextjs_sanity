@@ -48,11 +48,12 @@ const NoticeList = ({ list }: Props) => {
           >
             {list.map((item, idx) => (
               <NoticeCard
-                key={idx}
+                key={item._id}
                 category={item.categories.title}
                 title={item.title}
                 summary={item.summary}
                 date={item.publishedAt}
+                route={item.slug.current}
               />
             ))}
           </motion.div>

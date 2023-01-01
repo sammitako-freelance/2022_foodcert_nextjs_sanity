@@ -1,3 +1,4 @@
+// 1:24:55
 import { AuthStoreOptions, Reference } from "sanity";
 
 export type Base = {
@@ -51,8 +52,10 @@ export type NewsData = {
   author: Author;
   categories: Category;
   summary: string;
-  file: File;
+  file: File[];
   publishedAt: string;
+  body: Block[];
+  image: Image[];
 };
 
 export interface FaqData extends Faq {
