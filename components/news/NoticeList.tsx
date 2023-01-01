@@ -36,7 +36,7 @@ const NoticeList = ({ list }: Props) => {
       {/* LIST */}
       <div className="bg-custom-light-gray w-full py-24">
         <div className="w-5/6 mx-auto">
-          <div className="text-2xl font-bold text-custom-black mb-10">
+          <div className="text-2xl font-bold text-custom-black mb-10 sm:mb-20">
             The latest
           </div>
           <motion.div
@@ -44,7 +44,7 @@ const NoticeList = ({ list }: Props) => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
             variants={container}
-            className="grid grid-flow-row sm:gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            className="grid grid-flow-row gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
           >
             {list.map((item, idx) => (
               <NoticeCard

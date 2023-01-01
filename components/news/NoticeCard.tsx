@@ -24,7 +24,7 @@ const NoticeCard = ({ category, title, summary, date }: Props) => {
   return (
     <motion.div
       variants={childVariant}
-      className="my-8 rounded shadow-md bg-white group hover:cursor-pointer"
+      className="rounded-lg shadow-md bg-white group hover:cursor-pointer"
     >
       <div className="px-10 py-16">
         <div
