@@ -20,7 +20,7 @@ const Input = ({ labelFor, labelName, type, placeholder }: Props) => {
           </label>
           <div
             id={labelFor}
-            className="mt-2 rounded-md shadow-sm w-[20rem] mb-7 last:mb-0"
+            className="mt-2 rounded-md shadow-sm mb-7 last:mb-0"
           >
             <input
               type={type}
@@ -43,7 +43,7 @@ const Input = ({ labelFor, labelName, type, placeholder }: Props) => {
           </label>
           <div
             id={labelFor}
-            className="mt-2 rounded-md shadow-sm w-[20rem] mb-7 last:mb-0"
+            className="mt-2 rounded-md shadow-sm mb-7 last:mb-0"
           >
             <textarea
               name={labelFor}
@@ -65,7 +65,7 @@ const Input = ({ labelFor, labelName, type, placeholder }: Props) => {
           </label>
           <div
             id={labelFor}
-            className="mt-2 rounded-md shadow-sm w-[20rem] mb-7 last:mb-0"
+            className="mt-2 rounded-md shadow-sm mb-7 last:mb-0"
           >
             <input
               type={type}

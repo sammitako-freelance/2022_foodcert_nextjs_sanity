@@ -7,7 +7,7 @@ const ContactCard = (props: Props) => {
   return (
     <div className="flex flex-col lg:flex-row items-center bg-[#F5F5F4] rounded-lg shadow-lg">
       {/* INPUTS */}
-      <div className="flex flex-col p-10 text-left">
+      <div className="flex flex-col py-8 px-6 sm:p-10 text-left w-full">
         <Input
           labelFor="name"
           labelName="Your name"
