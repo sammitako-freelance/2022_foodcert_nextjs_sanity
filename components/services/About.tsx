@@ -126,7 +126,7 @@ const About = ({ service }: Props) => {
             className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-16"
           >
             {arr.map((idx) => (
-              <div className="">
+              <div key={idx} className="">
                 <DocumentList
                   number={idx + 1}
                   title={title}
@@ -207,7 +207,9 @@ const About = ({ service }: Props) => {
             className="space-y-3"
           >
             {label.map((idx) => (
-              <LabelList label={labelLong} />
+              <div key={idx}>
+                <LabelList label={labelLong} />
+              </div>
             ))}
           </motion.div>
         </div>
