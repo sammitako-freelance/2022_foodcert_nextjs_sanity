@@ -22,7 +22,7 @@ const ContactForm = ({}: Props) => {
             hidden: { opacity: 0, x: -100 },
             visible: { opacity: 1, x: 0 },
           }}
-          className="pt-40 pb-40 sm:pb-48 md:pb-56 font-bold tracking-widest leading-relaxed bg-custom-blue"
+          className="pt-32 pb-40 sm:pt-40 sm:pb-48 md:pb-56 font-bold tracking-widest leading-relaxed bg-custom-blue"
         >
           {/* <div>{contact.subTitle}</div>
           <div>{contact.title}</div> */}
@@ -46,12 +46,12 @@ const ContactForm = ({}: Props) => {
           }}
           className="z-10 w-5/6 md:w-4/6 mx-auto h-full"
         >
-          <div className="absolute-container w-5/6 md:w-4/6 top-[16rem] sm:top-[18rem]">
+          <div className="absolute-container w-5/6 md:w-4/6 top-[15rem] sm:top-[18rem]">
             <ContactCard />
           </div>
         </motion.div>
         {/* FAKE DIV */}
-        {/* <div className="h-[62rem] sm:h-[60rem] md:h-[58rem] relative "></div> */}
+        <div className="h-[62rem] sm:h-[60rem] md:h-[58rem] invisible"></div>
         {/* BUTTON */}
         <div className="flex flex-col sm:flex-row py-20">
           <motion.div
