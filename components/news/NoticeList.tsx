@@ -9,7 +9,6 @@ type Props = {
 };
 
 const NoticeList = ({ list }: Props) => {
-  // console.log(list);
   const contentContainer = "relative pt-[10px]";
   const contentBorder =
     "before:content-[''] before:border-t-custom-blue before:border-t-[4px] before:absolute before:left-[47%] before:md:left-0 before:top-0 before:w-[20px]";

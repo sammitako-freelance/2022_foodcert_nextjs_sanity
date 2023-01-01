@@ -11,7 +11,6 @@ type Props = {
 };
 
 const NoticeItem = ({ data }: Props) => {
-  console.log(data);
   const contentContainer = "relative pt-[10px]";
   const contentBorder =
     "before:content-[''] before:border-t-custom-blue before:border-t-[4px] before:absolute before:left-[47%] before:md:left-0 before:top-0 before:w-[20px]";

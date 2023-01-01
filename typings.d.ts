@@ -96,7 +96,7 @@ export type Service = {
   title: string;
   subTitle: Array<string>;
   documentationTitle: string;
-  documentationList: Array<Object>;
+  documentationList: Array<Documentation>;
   categories: Category;
   slug: Slug;
   mainImageFile: Image;
@@ -180,4 +180,10 @@ export interface Location {
   lat: number;
   lng: number;
   alt: number;
+}
+
+export interface Documentation {
+  _key: string;
+  info: string;
+  name: string;
 }

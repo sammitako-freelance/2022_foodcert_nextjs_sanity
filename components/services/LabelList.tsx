@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 type Props = {
   label: string;
+  category: string;
 };
 
 const childVariant = {
@@ -11,7 +12,11 @@ const childVariant = {
   visible: { opacity: 1, scale: 1 },
 };
 
-const LabelList = ({ label }: Props) => {
+const LabelList = ({ label, category }: Props) => {
+  const textColor =
+    category?.toLowerCase() === "efsa"
+      ? "text-custom-blue"
+      : "text-custom-green";
   return (
     <motion.div variants={childVariant} className="flex items-center">
       <div className="basis-11/12 text-sm text-custom-black mr-5 sm:mr-3 md:mr-0 leading-relaxed">
@@ -19,7 +24,7 @@ const LabelList = ({ label }: Props) => {
       </div>
       <div className="basis-1/12">
         <div className="flex justify-center">
-          <CheckCircleIcon className="w-5 h-5 text-custom-blue" />
+          <CheckCircleIcon className={`w-5 h-5 ${textColor}`} />
         </div>
       </div>
     </motion.div>
