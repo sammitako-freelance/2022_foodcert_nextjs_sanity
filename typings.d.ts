@@ -57,7 +57,7 @@ export type NewsData = {
 
 export interface FaqData extends Faq {
   _id: string;
-  _type: "news";
+  _type: "faq";
   _createdAt: string;
   _rev: string;
   _updatedAt: string;
@@ -68,15 +68,15 @@ export type Faq = {
   answer: string;
 };
 
-export interface MainContact extends Contact {
+export interface MainContact extends MainContactData {
   _id: string;
-  _type: "news";
+  _type: "mainContact";
   _createdAt: string;
   _rev: string;
   _updatedAt: string;
 }
 
-export type Contact = {
+export type MainContactData = {
   title: string;
   subTitle: string;
 };
@@ -99,6 +99,20 @@ export type Service = {
   mainImageFile: Image;
   mainImageUrl: string;
   labeling: Array<string>;
+};
+
+export interface ContactPage extends ContactData {
+  _id: string;
+  _type: "contact";
+  _createdAt: string;
+  _rev: string;
+  _updatedAt: string;
+}
+
+export type ContactData = {
+  title: string;
+  subTitle: string;
+  location: Location;
 };
 
 export interface Author extends Base {
@@ -156,4 +170,11 @@ export interface File extends Base {
   _type: "file";
   asset: Reference;
   title: string;
+}
+
+export interface Location {
+  _type: "geopoint";
+  lat: number;
+  lng: number;
+  alt: number;
 }

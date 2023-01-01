@@ -52,6 +52,7 @@ const NoticeList = ({ list }: Props) => {
                 category={item.categories.title}
                 title={item.title}
                 summary={item.summary}
+                date={item.publishedAt}
               />
             ))}
           </motion.div>

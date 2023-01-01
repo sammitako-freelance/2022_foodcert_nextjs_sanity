@@ -3,13 +3,14 @@ type Props = {
   category: string;
   title: string;
   summary: string;
+  date: string;
 };
 const childVariant = {
   hidden: { opacity: 0, scale: 0.9 },
   visible: { opacity: 1, scale: 1 },
 };
 
-const NoticeCard = ({ category, title, summary }: Props) => {
+const NoticeCard = ({ category, title, summary, date }: Props) => {
   const textColor =
     category?.toLowerCase() === "efsa"
       ? "text-custom-blue"
@@ -32,7 +33,8 @@ const NoticeCard = ({ category, title, summary }: Props) => {
           {category?.toUpperCase()}
         </div>
 
-        <div className="py-5 text-custom-black font-bold group-hover:opacity-70">
+        <div className="pt-5 text-sm text-custom-dark-gray">{date}</div>
+        <div className="pt-2 pb-5 text-custom-black font-bold group-hover:opacity-70">
           {title}
         </div>
         <div className="space-y-5 text-custom-dark-gray text-sm group-hover:opacity-70">
