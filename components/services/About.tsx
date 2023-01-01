@@ -12,15 +12,18 @@ type Props = {
 const About = ({ service }: Props) => {
   const contentContainer = "relative pt-[10px]";
   const contentBorder =
-    "before:content-[''] before:border-t-custom-blue before:border-t-[4px] before:absolute before:left-[47%] before:md:left-0 before:top-0 before:w-[20px]";
+    service.categories.title?.toLowerCase() === "efsa"
+      ? "before:content-[''] before:border-t-custom-blue before:border-t-[4px] before:absolute before:left-[47%] before:md:left-0 before:top-0 before:w-[20px]"
+      : "before:content-[''] before:border-t-custom-green before:border-t-[4px] before:absolute before:left-[47%] before:md:left-0 before:top-0 before:w-[20px]";
   const contentContainerCenter = "relative pb-[10px]";
   const contentBorderCenter =
-    "after:content-[''] after:border-b-custom-blue after:border-b-[4px] after:absolute after:left-[48%] after:-bottom-1 after:md:-bottom-1 after:w-[20px]";
+    service.categories.title?.toLowerCase() === "efsa"
+      ? "after:content-[''] after:border-b-custom-blue after:border-b-[4px] after:absolute after:left-[48%] after:-bottom-1 after:md:-bottom-1 after:w-[20px]"
+      : "after:content-[''] after:border-b-custom-green after:border-b-[4px] after:absolute after:left-[48%] after:-bottom-1 after:md:-bottom-1 after:w-[20px]";
   const textColor =
     service.categories.title?.toLowerCase() === "efsa"
       ? "text-custom-blue"
       : "text-custom-green";
-
   const container = {
     hidden: {},
     visible: {
