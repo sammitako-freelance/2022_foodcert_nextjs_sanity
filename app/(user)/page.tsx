@@ -7,7 +7,8 @@ import { fetchMainNews } from "../../libs/fetchMainNews";
 import { fetchCategories } from "../../libs/fetchCategories";
 import { fetchMainFaq } from "../../libs/fetchMainFaq";
 import { fetchMainContact } from "../../libs/fetchMainContact";
-import { GetServerSideProps } from "next";
+
+export const revalidate = 30;
 
 export default async function Home() {
   if (previewData()) {
