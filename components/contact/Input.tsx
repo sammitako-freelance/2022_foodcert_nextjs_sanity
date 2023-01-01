@@ -26,7 +26,13 @@ const Input = ({ labelFor, labelName, type, placeholder }: Props) => {
               type={type}
               name={labelFor}
               id={labelFor}
-              className="text-gray-500 placeholder:text-custom-dark-gray block bg-[#F5F5F4] w-full rounded-md border-gray-300 focus:bg-white focus:border-custom-blue focus:ring-custom-blue sm:text-sm"
+              className="block w-full text-sm text-custom-dark-gray file:mr-4 file:py-2 file:px-4
+              file:rounded-l-md file:border-0
+              file:text-sm
+              file:bg-custom-black file:text-custom-beige
+              hover:file:bg-opacity-70
+              hover:cursor-pointer file:hover:cursor-pointer
+              "
               placeholder={placeholder}
             />
           </div>
@@ -48,7 +54,7 @@ const Input = ({ labelFor, labelName, type, placeholder }: Props) => {
             <textarea
               name={labelFor}
               id={labelFor}
-              className="text-gray-500 placeholder:text-custom-dark-gray block bg-[#F5F5F4] w-full rounded-md border-gray-300 px-5 focus:bg-white focus:border-custom-blue focus:ring-custom-blue sm:text-sm"
+              className="text-gray-500 placeholder:text-custom-dark-gray bg-[#F5F5F4] block focus:bg-white w-full border border-slate-300 rounded-md py-3 pl-5 pr-3 focus:outline-none focus:border-custom-black focus:ring-custom-black focus:ring-1 text-sm"
               placeholder={placeholder}
             />
           </div>
@@ -71,7 +77,7 @@ const Input = ({ labelFor, labelName, type, placeholder }: Props) => {
               type={type}
               name={labelFor}
               id={labelFor}
-              className="text-gray-500 placeholder:text-custom-dark-gray block bg-[#F5F5F4] w-full rounded-md border-gray-300 px-5 focus:bg-white focus:border-custom-blue focus:ring-custom-blue sm:text-sm"
+              className="text-gray-500 placeholder:text-custom-dark-gray bg-[#F5F5F4] block focus:bg-white w-full border border-slate-300 rounded-md py-2 pl-5 pr-3 focus:outline-none focus:border-custom-black focus:ring-custom-black focus:ring-1 text-sm"
               placeholder={placeholder}
             />
           </div>

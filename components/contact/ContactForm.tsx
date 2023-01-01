@@ -5,10 +5,10 @@ import LinkButton from "../LinkButton";
 import ContactCard from "./ContactCard";
 
 type Props = {
-  // contact: ContactPage;
+  contact: ContactPage[];
 };
 
-const ContactForm = ({}: Props) => {
+const ContactForm = ({ contact }: Props) => {
   return (
     <section className="pt-10 md:pt-14 h-full w-full bg-custom-blue">
       <div className="h-full text-custom-beige bg-white relative">
@@ -28,10 +28,10 @@ const ContactForm = ({}: Props) => {
           <div>{contact.title}</div> */}
 
           <div className="uppercase text-xs sm:text-sm text-center">
-            we are always here to support you
+            {contact[0].subTitle}
           </div>
           <div className="text-xl sm:text-2xl md:text-3xl py-2 text-center">
-            문의 남겨주시면 답변 드리겠습니다
+            {contact[0].title}
           </div>
         </motion.div>
         {/* CONTACT FORM */}
