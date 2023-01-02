@@ -35,7 +35,7 @@ const MobileNavbar = () => {
         <div className="flex flex-col gap-3">
           <div
             id={`${clickedMenu != "home" ? "hover-line" : ""}`}
-            className={`cursor-pointer`}
+            className={`cursor-pointer text-lg`}
             onClick={() => chooseMenu("home")}
           >
             <NewLink
@@ -46,7 +46,7 @@ const MobileNavbar = () => {
           </div>
           <div
             id={`${clickedMenu != "services" ? "hover-line" : ""}`}
-            className="relative flex items-center cursor-pointer"
+            className="relative flex items-center cursor-pointer text-lg"
             onClick={() => setSubmenu(!subMenu)}
           >
             <NewLink
@@ -54,22 +54,22 @@ const MobileNavbar = () => {
               clickedPage={clickedMenu}
               setClickedPage={setClickedMenu}
             />
-            <div className="absolute top-0 -right-6">
+            <div className="absolute top-[4px] -right-8">
               {!subMenu ? (
                 <MdOutlineKeyboardArrowDown
-                  className="text-[#f1f1e7] w-5 h-6 hover:cursor-pointer hover:opacity-80"
+                  className="text-[#f1f1e7] w-7 h-7 hover:cursor-pointer hover:opacity-80"
                   onClick={() => setSubmenu(!subMenu)}
                 />
               ) : (
                 <MdOutlineKeyboardArrowUp
-                  className="text-[#f1f1e7] w-5 h-6 hover:cursor-pointer hover:opacity-80"
+                  className="text-[#f1f1e7] w-7 h-7 hover:cursor-pointer hover:opacity-80"
                   onClick={() => setSubmenu(!subMenu)}
                 />
               )}
             </div>
           </div>
           {subMenu && (
-            <div className="text-sm text-center flex flex-col gap-2">
+            <div className="text-base text-center flex flex-col gap-2">
               <div
                 id={`${clickedMenu != "efsa" ? "hover-line" : ""}`}
                 className={`cursor-pointer`}
@@ -88,7 +88,7 @@ const MobileNavbar = () => {
           )}
           <div
             id={`${clickedMenu != "news" ? "hover-line" : ""}`}
-            className={`cursor-pointer`}
+            className={`cursor-pointer text-lg`}
             onClick={() => chooseMenu("news")}
           >
             <NewLink
@@ -99,7 +99,7 @@ const MobileNavbar = () => {
           </div>
           <div
             id={`${clickedMenu != "faq" ? "hover-line" : ""}`}
-            className={`cursor-pointer`}
+            className={`cursor-pointer text-lg`}
             onClick={() => chooseMenu("faq")}
           >
             <NewLink
@@ -110,7 +110,7 @@ const MobileNavbar = () => {
           </div>
           <div
             id={`${clickedMenu != "contact" ? "hover-line" : ""}`}
-            className={`cursor-pointer`}
+            className={`cursor-pointer text-lg`}
             onClick={() => chooseMenu("contact")}
           >
             <NewLink

@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import { ContactPage } from "../../typings";
-import LinkButton from "../LinkButton";
 import ContactCard from "./ContactCard";
 
 type Props = {
@@ -51,29 +50,7 @@ const ContactForm = ({ contact }: Props) => {
           </div>
         </motion.div>
         {/* FAKE DIV */}
-        <div className="h-[60rem] md:h-[58rem] invisible"></div>
-        {/* BUTTON */}
-        <div className="flex flex-col sm:flex-row py-20">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            variants={{
-              hidden: { opacity: 0, x: -100 },
-              visible: { opacity: 1, x: 0 },
-            }}
-            className="mx-auto"
-          >
-            <LinkButton
-              pathLink="/contact"
-              title="submit"
-              textColor="text-custom-beige"
-              backgroundColor="bg-custom-black"
-              borderColor=""
-            />
-          </motion.div>
-        </div>
+        <div className="h-[73rem] md:h-[70rem] invisible"></div>
       </div>
       <style jsx>{`
         .absolute-container {
