@@ -1,9 +1,22 @@
 import NoticeList from "../../../components/news/NoticeList";
-import { fetchNoticeList } from "../../../libs/fetchNoticeList";
+import { News } from "../../../typings";
+import { client } from "../../../libs/sanity.client";
+import { groq } from "next-sanity";
+
+// import { fetchNoticeList } from "../../../libs/fetchNoticeList";
 
 type Props = {};
 
 export default async function Notice(props: Props) {
-  const list = await fetchNoticeList();
-  return <NoticeList list={list} />;
+  const noticeListQuery = groq`
+  *[_type=="news"] {
+  ...,
+  categories->,
+  author->,
+  } | order(publishedAt desc)
+`;
+  const noticeList: News[] = await client.fetch(noticeListQuery);
+
+  // const list = await fetchNoticeList();
+  return <NoticeList list={noticeList} />;
 }

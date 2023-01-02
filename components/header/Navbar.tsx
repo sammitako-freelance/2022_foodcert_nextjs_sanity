@@ -8,7 +8,7 @@ import {
   showMenuJotai,
   isTopOfPageJotai,
 } from "../../libs/jotai";
-import ScrollLink from "../main/ScrollLink";
+import NewLink from "./NewLink";
 
 const Navbar = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -59,7 +59,12 @@ const Navbar = () => {
     <>
       {(showNavbar || window.scrollY === 0) && (
         <nav
-          className={`${flexBetween} ${navbarBackground} fixed w-full top-0 z-30 py-6 uppercase font-bold`}
+          className={`${flexBetween} ${navbarBackground} ${
+            !showNavbar &&
+            !isTopOfPage &&
+            "-top-full duration-300 transition-all ease-in"
+          }
+          fixed w-full top-0 z-30 py-6 uppercase font-bold duration-300 transition-all ease-in`}
         >
           <div className={`${flexBetween} mx-auto w-11/12`}>
             {/* LEFT SIDE */}
@@ -92,7 +97,7 @@ const Navbar = () => {
                   id={`${clickedMenu !== "home" ? "hover-line" : ""}`}
                   className={`cursor-pointer`}
                 >
-                  <ScrollLink
+                  <NewLink
                     page="Home"
                     clickedPage={clickedMenu}
                     setClickedPage={setClickedMenu}
@@ -103,7 +108,7 @@ const Navbar = () => {
                   id={`${clickedMenu !== "services" ? "hover-line" : ""}`}
                   className={`relative group cursor-pointer`}
                 >
-                  <ScrollLink
+                  <NewLink
                     page="Services"
                     clickedPage={clickedMenu}
                     setClickedPage={setClickedMenu}
@@ -131,7 +136,7 @@ const Navbar = () => {
                   id={`${clickedMenu !== "news" ? "hover-line" : ""}`}
                   className={`cursor-pointer`}
                 >
-                  <ScrollLink
+                  <NewLink
                     page="News"
                     clickedPage={clickedMenu}
                     setClickedPage={setClickedMenu}
@@ -141,7 +146,7 @@ const Navbar = () => {
                   id={`${clickedMenu !== "faq" ? "hover-line" : ""}`}
                   className={`cursor-pointer`}
                 >
-                  <ScrollLink
+                  <NewLink
                     page="Faq"
                     clickedPage={clickedMenu}
                     setClickedPage={setClickedMenu}
@@ -151,7 +156,7 @@ const Navbar = () => {
                   id={`${clickedMenu !== "contact" ? "hover-line" : ""}`}
                   className={`cursor-pointer`}
                 >
-                  <ScrollLink
+                  <NewLink
                     page="Contact"
                     clickedPage={clickedMenu}
                     setClickedPage={setClickedMenu}

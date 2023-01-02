@@ -27,7 +27,7 @@ const About = ({ service }: Props) => {
   const container = {
     hidden: {},
     visible: {
-      transition: { delay: 0.4, staggerChildren: 0.2 },
+      transition: { staggerChildren: 0.2 },
     },
   };
 

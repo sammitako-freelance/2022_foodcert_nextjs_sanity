@@ -39,19 +39,19 @@ const ContactForm = ({ contact }: Props) => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
+          transition={{ duration: 0.5 }}
           variants={{
-            hidden: { opacity: 0, x: -100 },
+            hidden: { opacity: 0, y: -100 },
             visible: { opacity: 1, x: 0 },
           }}
           className="z-10 w-5/6 md:w-4/6 mx-auto h-full"
         >
-          <div className="absolute-container w-5/6 md:w-4/6 top-[15rem] sm:top-[18rem]">
+          <div className="absolute mx-auto left-0 right-0 -top-5 md:-top-16">
             <ContactCard />
           </div>
         </motion.div>
         {/* FAKE DIV */}
-        <div className="h-[62rem] sm:h-[60rem] md:h-[58rem] invisible"></div>
+        <div className="h-[60rem] md:h-[58rem] invisible"></div>
         {/* BUTTON */}
         <div className="flex flex-col sm:flex-row py-20">
           <motion.div

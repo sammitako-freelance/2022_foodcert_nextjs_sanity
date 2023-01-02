@@ -1,6 +1,5 @@
 import groq from "groq";
 import React from "react";
-import { getCliClient } from "sanity/cli";
 import NoticeItem from "../../../../components/news/NoticeItem";
 import { client } from "../../../../libs/sanity.client";
 import { News } from "../../../../typings";

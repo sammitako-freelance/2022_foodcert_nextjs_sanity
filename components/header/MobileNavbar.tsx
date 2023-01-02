@@ -6,7 +6,7 @@ import {
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { clickedMenuJotai, showMenuJotai } from "../../libs/jotai";
 import { useAtom } from "jotai";
-import ScrollLink from "../main/ScrollLink";
+import NewLink from "./NewLink";
 
 const MobileNavbar = () => {
   const centerScreen = "min-h-screen flex justify-center items-center";
@@ -38,7 +38,7 @@ const MobileNavbar = () => {
             className={`cursor-pointer`}
             onClick={() => chooseMenu("home")}
           >
-            <ScrollLink
+            <NewLink
               page="Home"
               clickedPage={clickedMenu}
               setClickedPage={setClickedMenu}
@@ -49,7 +49,7 @@ const MobileNavbar = () => {
             className="relative flex items-center cursor-pointer"
             onClick={() => setSubmenu(!subMenu)}
           >
-            <ScrollLink
+            <NewLink
               page="Services"
               clickedPage={clickedMenu}
               setClickedPage={setClickedMenu}
@@ -91,7 +91,7 @@ const MobileNavbar = () => {
             className={`cursor-pointer`}
             onClick={() => chooseMenu("news")}
           >
-            <ScrollLink
+            <NewLink
               page="News"
               clickedPage={clickedMenu}
               setClickedPage={setClickedMenu}
@@ -102,7 +102,7 @@ const MobileNavbar = () => {
             className={`cursor-pointer`}
             onClick={() => chooseMenu("faq")}
           >
-            <ScrollLink
+            <NewLink
               page="Faq"
               clickedPage={clickedMenu}
               setClickedPage={setClickedMenu}
@@ -113,7 +113,7 @@ const MobileNavbar = () => {
             className={`cursor-pointer`}
             onClick={() => chooseMenu("contact")}
           >
-            <ScrollLink
+            <NewLink
               page="Contact"
               clickedPage={clickedMenu}
               setClickedPage={setClickedMenu}

@@ -1,5 +1,3 @@
-import React from "react";
-
 type Props = {
   labelFor: string;
   labelName: string;
@@ -54,7 +52,7 @@ const Input = ({ labelFor, labelName, type, placeholder }: Props) => {
             <textarea
               name={labelFor}
               id={labelFor}
-              className="text-gray-500 placeholder:text-custom-dark-gray bg-[#F5F5F4] block focus:bg-white w-full border border-slate-300 rounded-md py-3 pl-5 pr-3 focus:outline-none focus:border-custom-black focus:ring-custom-black focus:ring-1 text-sm"
+              className="text-gray-500 placeholder:text-custom-dark-gray bg-[#F5F5F4] block focus:bg-white w-full border border-slate-300 rounded-md p-3 focus:outline-none focus:border-custom-black focus:ring-custom-black focus:ring-1 text-sm"
               placeholder={placeholder}
             />
           </div>
@@ -77,7 +75,7 @@ const Input = ({ labelFor, labelName, type, placeholder }: Props) => {
               type={type}
               name={labelFor}
               id={labelFor}
-              className="text-gray-500 placeholder:text-custom-dark-gray bg-[#F5F5F4] block focus:bg-white w-full border border-slate-300 rounded-md py-2 pl-5 pr-3 focus:outline-none focus:border-custom-black focus:ring-custom-black focus:ring-1 text-sm"
+              className="text-gray-500 placeholder:text-custom-dark-gray bg-[#F5F5F4] block focus:bg-white w-full border border-slate-300 rounded-md py-2 px-3 focus:outline-none focus:border-custom-black focus:ring-custom-black focus:ring-1 text-sm"
               placeholder={placeholder}
             />
           </div>
