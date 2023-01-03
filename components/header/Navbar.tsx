@@ -21,6 +21,7 @@ const Navbar = () => {
   const navbarBackground = isTopOfPage
     ? "text-custom-beige"
     : "text-custom-beige bg-custom-black drop-shadow";
+  const borderLine = "border-b-[3px] border-[#f1f1e7] inline-block";
 
   const controlMobile = () => {
     setShow(!show);
@@ -30,7 +31,6 @@ const Navbar = () => {
   };
   const controlNavbar = debounce(() => {
     if (window.scrollY === 0) {
-      setClickedMenu("home");
       setShowNavbar(true);
     }
     if (typeof window !== "undefined") {
@@ -106,28 +106,46 @@ const Navbar = () => {
 
                 <div
                   id={`${clickedMenu !== "services" ? "hover-line" : ""}`}
-                  className={`relative group cursor-pointer`}
+                  className={`relative group cursor-pointer uppercase`}
                 >
-                  <NewLink
-                    page="Services"
-                    clickedPage={clickedMenu}
-                    setClickedPage={setClickedMenu}
-                  />
+                  <Link
+                    href="/services/efsa"
+                    className={`
+                  ${clickedMenu === "services" && borderLine}
+                  `}
+                    onClick={() => setClickedMenu("services")}
+                  >
+                    services
+                  </Link>
                   <div className="w-full absolute pt-2 hidden group-hover:block">
                     <div className="bg-black rounded-lg py-4 text-center space-y-2">
                       <p
                         id={`${clickedMenu !== "efsa" ? "hover-line" : ""}`}
                         className={`cursor-pointer !text-custom-beige`}
-                        onClick={() => setClickedMenu("efsa")}
                       >
-                        <Link href="/services/efsa">EFSA</Link>
+                        <Link
+                          className={`
+                  ${clickedMenu === "efsa" && borderLine}
+                  `}
+                          onClick={() => setClickedMenu("efsa")}
+                          href="/services/efsa"
+                        >
+                          EFSA
+                        </Link>
                       </p>
                       <p
                         id={`${clickedMenu !== "fssai" ? "hover-line" : ""}`}
                         className={`cursor-pointer !text-custom-beige`}
-                        onClick={() => setClickedMenu("fssai")}
                       >
-                        <Link href="/services/fssai">FSSAI</Link>
+                        <Link
+                          href="/services/fssai"
+                          className={`
+                        ${clickedMenu === "fssai" && borderLine}
+                        `}
+                          onClick={() => setClickedMenu("fssai")}
+                        >
+                          FSSAI
+                        </Link>
                       </p>
                     </div>
                   </div>
@@ -136,31 +154,39 @@ const Navbar = () => {
                   id={`${clickedMenu !== "news" ? "hover-line" : ""}`}
                   className={`cursor-pointer`}
                 >
-                  <NewLink
-                    page="News"
-                    clickedPage={clickedMenu}
-                    setClickedPage={setClickedMenu}
-                  />
+                  <Link
+                    href="/notice"
+                    className={`
+                  ${clickedMenu === "news" && borderLine}
+                  `}
+                    onClick={() => setClickedMenu("news")}
+                  >
+                    news
+                  </Link>
                 </div>
                 <div
                   id={`${clickedMenu !== "faq" ? "hover-line" : ""}`}
-                  className={`cursor-pointer`}
+                  className={`cursor-pointer ${
+                    clickedMenu === "faq" && borderLine
+                  }`}
                 >
-                  <NewLink
-                    page="Faq"
-                    clickedPage={clickedMenu}
-                    setClickedPage={setClickedMenu}
-                  />
+                  <Link href="/" onClick={() => setClickedMenu("faq")}>
+                    faq
+                  </Link>
                 </div>
                 <div
                   id={`${clickedMenu !== "contact" ? "hover-line" : ""}`}
                   className={`cursor-pointer`}
                 >
-                  <NewLink
-                    page="Contact"
-                    clickedPage={clickedMenu}
-                    setClickedPage={setClickedMenu}
-                  />
+                  <Link
+                    href="/contact"
+                    className={`
+                  ${clickedMenu === "contact" && borderLine}
+                  `}
+                    onClick={() => setClickedMenu("contact")}
+                  >
+                    contact
+                  </Link>
                 </div>
               </div>
             </div>

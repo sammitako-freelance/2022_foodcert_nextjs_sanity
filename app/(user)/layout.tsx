@@ -1,5 +1,6 @@
 import "../../styles/globals.css";
 import dynamic from "next/dynamic";
+import ScrollToTop from "../../components/ScrollToTop";
 
 <script src="../path/to/flowbite/dist/flowbite.js"></script>;
 export default function ClientLayout({
@@ -21,6 +22,7 @@ export default function ClientLayout({
         {/* <div className="h-body-height">{children}</div> */}
         {/* page.tsx */}
         <div>{children}</div>
+        <ScrollToTop />
         <Footer />
       </body>
     </html>

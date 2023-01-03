@@ -34,7 +34,7 @@ const MobileNavbar = () => {
         >
           <XMarkIcon className="w-8 h-8 text-[#f1f1e7] hover:x-7 hover:h-7" />
         </div>
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 uppercase">
           {/* HOME */}
           <div
             id={`${clickedMenu !== "home" ? "hover-line" : ""}`}
@@ -72,21 +72,25 @@ const MobileNavbar = () => {
             <div className="text-lg text-center flex flex-col gap-5">
               <div
                 id={`${clickedMenu !== "efsa" ? "hover-line" : ""}`}
-                className={`cursor-pointer ${
-                  clickedMenu === "efsa" && borderLine
-                }`}
+                className={`cursor-pointer `}
                 onClick={() => chooseMenu("efsa")}
               >
-                <Link href="/services/efsa">EFSA</Link>
+                <NewLink
+                  page="Efsa"
+                  clickedPage={clickedMenu}
+                  setClickedPage={setClickedMenu}
+                />
               </div>
               <div
                 id={`${clickedMenu !== "fssai" ? "hover-line" : ""}`}
-                className={`cursor-pointer ${
-                  clickedMenu === "fssai" && borderLine
-                }`}
+                className={`cursor-pointer`}
                 onClick={() => chooseMenu("fssai")}
               >
-                <Link href="/services/fssai">FSSAI</Link>
+                <NewLink
+                  page="Fssai"
+                  clickedPage={clickedMenu}
+                  setClickedPage={setClickedMenu}
+                />
               </div>
             </div>
           )}
