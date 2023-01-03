@@ -133,7 +133,7 @@ const ContactCard = (props: Props) => {
             <input
               type="file"
               id="uploadOne"
-              className="block w-full shadow-sm text-sm text-custom-dark-gray file:mr-4 file:py-2 file:px-4
+              className="block w-full shadow-sm text-sm text-custom-dark-gray file:mr-5 sm:file:mr-4 file:py-2 file:px-4
               file:rounded-l-md file:border-0
               file:text-sm
               file:bg-custom-black file:text-custom-beige
@@ -161,7 +161,7 @@ const ContactCard = (props: Props) => {
             <input
               type="file"
               id="uploadTwo"
-              className="block w-full shadow-sm text-sm text-custom-dark-gray file:mr-4 file:py-2 file:px-4
+              className="block w-full shadow-sm text-sm text-custom-dark-gray file:mr-5 sm:file:mr-4 file:py-2 file:px-4
               file:rounded-l-md file:border-0
               file:text-sm
               file:bg-custom-black file:text-custom-beige
