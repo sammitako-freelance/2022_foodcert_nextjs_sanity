@@ -38,11 +38,15 @@ const NoticeList = ({ list }: Props) => {
           <div className="text-2xl font-bold text-custom-black mb-10 sm:mb-20">
             The latest
           </div>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-            variants={container}
+          <div
+            // initial="hidden"
+            // whileInView="visible"
+            // viewport={{ once: true, amount: 0.5 }}
+            // transition={{ duration: 0.5 }}
+            // variants={{
+            //   hidden: { opacity: 0, x: -100 },
+            //   visible: { opacity: 1, x: 0 },
+            // }}
             className="grid grid-flow-row gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
           >
             {list.map((item, idx) => (
@@ -55,10 +59,10 @@ const NoticeList = ({ list }: Props) => {
                 route={item.slug.current}
               />
             ))}
-          </motion.div>
+          </div>
         </div>
         {/* NOTICE가 더 있을 때만 활성화 */}
-        <div className="flex justify-center items-center mt-12">
+        <div className="flex justify-center items-center mt-20">
           <LinkButton
             pathLink="/notice"
             title="Load More"

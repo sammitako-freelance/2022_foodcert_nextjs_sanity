@@ -7,8 +7,10 @@ import { XMarkIcon } from "@heroicons/react/24/solid";
 import { clickedMenuJotai, showMenuJotai } from "../../libs/jotai";
 import { useAtom } from "jotai";
 import NewLink from "./NewLink";
+import Link from "next/link";
 
 const MobileNavbar = () => {
+  const borderLine = "border-b-[3px] border-[#f1f1e7] inline-block";
   const centerScreen = "min-h-screen flex justify-center items-center";
   const sideBar = "fixed right-0 bottom-0 z-40 h-full w-[300px] drop-shadow-xl";
   const [subMenu, setSubmenu] = useState<boolean>(false);
@@ -32,10 +34,11 @@ const MobileNavbar = () => {
         >
           <XMarkIcon className="w-8 h-8 text-[#f1f1e7] hover:x-7 hover:h-7" />
         </div>
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-6">
+          {/* HOME */}
           <div
-            id={`${clickedMenu != "home" ? "hover-line" : ""}`}
-            className={`cursor-pointer text-lg`}
+            id={`${clickedMenu !== "home" ? "hover-line" : ""}`}
+            className={`cursor-pointer text-xl`}
             onClick={() => chooseMenu("home")}
           >
             <NewLink
@@ -44,17 +47,13 @@ const MobileNavbar = () => {
               setClickedPage={setClickedMenu}
             />
           </div>
+          {/* SERVICE */}
           <div
-            id={`${clickedMenu != "services" ? "hover-line" : ""}`}
-            className="relative flex items-center cursor-pointer text-lg"
+            className="cursor-pointer text-xl hover:opacity-70"
             onClick={() => setSubmenu(!subMenu)}
           >
-            <NewLink
-              page="Services"
-              clickedPage={clickedMenu}
-              setClickedPage={setClickedMenu}
-            />
-            <div className="absolute top-[4px] -right-8">
+            <div className="flex gap-1 items-center">
+              <div className="self-start">services</div>
               {!subMenu ? (
                 <MdOutlineKeyboardArrowDown
                   className="text-[#f1f1e7] w-7 h-7 hover:cursor-pointer hover:opacity-80"
@@ -68,27 +67,32 @@ const MobileNavbar = () => {
               )}
             </div>
           </div>
+          {/* SUB SERVICES */}
           {subMenu && (
-            <div className="text-base text-center flex flex-col gap-2">
+            <div className="text-lg text-center flex flex-col gap-5">
               <div
-                id={`${clickedMenu != "efsa" ? "hover-line" : ""}`}
-                className={`cursor-pointer`}
+                id={`${clickedMenu !== "efsa" ? "hover-line" : ""}`}
+                className={`cursor-pointer ${
+                  clickedMenu === "efsa" && borderLine
+                }`}
                 onClick={() => chooseMenu("efsa")}
               >
-                EFSA
+                <Link href="/services/efsa">EFSA</Link>
               </div>
               <div
-                id={`${clickedMenu != "fssai" ? "hover-line" : ""}`}
-                className={`cursor-pointer`}
+                id={`${clickedMenu !== "fssai" ? "hover-line" : ""}`}
+                className={`cursor-pointer ${
+                  clickedMenu === "fssai" && borderLine
+                }`}
                 onClick={() => chooseMenu("fssai")}
               >
-                FSSAI
+                <Link href="/services/fssai">FSSAI</Link>
               </div>
             </div>
           )}
           <div
-            id={`${clickedMenu != "news" ? "hover-line" : ""}`}
-            className={`cursor-pointer text-lg`}
+            id={`${clickedMenu !== "news" ? "hover-line" : ""}`}
+            className={`cursor-pointer text-xl`}
             onClick={() => chooseMenu("news")}
           >
             <NewLink
@@ -98,8 +102,8 @@ const MobileNavbar = () => {
             />
           </div>
           <div
-            id={`${clickedMenu != "faq" ? "hover-line" : ""}`}
-            className={`cursor-pointer text-lg`}
+            id={`${clickedMenu !== "faq" ? "hover-line" : ""}`}
+            className={`cursor-pointer text-xl`}
             onClick={() => chooseMenu("faq")}
           >
             <NewLink
@@ -109,8 +113,8 @@ const MobileNavbar = () => {
             />
           </div>
           <div
-            id={`${clickedMenu != "contact" ? "hover-line" : ""}`}
-            className={`cursor-pointer text-lg`}
+            id={`${clickedMenu !== "contact" ? "hover-line" : ""}`}
+            className={`cursor-pointer text-xl`}
             onClick={() => chooseMenu("contact")}
           >
             <NewLink

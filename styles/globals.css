@@ -13,3 +13,25 @@ body,
   font-family: "Noto Sans KR", sans-serif;
   scroll-behavior: smooth;
 }
+
+/* 404 */
+.notfound a {
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: #243665;
+  display: inline-block;
+  padding: 16px 38px;
+  border: 2px solid transparent;
+  border-radius: 40px;
+  color: #f1f1e7;
+  font-weight: 400;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+.notfound a:hover {
+  background-color: #fff;
+  border-color: #243665;
+  color: #243665;
+}

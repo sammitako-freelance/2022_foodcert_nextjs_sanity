@@ -23,7 +23,9 @@ const ServiceSection = ({ service }: Props) => {
       id="services"
       className="mx-auto min-h-full w-full py-20 bg-custom-beige bg-opacity-50"
     >
-      <motion.div onViewportEnter={() => setClickedMenu("services")}>
+      <motion.div
+      // onViewportEnter={() => setClickedMenu("services")}
+      >
         <div className="flex flex-col justify-center items-center">
           <TitleText textSize="">Our services</TitleText>
           <motion.div

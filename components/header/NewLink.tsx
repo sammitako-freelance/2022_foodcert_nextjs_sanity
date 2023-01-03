@@ -44,7 +44,7 @@ const NewLink = ({ page, clickedPage, setClickedPage }: Props) => {
     <Link
       className={`${clickedPage === lowerCasePage ? borderLine : ""}`}
       href={`/${link}`}
-      onClick={() => setClickedPage(lowerCasePage)}
+      onClick={() => setClickedPage(clickedPage)}
     >
       {page}
     </Link>

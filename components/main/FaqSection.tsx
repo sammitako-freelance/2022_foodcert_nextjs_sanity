@@ -26,7 +26,9 @@ const FaqSection = ({ faq }: Props) => {
       id="faq"
       className="mx-auto min-h-full w-full py-20 bg-custom-beige bg-opacity-50"
     >
-      <motion.div onViewportEnter={() => setClickedMenu("faq")}>
+      <motion.div
+      // onViewportEnter={() => setClickedMenu("faq")}
+      >
         <div className="flex flex-col justify-center items-center">
           <div className="flex flex-col justify-center items-center space-y-2 mx-5 md:mx-0">
             <TitleText textSize="text-xs sm:text-sm">Got Questions?</TitleText>

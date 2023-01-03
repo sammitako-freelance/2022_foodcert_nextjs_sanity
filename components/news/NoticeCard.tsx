@@ -25,8 +25,8 @@ const NoticeCard = ({ category, title, summary, date, route }: Props) => {
     category?.toLowerCase() === "efsa" ? "bg-custom-blue" : "bg-custom-green";
   return (
     <ClientSideRoute route={`/notice/${route}`}>
-      <motion.div
-        variants={childVariant}
+      <div
+        // variants={childVariant}
         className="rounded-lg shadow-md bg-white group hover:cursor-pointer h-full"
       >
         <div className="px-10 py-16">
@@ -44,7 +44,7 @@ const NoticeCard = ({ category, title, summary, date, route }: Props) => {
             {summary}
           </div>
         </div>
-      </motion.div>
+      </div>
     </ClientSideRoute>
   );
 };

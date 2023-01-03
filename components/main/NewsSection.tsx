@@ -26,7 +26,9 @@ const NewsSection = ({ news, category }: Props) => {
       id="news"
       className="mx-auto min-h-full w-5/6 sm:w-4/6 py-20 bg-white"
     >
-      <motion.div onViewportEnter={() => setClickedMenu("news")}>
+      <motion.div
+      // onViewportEnter={() => setClickedMenu("news")}
+      >
         <div className="flex flex-col">
           <div className="mx-auto">
             <TitleText textSize="">Our news</TitleText>

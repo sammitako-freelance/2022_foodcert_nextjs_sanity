@@ -23,7 +23,9 @@ const ContactSection = ({ contact }: Props) => {
       id="contact"
       className="mx-auto min-h-[500px] w-full py-20 contact-bg"
     >
-      <motion.div onViewportEnter={() => setClickedMenu("contact")}>
+      <motion.div
+      // onViewportEnter={() => setClickedMenu("contact")}
+      >
         <div className="flex flex-col justify-center items-center">
           <div className="text-center space-y-2">
             <TitleText textSize="text-2xl"> {contact.title}</TitleText>

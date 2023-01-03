@@ -20,7 +20,7 @@ export default function HeroSection({ hero }: Props) {
       {/* MAIN HEADER */}
       <motion.div
         className="mx-auto w-5/6 items-center justify-center h-full text-custom-beige"
-        onViewportEnter={() => setClickedMenu("home")}
+        // onViewportEnter={() => setClickedMenu("home")}
       >
         {/* HEADINGS */}
         <motion.div

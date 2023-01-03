@@ -1,9 +1,9 @@
 "use client";
 import { ServicePage } from "../../typings";
 import Divider from "../Divider";
-import DocumentList from "./DocumentList";
 import LabelList from "./LabelList";
 import { motion } from "framer-motion";
+import DocumentItem from "./DocumentItem";
 
 type Props = {
   service: ServicePage;
@@ -27,7 +27,7 @@ const About = ({ service }: Props) => {
   const container = {
     hidden: {},
     visible: {
-      transition: { staggerChildren: 0.2 },
+      transition: { staggerChildren: 0.1 },
     },
   };
 
@@ -45,7 +45,7 @@ const About = ({ service }: Props) => {
         </div>
       </div>
       <div className="bg-custom-beige bg-opacity-50 w-full py-24">
-        <div className="w-8/12 mx-auto">
+        <div className="w-10/12 md:w-8/12 mx-auto">
           {/* TITLE */}
           <motion.div
             initial="hidden"
@@ -78,8 +78,8 @@ const About = ({ service }: Props) => {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.1 }}
                 variants={{
                   hidden: { opacity: 0, x: -100 },
                   visible: { opacity: 1, x: 0 },
@@ -103,22 +103,41 @@ const About = ({ service }: Props) => {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
+                viewport={{ once: true, amount: 0.1 }}
                 variants={container}
-                className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-16"
+                className="grid grid-cols-2 md:grid-cols-3 gap-x-10"
               >
                 {service.documentationList.map((data, idx) => (
-                  <div key={data._key} className="">
-                    <DocumentList
-                      category={service.categories.title}
-                      number={idx + 1}
-                      title={data.name}
-                      subTitle={data.info}
-                    />
-                  </div>
+                  <>
+                    <div key={data._key} className="">
+                      <DocumentItem
+                        category={service.categories.title}
+                        number={idx + 1}
+                        title={data.name}
+                        subTitle={data.info}
+                      />
+                    </div>
+                    {((idx + 1) % 2 === 0 ||
+                      idx === service.documentationList.length - 1) && (
+                      <div
+                        className="block md:hidden "
+                        style={{ gridColumn: "1/-1" }}
+                      >
+                        <Divider />
+                      </div>
+                    )}
+                    {((idx + 1) % 3 === 0 ||
+                      idx === service.documentationList.length - 1) && (
+                      <div
+                        className="hidden md:block"
+                        style={{ gridColumn: "1/-1" }}
+                      >
+                        <Divider />
+                      </div>
+                    )}
+                  </>
                 ))}
               </motion.div>
-              <Divider />
             </>
           )}
 

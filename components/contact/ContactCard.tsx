@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 // import Input from "./Input";
 import { useForm } from "react-hook-form";
@@ -24,7 +25,7 @@ const ContactCard = (props: Props) => {
   //       .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
   // };
   return (
-    <div className="flex flex-col lg:flex-row items-center bg-[#F5F5F4] rounded-lg shadow-lg">
+    <section className="flex flex-col lg:flex-row items-center bg-[#F5F5F4] rounded-lg shadow-lg">
       {/* INPUTS */}
       <div className="flex flex-col py-8 px-6 sm:p-10 text-left w-full">
         <form
@@ -247,8 +248,8 @@ const ContactCard = (props: Props) => {
         </form>
       </div>
       {/* GOOGLE MAP */}
-      <div className="bg-gray-500 self-start w-full h-full lg:rounded-tr-lg">
-        <div>지도자리</div>
+      <div className="self-start w-full h-full lg:rounded-tr-lg bg-gray-500 hidden sm:block">
+        <div>지도 자리</div>
       </div>
       <style jsx>{`
         textarea {
@@ -256,7 +257,7 @@ const ContactCard = (props: Props) => {
           height: 300px;
         }
       `}</style>
-    </div>
+    </section>
   );
 };
 

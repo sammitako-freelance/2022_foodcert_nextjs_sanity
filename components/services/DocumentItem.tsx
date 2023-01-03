@@ -13,7 +13,7 @@ type Props = {
   category: string;
 };
 
-const DocumentList = ({ number, title, subTitle, category }: Props) => {
+const DocumentItem = ({ number, title, subTitle, category }: Props) => {
   const textColor =
     category?.toLowerCase() === "efsa"
       ? "text-custom-blue"
@@ -36,4 +36,4 @@ const DocumentList = ({ number, title, subTitle, category }: Props) => {
   );
 };
 
-export default DocumentList;
+export default DocumentItem;

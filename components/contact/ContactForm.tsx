@@ -50,7 +50,7 @@ const ContactForm = ({ contact }: Props) => {
           </div>
         </motion.div>
         {/* FAKE DIV */}
-        <div className="h-[73rem] md:h-[70rem] invisible"></div>
+        <div className="h-[68rem] md:h-[65rem] invisible"></div>
       </div>
       <style jsx>{`
         .absolute-container {
