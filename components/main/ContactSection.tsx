@@ -21,7 +21,7 @@ const ContactSection = ({ contact }: Props) => {
   return (
     <section
       id="contact"
-      className="mx-auto min-h-[500px] w-full py-20 contact-bg"
+      className="mx-auto min-h-[500px] w-full pt-20 contact-bg"
     >
       <motion.div
       // onViewportEnter={() => setClickedMenu("contact")}
@@ -72,8 +72,8 @@ const ContactSection = ({ contact }: Props) => {
           height: 100%;
           background: url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1073&q=80")
             no-repeat;
-          background-attachment: fixed;
-          background-position: 50% 100px;
+          background-attachment: scroll;
+          background-position: 50% -2.5rem;
           background-size: cover;
         }
       `}</style>

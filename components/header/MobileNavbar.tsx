@@ -12,7 +12,7 @@ import Link from "next/link";
 const MobileNavbar = () => {
   const borderLine = "border-b-[3px] border-[#f1f1e7] inline-block";
   const centerScreen = "min-h-screen flex justify-center items-center";
-  const sideBar = "fixed right-0 bottom-0 z-40 h-full w-[300px] drop-shadow-xl";
+  const sideBar = "fixed right-0 bottom-0 z-40 h-full w-full drop-shadow-xl";
   const [subMenu, setSubmenu] = useState<boolean>(false);
   const [show, setShow] = useAtom(showMenuJotai);
   const [clickedMenu, setClickedMenu] = useAtom(clickedMenuJotai);
@@ -49,54 +49,57 @@ const MobileNavbar = () => {
             </div>
           </div>
           {/* SERVICE */}
-          <div
-            className="cursor-pointer text-xl hover:opacity-70"
-            onClick={() => setSubmenu(!subMenu)}
-          >
-            <div className="flex gap-1 items-center">
-              <div className="self-start">services</div>
-              {!subMenu ? (
-                <MdOutlineKeyboardArrowDown
-                  className="text-[#f1f1e7] w-7 h-7 hover:cursor-pointer hover:opacity-80"
-                  onClick={() => setSubmenu(!subMenu)}
-                />
-              ) : (
-                <MdOutlineKeyboardArrowUp
-                  className="text-[#f1f1e7] w-7 h-7 hover:cursor-pointer hover:opacity-80"
-                  onClick={() => setSubmenu(!subMenu)}
-                />
-              )}
+          <div className="">
+            <div
+              className="cursor-pointer text-xl hover:opacity-70"
+              onClick={() => setSubmenu(!subMenu)}
+            >
+              <div className="flex gap-1 items-center">
+                <div className="self-start">services</div>
+                {!subMenu ? (
+                  <MdOutlineKeyboardArrowDown
+                    className="text-[#f1f1e7] w-7 h-7 hover:cursor-pointer hover:opacity-80"
+                    onClick={() => setSubmenu(!subMenu)}
+                  />
+                ) : (
+                  <MdOutlineKeyboardArrowUp
+                    className="text-[#f1f1e7] w-7 h-7 hover:cursor-pointer hover:opacity-80"
+                    onClick={() => setSubmenu(!subMenu)}
+                  />
+                )}
+              </div>
             </div>
+            {/* SUB SERVICES */}
+            {subMenu && (
+              <div className="text-lg text-center flex flex-col gap-5 mt-5">
+                <div
+                  className={`cursor-pointer `}
+                  onClick={() => chooseMenu("efsa")}
+                >
+                  <div id={`${clickedMenu !== "efsa" ? "hover-line" : ""}`}>
+                    <NewLink
+                      page="Efsa"
+                      clickedPage={clickedMenu}
+                      setClickedPage={setClickedMenu}
+                    />
+                  </div>
+                </div>
+                <div
+                  className={`cursor-pointer`}
+                  onClick={() => chooseMenu("fssai")}
+                >
+                  <div id={`${clickedMenu !== "fssai" ? "hover-line" : ""}`}>
+                    <NewLink
+                      page="Fssai"
+                      clickedPage={clickedMenu}
+                      setClickedPage={setClickedMenu}
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
-          {/* SUB SERVICES */}
-          {subMenu && (
-            <div className="text-lg text-center flex flex-col gap-5">
-              <div
-                className={`cursor-pointer `}
-                onClick={() => chooseMenu("efsa")}
-              >
-                <div id={`${clickedMenu !== "efsa" ? "hover-line" : ""}`}>
-                  <NewLink
-                    page="Efsa"
-                    clickedPage={clickedMenu}
-                    setClickedPage={setClickedMenu}
-                  />
-                </div>
-              </div>
-              <div
-                className={`cursor-pointer`}
-                onClick={() => chooseMenu("fssai")}
-              >
-                <div id={`${clickedMenu !== "fssai" ? "hover-line" : ""}`}>
-                  <NewLink
-                    page="Fssai"
-                    clickedPage={clickedMenu}
-                    setClickedPage={setClickedMenu}
-                  />
-                </div>
-              </div>
-            </div>
-          )}
+
           <div
             className={`cursor-pointer text-xl`}
             onClick={() => chooseMenu("news")}
