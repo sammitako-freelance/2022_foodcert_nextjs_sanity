@@ -37,15 +37,16 @@ const MobileNavbar = () => {
         <div className="flex flex-col gap-6 uppercase">
           {/* HOME */}
           <div
-            id={`${clickedMenu !== "home" ? "hover-line" : ""}`}
             className={`cursor-pointer text-xl`}
             onClick={() => chooseMenu("home")}
           >
-            <NewLink
-              page="Home"
-              clickedPage={clickedMenu}
-              setClickedPage={setClickedMenu}
-            />
+            <div id={`${clickedMenu !== "home" ? "hover-line" : ""}`}>
+              <NewLink
+                page="Home"
+                clickedPage={clickedMenu}
+                setClickedPage={setClickedMenu}
+              />
+            </div>
           </div>
           {/* SERVICE */}
           <div
@@ -71,61 +72,66 @@ const MobileNavbar = () => {
           {subMenu && (
             <div className="text-lg text-center flex flex-col gap-5">
               <div
-                id={`${clickedMenu !== "efsa" ? "hover-line" : ""}`}
                 className={`cursor-pointer `}
                 onClick={() => chooseMenu("efsa")}
               >
-                <NewLink
-                  page="Efsa"
-                  clickedPage={clickedMenu}
-                  setClickedPage={setClickedMenu}
-                />
+                <div id={`${clickedMenu !== "efsa" ? "hover-line" : ""}`}>
+                  <NewLink
+                    page="Efsa"
+                    clickedPage={clickedMenu}
+                    setClickedPage={setClickedMenu}
+                  />
+                </div>
               </div>
               <div
-                id={`${clickedMenu !== "fssai" ? "hover-line" : ""}`}
                 className={`cursor-pointer`}
                 onClick={() => chooseMenu("fssai")}
               >
-                <NewLink
-                  page="Fssai"
-                  clickedPage={clickedMenu}
-                  setClickedPage={setClickedMenu}
-                />
+                <div id={`${clickedMenu !== "fssai" ? "hover-line" : ""}`}>
+                  <NewLink
+                    page="Fssai"
+                    clickedPage={clickedMenu}
+                    setClickedPage={setClickedMenu}
+                  />
+                </div>
               </div>
             </div>
           )}
           <div
-            id={`${clickedMenu !== "news" ? "hover-line" : ""}`}
             className={`cursor-pointer text-xl`}
             onClick={() => chooseMenu("news")}
           >
-            <NewLink
-              page="News"
-              clickedPage={clickedMenu}
-              setClickedPage={setClickedMenu}
-            />
+            <div id={`${clickedMenu !== "news" ? "hover-line" : ""}`}>
+              <NewLink
+                page="News"
+                clickedPage={clickedMenu}
+                setClickedPage={setClickedMenu}
+              />
+            </div>
           </div>
           <div
-            id={`${clickedMenu !== "faq" ? "hover-line" : ""}`}
             className={`cursor-pointer text-xl`}
             onClick={() => chooseMenu("faq")}
           >
-            <NewLink
-              page="Faq"
-              clickedPage={clickedMenu}
-              setClickedPage={setClickedMenu}
-            />
+            <div id={`${clickedMenu !== "faq" ? "hover-line" : ""}`}>
+              <NewLink
+                page="Faq"
+                clickedPage={clickedMenu}
+                setClickedPage={setClickedMenu}
+              />
+            </div>
           </div>
           <div
-            id={`${clickedMenu !== "contact" ? "hover-line" : ""}`}
             className={`cursor-pointer text-xl`}
             onClick={() => chooseMenu("contact")}
           >
-            <NewLink
-              page="Contact"
-              clickedPage={clickedMenu}
-              setClickedPage={setClickedMenu}
-            />
+            <div id={`${clickedMenu !== "contact" ? "hover-line" : ""}`}>
+              <NewLink
+                page="Contact"
+                clickedPage={clickedMenu}
+                setClickedPage={setClickedMenu}
+              />
+            </div>
           </div>
         </div>
       </nav>

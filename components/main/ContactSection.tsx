@@ -73,7 +73,7 @@ const ContactSection = ({ contact }: Props) => {
           background: url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1073&q=80")
             no-repeat;
           background-attachment: fixed;
-          background-position: 50% 325px;
+          background-position: 50% 100px;
           background-size: cover;
         }
       `}</style>
