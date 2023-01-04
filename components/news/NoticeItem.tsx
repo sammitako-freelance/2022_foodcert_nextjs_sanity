@@ -124,11 +124,11 @@ const NoticeItem = ({ data }: Props) => {
                 data.file?.length + data.imageFile?.length > 0 && (
                   <div className="">
                     <button
-                      className="py-2 px-4 rounded-md hover:bg-red-400 hover:text-custom-beige text-red-400 font-bold border-2 border-red-400 hover:drop-shadow-md"
+                      className="py-2 px-3 rounded-md hover:bg-red-400 hover:text-custom-beige text-red-400 font-bold border-2 border-red-400 hover:drop-shadow-md"
                       type="button"
                       onClick={() => setShowModal(true)}
                     >
-                      <div className="flex space-x-2 items-center">
+                      <div className="flex text-sm space-x-2 items-center">
                         <ArrowDownTrayIcon className="w-5 h-5" />
 
                         <p>
