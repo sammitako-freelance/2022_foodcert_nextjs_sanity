@@ -119,7 +119,7 @@ const NoticeItem = ({ data }: Props) => {
                 </div>
               </div>
               {/* DOWNLOAD FILES */}
-              {data.file.length + data.imageFile.length > 0 && (
+              {data.file?.length + data.imageFile?.length > 0 && (
                 <div className="">
                   <button
                     className="py-2 px-4 rounded-md hover:bg-red-400 hover:text-custom-beige text-red-400 font-bold border-2 border-red-400 hover:drop-shadow-md"
@@ -138,7 +138,7 @@ const NoticeItem = ({ data }: Props) => {
                   {/* MODAL */}
                   {showModal ? (
                     <>
-                      <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+                      <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none mx-5">
                         <div className="relative w-auto my-6 mx-auto max-w-3xl">
                           {/*content*/}
                           <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
