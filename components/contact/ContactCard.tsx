@@ -1,12 +1,14 @@
-import Image from "next/image";
-import React from "react";
+import React, { useMemo, useState } from "react";
 // import Input from "./Input";
 import { useForm } from "react-hook-form";
-
+import { GoogleMap, useLoadScript } from "@react-google-maps/api";
+import { MarkerF } from "@react-google-maps/api";
 type Props = {};
 
 const ContactCard = (props: Props) => {
-  const submitEmail = process.env.SUBMIT_EMAIL;
+  const submitEmail = process.env.NEXT_PUBLIC_SUBMIT_EMAIL;
+  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string;
+
   const {
     register,
     trigger,
@@ -18,14 +20,21 @@ const ContactCard = (props: Props) => {
       e.preventDefault();
     }
   };
+
   // const autoHyphen = (target: any) => {
   //   if (target !== undefined)
   //     target.value = target.value
   //       .replace(/[^0-9]/g, "")
   //       .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
   // };
+  // 37.570998599999996, 126.98141075331924
+
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: apiKey,
+  });
+
   return (
-    <section className="flex flex-col lg:flex-row items-center bg-[#F5F5F4] rounded-lg shadow-lg">
+    <section className="grid grid-cols-1 lg:grid-cols-2 items-center bg-[#F5F5F4] rounded-lg shadow-lg">
       {/* INPUTS */}
       <div className="flex flex-col py-8 px-6 sm:p-10 text-left w-full">
         <form
@@ -33,8 +42,7 @@ const ContactCard = (props: Props) => {
           onSubmit={onSubmit}
           method="POST"
           // action="https://formsubmit.io/send/hansaem.pk@gmail.com"
-          // action={`https://formsubmit.co/${submitEmail}`}
-          action={`https://formsubmit.co/p.hansaem@hotmail.com`}
+          action={`https://formsubmit.co/${submitEmail}`}
           encType="multipart/form-data"
         >
           {/* NAME */}
@@ -248,8 +256,8 @@ const ContactCard = (props: Props) => {
         </form>
       </div>
       {/* GOOGLE MAP */}
-      <div className="self-start w-full h-full lg:rounded-tr-lg bg-gray-500 hidden sm:block">
-        <div>지도 자리</div>
+      <div className="self-start w-full h-full lg:rounded-tr-lg bg-gray-500 hidden lg:block">
+        {!isLoaded ? <div>Loading...</div> : <Map />}
       </div>
       <style jsx>{`
         textarea {
@@ -262,3 +270,17 @@ const ContactCard = (props: Props) => {
 };
 
 export default ContactCard;
+
+function Map() {
+  const center = useMemo(
+    () => ({ lat: 37.570998599999996, lng: 126.98141075331924 }),
+    []
+  );
+  return (
+    <GoogleMap zoom={18} center={center} mapContainerClassName="map-container">
+      <MarkerF
+        position={{ lat: 37.570998599999996, lng: 126.98141075331924 }}
+      />
+    </GoogleMap>
+  );
+}

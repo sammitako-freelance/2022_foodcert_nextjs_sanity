@@ -9,7 +9,8 @@ type Props = {};
 
 export default async function Notice(props: Props) {
   const noticeListQuery = groq`
-  *[_type=="news"] {
+  *[_type=="news"] | order(_id) {
+  _id,
   ...,
   categories->,
   author->,

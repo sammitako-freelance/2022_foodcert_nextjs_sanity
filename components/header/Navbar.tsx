@@ -69,7 +69,7 @@ const Navbar = () => {
           <div className={`${flexBetween} mx-auto w-11/12`}>
             {/* LEFT SIDE */}
             <Link href="/">
-              <div className="hover:text-gray-200 transition duration-500 uppercase">
+              <div className="hover:text-custom-black transition duration-200 uppercase">
                 House Boutique
               </div>
             </Link>

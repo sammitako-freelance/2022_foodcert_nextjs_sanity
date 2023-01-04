@@ -1,4 +1,5 @@
 import "../../styles/globals.css";
+
 import dynamic from "next/dynamic";
 import ScrollToTop from "../../components/ScrollToTop";
 

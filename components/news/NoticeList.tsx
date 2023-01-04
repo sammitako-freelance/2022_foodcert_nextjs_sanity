@@ -1,12 +1,15 @@
 "use client";
 import { motion } from "framer-motion";
+import { groq } from "next-sanity";
 import { News } from "../../typings";
 import LinkButton from "../LinkButton";
 import NoticeCard from "./NoticeCard";
+import { client } from "../../libs/sanity.client";
+import { useEffect, useRef, useState } from "react";
 
-type Props = {
+interface Props {
   list: News[];
-};
+}
 
 const NoticeList = ({ list }: Props) => {
   const contentContainer = "relative pt-[10px]";
@@ -19,6 +22,7 @@ const NoticeList = ({ list }: Props) => {
       transition: { staggerChildren: 0.2 },
     },
   };
+
   return (
     <section>
       {/* HERO BACKGROUND */}
@@ -34,21 +38,21 @@ const NoticeList = ({ list }: Props) => {
       </div>
       {/* LIST */}
       <div className="bg-custom-light-gray w-full py-24">
-        <div className="w-5/6 mx-auto">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.3 }}
+          variants={{
+            hidden: { opacity: 0, x: -100 },
+            visible: { opacity: 1, x: 0 },
+          }}
+          className="w-5/6 mx-auto"
+        >
           <div className="text-2xl font-bold text-custom-black mb-10 sm:mb-20">
             The latest
           </div>
-          <div
-            // initial="hidden"
-            // whileInView="visible"
-            // viewport={{ once: true, amount: 0.5 }}
-            // transition={{ duration: 0.5 }}
-            // variants={{
-            //   hidden: { opacity: 0, x: -100 },
-            //   visible: { opacity: 1, x: 0 },
-            // }}
-            className="grid grid-flow-row gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-          >
+          <div className="grid grid-flow-row gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {list.map((item, idx) => (
               <NoticeCard
                 key={item._id}
@@ -60,16 +64,16 @@ const NoticeList = ({ list }: Props) => {
               />
             ))}
           </div>
-        </div>
+        </motion.div>
         {/* NOTICE가 더 있을 때만 활성화 */}
         <div className="flex justify-center items-center mt-20">
-          <LinkButton
+          {/* <LinkButton
             pathLink="/notice"
             title="Load More"
             backgroundColor="bg-custom-black"
             textColor="text-custom-beige"
             borderColor=""
-          />
+          /> */}
         </div>
       </div>
       <style jsx>{`
