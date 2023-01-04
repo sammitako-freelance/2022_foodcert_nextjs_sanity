@@ -38,17 +38,7 @@ const NoticeList = ({ list }: Props) => {
       </div>
       {/* LIST */}
       <div className="bg-custom-light-gray w-full py-24">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.3 }}
-          variants={{
-            hidden: { opacity: 0, x: -100 },
-            visible: { opacity: 1, x: 0 },
-          }}
-          className="w-5/6 mx-auto"
-        >
+        <div className="w-5/6 mx-auto">
           <div className="text-2xl font-bold text-custom-black mb-10 sm:mb-20">
             The latest
           </div>
@@ -64,7 +54,7 @@ const NoticeList = ({ list }: Props) => {
               />
             ))}
           </div>
-        </motion.div>
+        </div>
         {/* NOTICE가 더 있을 때만 활성화 */}
         <div className="flex justify-center items-center mt-20">
           {/* <LinkButton

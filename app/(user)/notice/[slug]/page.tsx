@@ -34,6 +34,8 @@ async function NewsItem({ params: { slug } }: Props) {
       ...,
       categories->,
       author->,
+      "fileURL": file[].asset->url,
+      "imageURL": imageFile[].asset->url,
     }
 
   `;

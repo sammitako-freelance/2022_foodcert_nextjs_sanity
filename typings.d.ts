@@ -53,9 +53,12 @@ export type NewsData = {
   categories: Category;
   summary: string;
   file: File[];
+  imageFile: File[];
   publishedAt: string;
   body: Block[];
   image: Image[];
+  fileURL: Array<string>;
+  imageURL: Array<string>;
 };
 
 export interface FaqData extends Faq {
@@ -172,7 +175,7 @@ export interface Title {
 export interface File extends Base {
   _type: "file";
   asset: Reference;
-  title: string;
+  fileName: string;
 }
 
 export interface Location {
