@@ -33,7 +33,9 @@
     ".next/types/**/*.ts",
     "components/main/HeroSection.tsx",
     "components/header/libs/jotai.js",
-    "components/header/libs/jotai.js"
+    "components/header/libs/jotai.js",
+    "components/ChannelTalk.jsx",
+    "components/ChannelTalk.jsx"
   ],
   "exclude": ["node_modules"]
 }
