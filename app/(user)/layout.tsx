@@ -70,7 +70,6 @@ export default function ClientLayout({
             `,
           }}
         />
-        ;
         <Footer />
       </body>
     </html>
