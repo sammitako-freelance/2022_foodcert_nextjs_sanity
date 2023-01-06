@@ -1540,6 +1540,11 @@
   resolved "https://registry.npmjs.org/@remix-run/router/-/router-1.2.1.tgz"
   integrity sha512-XiY0IsyHR+DXYS5vBxpoBe/8veTeoRpMHP+vDosLZxL5bnpetzI0igkxkLZS235ldLzyfkxF+2divEwWHP3vMQ==
 
+"@resvg/resvg-wasm@2.0.0-alpha.4":
+  version "2.0.0-alpha.4"
+  resolved "https://registry.yarnpkg.com/@resvg/resvg-wasm/-/resvg-wasm-2.0.0-alpha.4.tgz#fc2f86186a9641df030d8f9f3f9d995899cd1ecb"
+  integrity sha512-pWIG9a/x1ky8gXKRhPH1OPKpHFoMN1ISLbJ+O+gPXQHIAKhNd5I28RlWf7q576hAOQA9JZTlo3p/M2uyLzJmmw==
+
 "@rexxars/react-json-inspector@^8.0.1":
   version "8.0.1"
   resolved "https://registry.npmjs.org/@rexxars/react-json-inspector/-/react-json-inspector-8.0.1.tgz"
@@ -1952,6 +1957,14 @@
     base64url "^3.0.1"
     tslib "^2.3.1"
 
+"@shuding/opentype.js@1.4.0-beta.0":
+  version "1.4.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@shuding/opentype.js/-/opentype.js-1.4.0-beta.0.tgz#5d1e7e9e056f546aad41df1c5043f8f85d39e24b"
+  integrity sha512-3NgmNyH3l/Hv6EvsWJbsvpcpUba6R8IREQ83nH83cyakCw7uM1arZKNfHwv1Wz6jgqrF/j4x5ELvR6PnK9nTcA==
+  dependencies:
+    fflate "^0.7.3"
+    string.prototype.codepointat "^0.2.1"
+
 "@swc/helpers@0.4.14":
   version "0.4.14"
   resolved "https://registry.npmjs.org/@swc/helpers/-/helpers-0.4.14.tgz"
@@ -2212,6 +2225,11 @@
   resolved "https://registry.npmjs.org/@types/uuid/-/uuid-8.3.4.tgz"
   integrity sha512-c/I8ZRb51j+pYGAu5CrFMRxqZ2ke4y2grEBO5AUjgSkSk+qT2Ea+OdWElz/OiMf5MNpn2b17kuVBwZLQJXzihw==
 
+"@types/yoga-layout@1.9.2":
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/@types/yoga-layout/-/yoga-layout-1.9.2.tgz#efaf9e991a7390dc081a0b679185979a83a9639a"
+  integrity sha512-S9q47ByT2pPvD65IvrWp7qppVMpk9WGMbVq9wbWZOHg6tnXSD4vyhao6nOSBwwfDdV2p3Kx9evA9vI+XWTfDvw==
+
 "@typescript-eslint/eslint-plugin@^5.42.0":
   version "5.47.0"
   resolved "https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-5.47.0.tgz"
@@ -2319,6 +2337,15 @@
     "@codemirror/theme-one-dark" "^6.0.0"
     "@uiw/codemirror-extensions-basic-setup" "4.19.4"
     codemirror "^6.0.0"
+
+"@vercel/og@^0.0.21":
+  version "0.0.21"
+  resolved "https://registry.yarnpkg.com/@vercel/og/-/og-0.0.21.tgz#9d2421a241a0cfbdc3841b88bf323d980339da40"
+  integrity sha512-WgMahG5c8UM7xtn/mT+ljUpDMSDnSlu8AXL52JtTwxb1odrd0GWqZg2N1X38wulPj+sCccNpDdFmmAuw0GLc+Q==
+  dependencies:
+    "@resvg/resvg-wasm" "2.0.0-alpha.4"
+    satori "0.0.44"
+    yoga-wasm-web "0.1.2"
 
 "@vitejs/plugin-react@^2.0.0":
   version "2.2.0"
@@ -3045,6 +3072,16 @@ crypto-random-string@^2.0.0:
   resolved "https://registry.npmjs.org/crypto-random-string/-/crypto-random-string-2.0.0.tgz"
   integrity sha512-v1plID3y9r/lPhviJ1wrXpLeyUIGAZ2SHNYTEapm7/8A9nLPoyvVp3RK/EPFqn5kEznyWgYZNsRtYYIWbuG8KA==
 
+css-background-parser@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/css-background-parser/-/css-background-parser-0.1.0.tgz#48a17f7fe6d4d4f1bca3177ddf16c5617950741b"
+  integrity sha512-2EZLisiZQ+7m4wwur/qiYJRniHX4K5Tc9w93MT3AS0WS1u5kaZ4FKXlOTBhOjc+CgEgPiGY+fX1yWD8UwpEqUA==
+
+css-box-shadow@1.0.0-3:
+  version "1.0.0-3"
+  resolved "https://registry.yarnpkg.com/css-box-shadow/-/css-box-shadow-1.0.0-3.tgz#9eaeb7140947bf5d649fc49a19e4bbaa5f602713"
+  integrity sha512-9jaqR6e7Ohds+aWwmhe6wILJ99xYQbfmK9QQB9CcMjDbTxPZjwEmUQpU91OG05Xgm8BahT5fW+svbsQGjS/zPg==
+
 css-color-keywords@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/css-color-keywords/-/css-color-keywords-1.0.0.tgz"
@@ -3360,6 +3397,11 @@ emitter-component@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/emitter-component/-/emitter-component-1.1.1.tgz#065e2dbed6959bf470679edabeaf7981d1003ab6"
   integrity sha512-G+mpdiAySMuB7kesVRLuyvYRqDmshB7ReKEVuyBPkzQlmiDiLrt7hHHIy4Aff552bgknVN7B2/d3lzhGO5dvpQ==
+
+emoji-regex@^10.2.1:
+  version "10.2.1"
+  resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-10.2.1.tgz#a41c330d957191efd3d9dfe6e1e8e1e9ab048b3f"
+  integrity sha512-97g6QgOk8zlDRdgq1WxwgTMgEWGVAQvB5Fdpgc1MkNy56la5SKP9GsMXKDOdqwn90/41a8yPwIGk1Y6WVbeMQA==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -3916,6 +3958,11 @@ fastq@^1.6.0:
   integrity sha512-eR2D+V9/ExcbF9ls441yIuN6TI2ED1Y2ZcA5BmMtJsOkWOFRJQ0Jt0g1UwqXJJVAb+V+umH5Dfr8oh4EVP7VVg==
   dependencies:
     reusify "^1.0.4"
+
+fflate@^0.7.3:
+  version "0.7.4"
+  resolved "https://registry.yarnpkg.com/fflate/-/fflate-0.7.4.tgz#61587e5d958fdabb5a9368a302c25363f4f69f50"
+  integrity sha512-5u2V/CDW15QM1XbbgS+0DfPxVB+jUKhWEKuuFuHncbk3tEEqzmoXL+2KyOFuKGqOnmdIy0/davWF1CkuwtibCw==
 
 file-saver@^2.0.5:
   version "2.0.5"
@@ -6478,6 +6525,19 @@ sass@^1.57.1:
     immutable "^4.0.0"
     source-map-js ">=0.6.2 <2.0.0"
 
+satori@0.0.44:
+  version "0.0.44"
+  resolved "https://registry.yarnpkg.com/satori/-/satori-0.0.44.tgz#278d2c383a3248973c93843c0f72da5c69c9eafa"
+  integrity sha512-WKUxXC2qeyno6J3ucwwLozPL6j1HXOZiN5wIUf7iqAhlx1RUC/6ePIKHi7iPc3Cy6DYuZcJriZXxXkSdo2FQHg==
+  dependencies:
+    "@shuding/opentype.js" "1.4.0-beta.0"
+    css-background-parser "^0.1.0"
+    css-box-shadow "1.0.0-3"
+    css-to-react-native "^3.0.0"
+    emoji-regex "^10.2.1"
+    postcss-value-parser "^4.2.0"
+    yoga-layout-prebuilt "^1.10.0"
+
 save-as@^0.1.8:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/save-as/-/save-as-0.1.8.tgz#765f947b7878bab233e1952bbc9120e1c3f041be"
@@ -6736,6 +6796,11 @@ string-width@^4.1.0, string-width@^4.2.0, string-width@^4.2.3:
     emoji-regex "^8.0.0"
     is-fullwidth-code-point "^3.0.0"
     strip-ansi "^6.0.1"
+
+string.prototype.codepointat@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/string.prototype.codepointat/-/string.prototype.codepointat-0.2.1.tgz#004ad44c8afc727527b108cd462b4d971cd469bc"
+  integrity sha512-2cBVCj6I4IOvEnjgO/hWqXjqBGsY+zwPmHl12Srk9IXSZ56Jwwmy+66XO5Iut/oQVR7t5ihYdLB0GMa4alEUcg==
 
 string.prototype.matchall@^4.0.8:
   version "4.0.8"
@@ -7431,6 +7496,18 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
+
+yoga-layout-prebuilt@^1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/yoga-layout-prebuilt/-/yoga-layout-prebuilt-1.10.0.tgz#2936fbaf4b3628ee0b3e3b1df44936d6c146faa6"
+  integrity sha512-YnOmtSbv4MTf7RGJMK0FvZ+KD8OEe/J5BNnR0GHhD8J/XcG/Qvxgszm0Un6FTHWW4uHlTgP0IztiXQnGyIR45g==
+  dependencies:
+    "@types/yoga-layout" "1.9.2"
+
+yoga-wasm-web@0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/yoga-wasm-web/-/yoga-wasm-web-0.1.2.tgz#05d3fc9cbdfd57ac9682debb5001aca075489a39"
+  integrity sha512-8SkgawHcA0RUbMrnhxbaQkZDBi8rMed8pQHixkFF9w32zGhAwZ9/cOHWlpYfr6RCx42Yp3siV45/jPEkJxsk6w==
 
 zip-stream@^4.1.0:
   version "4.1.0"

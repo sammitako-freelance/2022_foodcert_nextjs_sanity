@@ -8,6 +8,7 @@ const head = ({}: Props) => {
     <>
       <title>{title}</title>
       <link rel="icon" href="/icons/favicon.ico" />
+      <meta property="og:image" content="https://my-og-img.vercel.app/api/og" />
     </>
   );
 };
