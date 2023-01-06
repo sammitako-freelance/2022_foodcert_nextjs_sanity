@@ -3,7 +3,7 @@ export default function Head() {
     <>
       <title>House Boutique</title>
       <meta content="width=device-width, initial-scale=1" name="viewport" />
-      <link rel="icon" href="/assets/img/house-boutique-logo.png" />
+      <link rel="icon" href="/icons/favicon.ico" />
     </>
   );
 }

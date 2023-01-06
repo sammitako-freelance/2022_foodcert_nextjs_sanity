@@ -6,7 +6,12 @@ type Props = {
 
 const head = ({ params }: Props) => {
   const title = params.slug;
-  return <title>{title}</title>;
+  return (
+    <>
+      <title>{title}</title>
+      <link rel="icon" href="/icons/favicon.ico" />
+    </>
+  );
 };
 
 export default head;
