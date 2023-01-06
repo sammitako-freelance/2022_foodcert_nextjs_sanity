@@ -18,7 +18,7 @@ const head = ({}: Props) => {
       <meta property="og:type" content="website" />
       <meta
         property="og:url"
-        content="https://foodcert-nextjs-sanity-h9khs4d5h-sammitako.vercel.app/"
+        content="https://foodcert-nextjs-sanity-sammitako.vercel.app/"
       />
       <meta property="og:title" content="Foodcert - House Boutique" />
       <meta
@@ -34,7 +34,7 @@ const head = ({}: Props) => {
       <meta property="twitter:card" content="summary_large_image" />
       <meta
         property="twitter:url"
-        content="https://foodcert-nextjs-sanity-h9khs4d5h-sammitako.vercel.app/"
+        content="https://foodcert-nextjs-sanity-sammitako.vercel.app/"
       />
       <meta property="twitter:title" content="Foodcert - House Boutique" />
       <meta
