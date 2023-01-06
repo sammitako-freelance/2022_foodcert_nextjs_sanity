@@ -15,7 +15,8 @@ export default async function () {
       <div
         style={{
           fontSize: 128,
-          background: "white",
+          background: "#000231",
+          color: "#F1F1E7",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -33,7 +34,7 @@ export default async function () {
         >
           <div
             style={{
-              background: "black",
+              background: "#F1F1E7",
               width: "100px",
               height: "15px",
               display: "flex",
