@@ -3,6 +3,7 @@ import { groq } from "next-sanity";
 import { client } from "../../../libs/sanity.client";
 import { ContactPage } from "../../../typings";
 import { GetStaticProps } from "next";
+import Head from "next/head";
 
 // import { fetchContactPage } from "../../../libs/fetchContactPage";
 
