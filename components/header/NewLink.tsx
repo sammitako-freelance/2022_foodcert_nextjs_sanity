@@ -26,7 +26,7 @@ const NewLink = ({ page, clickedPage, setClickedPage }: Props) => {
       : lowerCasePage;
   const borderLine = "border-b-[3px] border-[#f1f1e7] inline-block";
 
-  const hash = window.location.hash;
+  // const hash = window.location.hash;
 
   // useEffect(() => {
   //   switch (hash) {

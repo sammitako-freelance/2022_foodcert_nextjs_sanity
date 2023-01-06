@@ -60,11 +60,10 @@ const Navbar = () => {
       {(showNavbar || window.scrollY === 0) && (
         <nav
           className={`${flexBetween} ${navbarBackground} ${
-            !showNavbar &&
-            !isTopOfPage &&
-            "-top-full duration-300 transition-all ease-in"
+            (!showNavbar || !isTopOfPage) &&
+            "-top-full duration-300 transition-all"
           }
-          fixed w-full top-0 z-30 py-6 uppercase font-bold duration-300 transition-all ease-in`}
+          fixed w-full top-0 z-30 py-6 uppercase font-bold duration-300 transition-all`}
         >
           <div className={`${flexBetween} mx-auto w-11/12`}>
             {/* LEFT SIDE */}

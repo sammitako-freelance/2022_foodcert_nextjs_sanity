@@ -1,20 +1,23 @@
+"use client";
 import "../../styles/globals.css";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import ScrollToTop from "../../components/ScrollToTop";
-import ChannelTalk from "../../components/ChannelTalk";
+// import ChannelTalk from "../../components/ChannelTalk";
 import Script from "next/script";
+import Header from "../../components/header";
+import Footer from "../../components/footer";
 
 export default function ClientLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const Header = dynamic(() => import("../../components/header"), {
-    ssr: false,
-  });
-  const Footer = dynamic(() => import("../../components/footer"), {
-    ssr: false,
-  });
+  // const Header = dynamic(() => import("../../components/header"), {
+  //   ssr: false,
+  // });
+  // const Footer = dynamic(() => import("../../components/footer"), {
+  //   ssr: false,
+  // });
 
   return (
     <html>

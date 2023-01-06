@@ -4,6 +4,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "nprogress/nprogress.css";
+
 html,
 body,
 #root,
@@ -34,6 +36,31 @@ body,
   background-color: #fff;
   border-color: #243665;
   color: #243665;
+}
+
+/* 503 */
+.noserver a {
+  display: inline-block;
+  font-weight: 700;
+  text-decoration: none;
+  color: #f1f1e7;
+  text-transform: uppercase;
+  padding: 13px 23px;
+  background: #243665;
+  font-size: 18px;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  border: 2px solid transparent;
+}
+
+.noserver a:hover {
+  background-color: #fff;
+  border-color: #243665;
+  color: #243665;
+}
+
+#nprogress .bar {
+  background-color: #243665 !important;
 }
 
 /* MAP */
