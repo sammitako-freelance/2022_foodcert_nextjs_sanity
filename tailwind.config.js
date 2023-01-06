@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -13,6 +14,7 @@ module.exports = {
       height: {
         "body-height": "calc(-9.5rem + 100vh)",
       },
+
       colors: {
         "custom-blue": "#243665",
         "custom-green": "#4C8381",
@@ -32,6 +34,10 @@ module.exports = {
         "linear-gradient(107.04deg, rgba(130, 132, 138, 0.5) 38.27%, rgba(130, 132, 138, 0.5) 38.28%, rgba(39, 55, 98, 0.5) 113.7%), url('https://images.unsplash.com/photo-1650984661050-b147cd05dee7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2918&q=80')",
     }),
     content: ["./node_modules/flowbite/**/*.js"],
+    screens: {
+      xs: "415px",
+      ...defaultTheme.screens,
+    },
   },
   plugins: [require("@tailwindcss/line-clamp")],
 };
