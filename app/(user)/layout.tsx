@@ -6,6 +6,7 @@ import ScrollToTop from "../../components/ScrollToTop";
 import Script from "next/script";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
+import { Suspense } from "react";
 
 export default function ClientLayout({
   children,

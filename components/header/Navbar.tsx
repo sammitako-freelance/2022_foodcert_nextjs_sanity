@@ -67,8 +67,10 @@ const Navbar = () => {
         >
           <div className={`${flexBetween} mx-auto w-11/12`}>
             {/* LEFT SIDE */}
-            <Link href="/">
-              <div className="hover:text-custom-black transition duration-200 uppercase">
+            <Link href="/" onClick={() => setClickedMenu("home")}>
+              <div
+                className={`hover:text-custom-black transition duration-200 uppercase `}
+              >
                 House Boutique
               </div>
             </Link>
@@ -96,11 +98,15 @@ const Navbar = () => {
                   id={`${clickedMenu !== "home" ? "hover-line" : ""}`}
                   className={`cursor-pointer`}
                 >
-                  <NewLink
-                    page="Home"
-                    clickedPage={clickedMenu}
-                    setClickedPage={setClickedMenu}
-                  />
+                  <Link
+                    href="/"
+                    className={`
+                  ${clickedMenu === "home" && borderLine}
+                  `}
+                    onClick={() => setClickedMenu("home")}
+                  >
+                    home
+                  </Link>
                 </div>
 
                 <div
