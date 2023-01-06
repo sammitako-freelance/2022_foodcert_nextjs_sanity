@@ -12,7 +12,10 @@ const head = ({ params }: Props) => {
     <>
       <title>{title}</title>
       <link rel="icon" href="/icons/favicon.ico" />
-      <meta property="og:image" content="https://my-og-img.vercel.app/api/og" />
+      <meta
+        property="og:image"
+        content="https://foodcert-nextjs-sanity-sammitako.vercel.app/api/og"
+      />
     </>
   );
 };
