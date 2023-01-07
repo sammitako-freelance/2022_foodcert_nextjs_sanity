@@ -31,6 +31,7 @@
     "leaflet": "^1.9.3",
     "next": "latest",
     "next-sanity": "^3.1.8",
+    "next-seo": "^5.15.0",
     "nprogress": "^0.2.0",
     "react": "18.2.0",
     "react-anchor-link-smooth-scroll": "1.0.12",
