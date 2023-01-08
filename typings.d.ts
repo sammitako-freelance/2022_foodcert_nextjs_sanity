@@ -20,8 +20,8 @@ export type MainHeroData = {
   title: Array<string>;
   email: string;
   tel: string;
-  imageFile?: string;
-  imageUrl?: string;
+  mainImageFile?: Array<string>;
+  mainImageUrl?: Array<string>;
 };
 
 export interface MainService extends MainServiceData {

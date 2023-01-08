@@ -8,9 +8,11 @@ import {
   showMenuJotai,
   isTopOfPageJotai,
 } from "../../libs/jotai";
-import NewLink from "./NewLink";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+  const path = usePathname();
+  // console.log(path);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [showNavbar, setShowNavbar] = useState(true);
   const [isTopOfPage, setIsTopOfPage] = useAtom(isTopOfPageJotai);
