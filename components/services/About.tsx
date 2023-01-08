@@ -50,7 +50,7 @@ const About = ({ service }: Props) => {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5 }}
             variants={{
               hidden: { opacity: 0, x: -100 },
@@ -78,7 +78,7 @@ const About = ({ service }: Props) => {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.1 }}
                 variants={{
                   hidden: { opacity: 0, x: -100 },
@@ -103,7 +103,7 @@ const About = ({ service }: Props) => {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.2 }}
                 variants={container}
                 className="grid grid-cols-2 md:grid-cols-3 gap-x-10"
               >
@@ -147,7 +147,7 @@ const About = ({ service }: Props) => {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
                 variants={{
                   hidden: { opacity: 0, x: -100 },
@@ -164,7 +164,7 @@ const About = ({ service }: Props) => {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
                 variants={{
                   hidden: { opacity: 0, x: -100 },
@@ -183,7 +183,7 @@ const About = ({ service }: Props) => {
                 {/* <motion.div
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: true, amount: 0.5 }}
+                  viewport={{ once: true, amount: 0.2 }}
                   transition={{ delay: 0.4, duration: 0.5 }}
                   variants={{
                     hidden: { opacity: 0, x: -100 },
@@ -199,7 +199,7 @@ const About = ({ service }: Props) => {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
+                viewport={{ once: true, amount: 0.2 }}
                 variants={container}
                 className="space-y-3 mb-3"
               >

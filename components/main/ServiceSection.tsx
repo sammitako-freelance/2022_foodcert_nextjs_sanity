@@ -31,7 +31,7 @@ const ServiceSection = ({ service }: Props) => {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.2 }}
             variants={container}
             className="py-10 space-y-8 md:space-y-0 md:flex md:space-x-10"
           >

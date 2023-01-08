@@ -39,7 +39,7 @@ const NewsSection = ({ news, category }: Props) => {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5 }}
                 variants={{
                   hidden: { opacity: 0, x: -100 },
@@ -73,7 +73,7 @@ const NewsSection = ({ news, category }: Props) => {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
+                viewport={{ once: true, amount: 0.2 }}
                 variants={container}
                 className="mt-10 grid-cols-1 divide-y-2"
               >
@@ -95,7 +95,7 @@ const NewsSection = ({ news, category }: Props) => {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ delay: 0.4, duration: 0.5 }}
                 variants={{
                   hidden: { opacity: 0, x: -100 },
