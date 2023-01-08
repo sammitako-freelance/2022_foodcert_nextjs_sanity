@@ -5,7 +5,7 @@ type Props = {
 };
 
 const head = ({ params }: Props) => {
-  const title = params.slug;
+  const title = params.slug + " - News";
   return (
     <>
       <title>{title}</title>
