@@ -4,12 +4,12 @@ import LinkButton from "../LinkButton";
 import { FaFacebook, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import { News } from "../../typings";
 import { StyleBodyContent } from "../StyleBodyContent";
-import PageNotFound from "../../pages/404";
 import { useState } from "react";
-import { ArrowDownTrayIcon } from "@heroicons/react/24/solid";
+import { ArrowDownTrayIcon, ShareIcon } from "@heroicons/react/24/solid";
 import JSZip from "jszip";
 import JSZipUtils from "jszip-utils";
 import { saveAs } from "file-saver";
+import toast, { Toaster } from "react-hot-toast";
 
 type Props = {
   data: News;
@@ -25,6 +25,26 @@ const NoticeItem = ({ data }: Props) => {
       ? "bg-custom-blue"
       : "bg-custom-green";
 
+  // SHARE
+  const baseUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/notice/`;
+  let postUrl = baseUrl.concat(data.slug.current);
+  let hashtag = "#houseboutique";
+  let quote = "Beauty & Health | 최고의 해외 진출 파트너 House Boutique";
+  let title =
+    data?.title !== undefined ? data?.title : "Foodcert - House Boutique";
+  const copyCurrentUrl = (url: any) => {
+    const el = document.createElement("input");
+    el.value = url;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand("copy");
+    document.body.removeChild(el);
+    document.body.style.overflow = "unset";
+
+    toast.success("Current URL has been copied");
+  };
+
+  // FILE DOWNLOADER
   const downloadAll = () => {
     let zipFiles = [{ url: "", name: "" }];
 
@@ -62,6 +82,16 @@ const NoticeItem = ({ data }: Props) => {
   return (
     <>
       <section>
+        <Toaster
+          toastOptions={{
+            success: {
+              iconTheme: {
+                primary: "#DDE8E7",
+                secondary: "#000231",
+              },
+            },
+          }}
+        />
         {/* HERO BACKGROUND */}
         <div className="pt-10 md:pt-14 h-[230px] md:h-[300px] bg-cover bg-no-repeat	bg-center bg-notice-item-background">
           <div
@@ -104,14 +134,20 @@ const NoticeItem = ({ data }: Props) => {
                 </div>
               </div>
               <div className="flex space-x-10 text-custom-black mt-10 sm:mt-0">
-                <div>
+                <div className="hover:cursor-pointer">
                   <FaFacebook className="w-5 h-5" />
                 </div>
-                <div>
+                <div className="hover:cursor-pointer">
                   <FaTwitter className="w-5 h-5" />
                 </div>
-                <div>
+                <div className="hover:cursor-pointer">
                   <FaLinkedinIn className="w-5 h-5" />
+                </div>
+                <div
+                  className="hover:cursor-pointer"
+                  onClick={() => copyCurrentUrl(postUrl)}
+                >
+                  <ShareIcon className="w-5 h-5" />
                 </div>
               </div>
             </div>
