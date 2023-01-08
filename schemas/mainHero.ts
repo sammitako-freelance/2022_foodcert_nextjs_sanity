@@ -25,19 +25,19 @@ export default defineType({
       title: "Tel",
       type: "string",
     }),
-    defineField({
-      name: "mainImageFile",
-      title: "Main Image Files",
-      type: "array",
-      of: [
-        {
-          type: "image",
-          options: {
-            hotspot: true,
-          },
-        },
-      ],
-    }),
+    // defineField({
+    //   name: "mainImageFile",
+    //   title: "Main Image Files",
+    //   type: "array",
+    //   of: [
+    //     {
+    //       type: "image",
+    //       options: {
+    //         hotspot: true,
+    //       },
+    //     },
+    //   ],
+    // }),
     defineField({
       name: "mainImageUrl",
       title: "Main Image URLs",

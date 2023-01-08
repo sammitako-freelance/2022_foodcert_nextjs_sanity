@@ -170,7 +170,7 @@ const About = ({ service }: Props) => {
                   hidden: { opacity: 0, x: -100 },
                   visible: { opacity: 1, x: 0 },
                 }}
-                className="uppercase text-sm text-custom-dark-gray mx-auto text-center pt-6 mb-20 tracking-wider"
+                className="uppercase text-sm text-custom-dark-gray mx-auto text-center pt-6 mb-14 tracking-wider"
               >
                 LABELING
               </motion.div>
@@ -180,7 +180,7 @@ const About = ({ service }: Props) => {
                 <div className="basis-11/12 text-sm text-custom-black mr-5 sm:mr-3 md:mr-0 leading-relaxed invisible">
                   INVISIBLE
                 </div>
-                <motion.div
+                {/* <motion.div
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.5 }}
@@ -194,7 +194,7 @@ const About = ({ service }: Props) => {
                   <div className="flex justify-center">
                     <p className="break-normal">체크</p>
                   </div>
-                </motion.div>
+                </motion.div> */}
               </div>
               <motion.div
                 initial="hidden"

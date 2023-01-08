@@ -24,7 +24,7 @@ const FaqAccordion = ({ faq }: Props) => {
             className="flex justify-between items-center border-b-2 hover:cursor-pointer py-3 sm:py-5"
             onClick={() => handleOpen(idx)}
           >
-            <div className="text-md sm:text-xl text-left text-custom-black">
+            <div className="text-md sm:text-xl text-left text-custom-black font-semibold">
               {item.question}
             </div>
             {open === idx ? (

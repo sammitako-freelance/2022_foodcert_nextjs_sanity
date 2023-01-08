@@ -18,7 +18,7 @@ export default function HeroSection({ hero }: Props) {
   const heroImages = sanityHero.mainImageUrl;
   const [count, setCount] = useState(0);
   const intervalTime = 5000;
-  const autoFlag = false;
+  const autoFlag = true;
   let slideInterval: any;
 
   const autoSlide = () => {
@@ -47,8 +47,8 @@ export default function HeroSection({ hero }: Props) {
         animate={{ opacity: 1 }}
         transition={{
           duration: 1,
-          // repeat: Infinity,
-          // repeatDelay: 5
+          repeat: Infinity,
+          repeatDelay: 5,
         }}
         style={{
           width: "100%",
