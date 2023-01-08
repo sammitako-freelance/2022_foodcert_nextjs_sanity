@@ -1,14 +1,9 @@
-import { Fragment, useState } from "react";
-import {
-  Accordion,
-  AccordionHeader,
-  AccordionBody,
-} from "@material-tailwind/react";
 import { motion } from "framer-motion";
 import { useAtom } from "jotai";
 import { clickedMenuJotai } from "../../libs/jotai";
 import TitleText from "../TitleText";
 import { FaqData } from "../../typings";
+import FaqAccordion from "./FaqAccordion";
 
 type Props = {
   faq: FaqData[];
@@ -16,10 +11,6 @@ type Props = {
 
 const FaqSection = ({ faq }: Props) => {
   const [clickedMenu, setClickedMenu] = useAtom(clickedMenuJotai);
-  const [open, setOpen] = useState(1);
-  const handleOpen = (value: any) => {
-    setOpen(open === value ? 0 : value);
-  };
 
   return (
     <section
@@ -48,24 +39,9 @@ const FaqSection = ({ faq }: Props) => {
             }}
             className="w-5/6 sm:w-4/6 my-10 text-custom-black border rounded-lg p-5 bg-white text-left"
           >
+            <FaqAccordion faq={faq} />
+
             {/* <Fragment>
-              <>
-                {faq?.map((item, idx) => {
-                  <Accordion key={idx} open={open === idx}>
-                    <AccordionHeader
-                      className="border-b-2 text-md sm:text-xl text-left"
-                      onClick={() => handleOpen(idx)}
-                    >
-                      {item.question}
-                    </AccordionHeader>
-                    <AccordionBody className="text-custom-dark-gray text-sm sm:text-base">
-                      {item.answer}
-                    </AccordionBody>
-                  </Accordion>;
-                })}
-              </>
-            </Fragment> */}
-            <Fragment>
               <Accordion open={open === 1}>
                 <AccordionHeader
                   className="border-b-2 text-md sm:text-xl text-left"
@@ -108,7 +84,7 @@ const FaqSection = ({ faq }: Props) => {
                   dreams.
                 </AccordionBody>
               </Accordion>
-            </Fragment>
+            </Fragment> */}
           </motion.div>
         </div>
       </motion.div>
