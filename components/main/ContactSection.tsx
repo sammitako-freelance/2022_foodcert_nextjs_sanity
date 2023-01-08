@@ -54,6 +54,7 @@ const ContactSection = ({ contact }: Props) => {
                 visible: { opacity: 1, x: 0 },
               }}
               className="z-10"
+              onClick={() => setClickedMenu("contact")}
             >
               <LinkButton
                 pathLink="/contact"

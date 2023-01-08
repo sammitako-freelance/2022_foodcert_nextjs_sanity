@@ -1,6 +1,8 @@
 import React from "react";
 import LinkButton from "../LinkButton";
 import { motion } from "framer-motion";
+import { useAtom } from "jotai";
+import { clickedMenuJotai } from "../../libs/jotai";
 
 const childVariant = {
   hidden: { opacity: 0, scale: 0.9 },
@@ -24,6 +26,8 @@ const ServiceCard = ({ category, list, title }: Props) => {
       : "border-custom-green";
   const backgroundColor =
     category?.toLowerCase() === "efsa" ? "bg-custom-blue" : "bg-custom-green";
+  const [clickedMenu, setClickedMenu] = useAtom(clickedMenuJotai);
+
   return (
     <motion.div
       variants={childVariant}
@@ -41,7 +45,10 @@ const ServiceCard = ({ category, list, title }: Props) => {
           <li key={idx}>{content}</li>
         ))}
       </ul>
-      <div className="flex justify-center items-center mt-auto pt-10">
+      <div
+        className="flex justify-center items-center mt-auto pt-10"
+        onClick={() => setClickedMenu(category?.toLowerCase())}
+      >
         <LinkButton
           pathLink={`/services/${category?.toLowerCase()}`}
           title="더 알아보기"

@@ -2,6 +2,8 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ChevronRightIcon } from "@heroicons/react/24/solid";
+import { useAtom } from "jotai";
+import { clickedMenuJotai } from "../../libs/jotai";
 
 type Props = {
   title: string;
@@ -17,8 +19,13 @@ const childVariant = {
 };
 
 const MainNewsList = ({ title, category, textColor, date, link }: Props) => {
+  const [clickedMenu, setClickedMenu] = useAtom(clickedMenuJotai);
+
   return (
-    <section className="mx-auto w-full items-center justify-center h-full hover:cursor-pointer hover:shadow-md">
+    <section
+      onClick={() => setClickedMenu("news")}
+      className="mx-auto w-full items-center justify-center h-full hover:cursor-pointer hover:shadow-md"
+    >
       <Link href={`/notice/${link}`}>
         <motion.div
           variants={childVariant}

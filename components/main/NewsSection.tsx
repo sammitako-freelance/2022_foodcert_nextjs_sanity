@@ -102,6 +102,7 @@ const NewsSection = ({ news, category }: Props) => {
                   visible: { opacity: 1, x: 0 },
                 }}
                 className="flex justify-center items-center mt-10"
+                onClick={() => setClickedMenu("news")}
               >
                 <LinkButton
                   pathLink="/notice"

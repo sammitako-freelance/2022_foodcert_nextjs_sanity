@@ -4,17 +4,21 @@ import LinkButton from "../LinkButton";
 import { AnimatePresence, motion } from "framer-motion";
 import { MainHero } from "../../typings";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
+import { useAtom } from "jotai";
+import { clickedMenuJotai } from "../../libs/jotai";
 
 type Props = {
   hero: MainHero[];
 };
 
 export default function HeroSection({ hero }: Props) {
+  const [clickedMenu, setClickedMenu] = useAtom(clickedMenuJotai);
+
   const sanityHero = hero[0];
   const heroImages = sanityHero.mainImageUrl;
   const [count, setCount] = useState(0);
   const intervalTime = 5000;
-  const autoFlag = true;
+  const autoFlag = false;
   let slideInterval: any;
 
   const autoSlide = () => {
@@ -41,7 +45,11 @@ export default function HeroSection({ hero }: Props) {
         key={count}
         initial={{ opacity: 0.9 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, repeat: Infinity, repeatDelay: 5 }}
+        transition={{
+          duration: 1,
+          // repeat: Infinity,
+          // repeatDelay: 5
+        }}
         style={{
           width: "100%",
           height: "100%",
@@ -53,7 +61,7 @@ export default function HeroSection({ hero }: Props) {
           // backgroundPosition: "center",
           // backgroundSize: "cover",
         }}
-        className="gap-16 pt-10 md:pt-14 relative text-black text-6xl group"
+        className="gap-16 pt-10 md:pt-14 relative text-black text-6xl"
       >
         <div className="">
           <ChevronLeftIcon
@@ -98,6 +106,7 @@ export default function HeroSection({ hero }: Props) {
               //   visible: { opacity: 1, x: 0 },
               // }}
               className="flex"
+              onClick={() => setClickedMenu("contact")}
             >
               <LinkButton
                 pathLink="/contact"
