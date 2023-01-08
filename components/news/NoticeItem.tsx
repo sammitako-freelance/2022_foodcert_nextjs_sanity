@@ -10,6 +10,11 @@ import JSZip from "jszip";
 import JSZipUtils from "jszip-utils";
 import { saveAs } from "file-saver";
 import toast, { Toaster } from "react-hot-toast";
+import {
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+} from "react-share";
 
 type Props = {
   data: News;
@@ -27,7 +32,7 @@ const NoticeItem = ({ data }: Props) => {
 
   // SHARE
   const baseUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/notice/`;
-  let postUrl = baseUrl.concat(data.slug.current);
+  let itemUrl = baseUrl.concat(data.slug.current);
   let hashtag = "#houseboutique";
   let quote = "Beauty & Health | 최고의 해외 진출 파트너 House Boutique";
   let title =
@@ -135,17 +140,31 @@ const NoticeItem = ({ data }: Props) => {
               </div>
               <div className="flex space-x-10 text-custom-black mt-10 sm:mt-0">
                 <div className="hover:cursor-pointer">
-                  <FaFacebook className="w-5 h-5" />
+                  <FacebookShareButton
+                    url={itemUrl}
+                    quote={quote}
+                    hashtag={hashtag}
+                  >
+                    <FaFacebook className="w-5 h-5" />
+                  </FacebookShareButton>
                 </div>
                 <div className="hover:cursor-pointer">
-                  <FaTwitter className="w-5 h-5" />
+                  <TwitterShareButton title={title} url={itemUrl}>
+                    <FaTwitter className="w-5 h-5" />
+                  </TwitterShareButton>
                 </div>
                 <div className="hover:cursor-pointer">
-                  <FaLinkedinIn className="w-5 h-5" />
+                  <LinkedinShareButton
+                    title={title}
+                    url={itemUrl}
+                    summary={quote}
+                  >
+                    <FaLinkedinIn className="w-5 h-5" />
+                  </LinkedinShareButton>
                 </div>
                 <div
                   className="hover:cursor-pointer"
-                  onClick={() => copyCurrentUrl(postUrl)}
+                  onClick={() => copyCurrentUrl(itemUrl)}
                 >
                   <ShareIcon className="w-5 h-5" />
                 </div>
