@@ -20,14 +20,14 @@ export default defineType({
         maxLength: 96,
       },
     }),
-    defineField({
-      name: "mainImageFile",
-      title: "Main Image File",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
-    }),
+    // defineField({
+    //   name: "mainImageFile",
+    //   title: "Main Image File",
+    //   type: "image",
+    //   options: {
+    //     hotspot: true,
+    //   },
+    // }),
     defineField({
       name: "mainImageUrl",
       title: "Main Image URL",

@@ -10,6 +10,7 @@ type Props = {
 };
 
 const About = ({ service }: Props) => {
+  const image = service?.mainImageUrl;
   const contentContainer = "relative pt-[10px]";
   const contentBorder =
     service?.categories?.title?.toLowerCase() === "efsa"
@@ -34,7 +35,12 @@ const About = ({ service }: Props) => {
   return (
     <section>
       {/* HERO BACKGROUND */}
-      <div className="pt-10 md:pt-14 h-[230px] md:h-[300px] bg-cover bg-no-repeat	bg-center bg-[url('https://cdn.sanity.io/images/4k25zhng/production/d3ec2d233309a8daff9e59ff9b45139a69f48964-6000x3376.jpg')] opacity-70">
+      <div
+        className={`pt-10 md:pt-14 h-[230px] md:h-[300px] bg-cover bg-no-repeat	bg-center opacity-80`}
+        style={{
+          backgroundImage: `url(${service?.mainImageUrl})`,
+        }}
+      >
         <div
           id="content-container"
           className="mt-20 mb-14 tracking-widest leading-relaxed mx-auto w-5/6 items-center justify-center h-full"
