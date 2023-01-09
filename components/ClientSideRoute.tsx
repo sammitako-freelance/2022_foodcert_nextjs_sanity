@@ -10,12 +10,7 @@ const ClientSideRoute = ({
   children: React.ReactNode;
   route: string;
 }) => {
-  const [clickedMenu, setClickedMenu] = useAtom(clickedMenuJotai);
-  return (
-    <Link href={route} onClick={() => setClickedMenu("news")}>
-      {children}
-    </Link>
-  );
+  return <Link href={route}>{children}</Link>;
 };
 
 export default ClientSideRoute;

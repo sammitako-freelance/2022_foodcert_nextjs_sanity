@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { useAtom } from "jotai";
+import { clickedMenuJotai } from "libs/jotai";
 import ClientSideRoute from "../ClientSideRoute";
 type Props = {
   category: string;
@@ -13,6 +15,8 @@ const childVariant = {
 };
 
 const NoticeCard = ({ category, title, summary, date, route }: Props) => {
+  const [clickedMenu, setClickedMenu] = useAtom(clickedMenuJotai);
+
   const textColor =
     category?.toLowerCase() === "efsa"
       ? "text-custom-blue"
@@ -28,6 +32,7 @@ const NoticeCard = ({ category, title, summary, date, route }: Props) => {
       <div
         // variants={childVariant}
         className="rounded-lg shadow-md bg-white group hover:cursor-pointer h-full"
+        onClick={() => setClickedMenu("news")}
       >
         <div className="px-10 py-16">
           <div
