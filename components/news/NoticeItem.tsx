@@ -46,7 +46,7 @@ const NoticeItem = ({ data }: Props) => {
     document.body.removeChild(el);
     document.body.style.overflow = "unset";
 
-    toast.success("Current URL has been copied");
+    toast.success("현재 주소가 복사되었습니다.");
   };
 
   // FILE DOWNLOADER
