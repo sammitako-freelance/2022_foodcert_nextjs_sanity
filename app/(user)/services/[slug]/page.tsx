@@ -1,8 +1,10 @@
+import Loader from "../../../../components/Loader";
 import { groq } from "next-sanity";
-import React from "react";
+import React, { Suspense } from "react";
 import About from "../../../../components/services/About";
 import { client } from "../../../../libs/sanity.client";
 import { ServicePage } from "../../../../typings";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: {
@@ -35,5 +37,13 @@ export default async function Service({ params: { slug } }: Props) {
   `;
 
   const service: ServicePage = await client.fetch(query, { slug });
-  return <About service={service} />;
+  if (!service) {
+    notFound();
+  }
+
+  return (
+    <Suspense fallback={<Loader />}>
+      <About service={service} />
+    </Suspense>
+  );
 }

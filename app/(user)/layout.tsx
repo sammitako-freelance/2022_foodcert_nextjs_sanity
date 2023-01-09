@@ -7,6 +7,8 @@ import Script from "next/script";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import { NextSeo } from "next-seo";
+import { Suspense } from "react";
+import Loader from "../../components/Loader";
 
 export default function ClientLayout({
   children,
@@ -26,7 +28,9 @@ export default function ClientLayout({
         <Header />
         {/* <div className="h-body-height">{children}</div> */}
         {/* page.tsx */}
-        <div>{children}</div>
+        <Suspense fallback={<Loader />}>
+          <div>{children}</div>
+        </Suspense>
         {/* <ChannelTalk /> */}
         <ScrollToTop />
         <Script

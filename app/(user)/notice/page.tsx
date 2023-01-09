@@ -4,6 +4,9 @@ import { client } from "../../../libs/sanity.client";
 import { groq } from "next-sanity";
 
 import { fetchNoticeList } from "../../../libs/fetchNoticeList";
+import { Suspense } from "react";
+import Loader from "../../../components/Loader";
+import { notFound } from "next/navigation";
 
 type Props = {};
 
@@ -24,5 +27,12 @@ export default async function Notice(props: Props) {
   //   const noticeList: News[] = await client.fetch(noticeListQuery);
 
   const list = await getNoticeList();
-  return <NoticeList list={list} />;
+  if (!list) {
+    notFound();
+  }
+  return (
+    <Suspense fallback={<Loader />}>
+      <NoticeList list={list} />
+    </Suspense>
+  );
 }

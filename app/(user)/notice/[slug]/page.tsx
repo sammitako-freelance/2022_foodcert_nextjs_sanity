@@ -1,10 +1,12 @@
 import groq from "groq";
-import React from "react";
+import React, { Suspense } from "react";
 import NoticeItem from "../../../../components/news/NoticeItem";
 import { client } from "../../../../libs/sanity.client";
 import { News } from "../../../../typings";
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
+import Loader from "../../../../components/Loader";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: {
@@ -45,11 +47,14 @@ async function NewsItem({ params: { slug } }: Props) {
   // if (!router.isFallback && !slug) {
   //   return <ErrorPage statusCode={404} />;
   // }
+  if (!item) {
+    notFound();
+  }
 
   return (
-    <article>
+    <Suspense fallback={<Loader />}>
       <NoticeItem data={item} />
-    </article>
+    </Suspense>
   );
 }
 

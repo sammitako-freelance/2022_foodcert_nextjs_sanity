@@ -4,6 +4,8 @@ import { client } from "../../../libs/sanity.client";
 import { ContactPage } from "../../../typings";
 
 import { fetchContactPage } from "../../../libs/fetchContactPage";
+import { Suspense } from "react";
+import Loader from "../../../components/Loader";
 
 type Props = {};
 
@@ -23,9 +25,9 @@ export default async function Contact(props: Props) {
   //   const contact: ContactPage[] = await client.fetch(contactPageQuery);
   const contact = await getContact();
   return (
-    <div>
+    <Suspense fallback={<Loader />}>
       <ContactForm contact={contact} />
-    </div>
+    </Suspense>
   );
 }
 

@@ -32,7 +32,7 @@ const NoticeItem = ({ data }: Props) => {
 
   // SHARE
   const baseUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/notice/`;
-  let itemUrl = baseUrl.concat(data.slug.current);
+  let itemUrl = baseUrl.concat(data?.slug?.current);
   let hashtag = "#houseboutique";
   let quote = "Beauty & Health | 최고의 해외 진출 파트너 House Boutique";
   let title =
