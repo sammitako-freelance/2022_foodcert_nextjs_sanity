@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useAtom } from "jotai";
-import { clickedMenuJotai } from "libs/jotai";
+import { clickedMenuJotai } from "../../libs/jotai";
 import ClientSideRoute from "../ClientSideRoute";
 type Props = {
   category: string;
