@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import { useAtom } from "jotai";
-import { clickedMenuJotai } from "../../libs/jotai";
+import { useAtom, useAtomValue } from "jotai";
+import { clickedMenuJotai, clickedServiceJotai } from "../../libs/jotai";
 import TitleText from "../TitleText";
 import { MainService } from "../../typings";
 import ServiceCard from "./ServiceCard";
@@ -12,12 +12,23 @@ type Props = {
 
 const ServiceSection = ({ service }: Props) => {
   const [clickedMenu, setClickedMenu] = useAtom(clickedMenuJotai);
+  const [clickedService, setClickedService] = useAtom(clickedServiceJotai);
   const container = {
     hidden: {},
     visible: {
       transition: { staggerChildren: 0.2 },
     },
   };
+
+  useEffect(() => {
+    if (clickedService) {
+      const element = document.getElementById("services");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    return () => setClickedService(false);
+  }, [clickedService]);
   return (
     <section
       id="services"

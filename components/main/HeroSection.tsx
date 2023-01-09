@@ -4,8 +4,8 @@ import LinkButton from "../LinkButton";
 import { AnimatePresence, motion } from "framer-motion";
 import { MainHero } from "../../typings";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
-import { useAtom } from "jotai";
-import { clickedMenuJotai } from "../../libs/jotai";
+import { useAtom, useAtomValue } from "jotai";
+import { clickedHomeJotai, clickedMenuJotai } from "../../libs/jotai";
 
 type Props = {
   hero: MainHero[];
@@ -13,6 +13,7 @@ type Props = {
 
 export default function HeroSection({ hero }: Props) {
   const [clickedMenu, setClickedMenu] = useAtom(clickedMenuJotai);
+  const clickedHome = useAtomValue(clickedHomeJotai);
 
   const sanityHero = hero[0];
   const heroImages = sanityHero.mainImageUrl;
@@ -36,6 +37,15 @@ export default function HeroSection({ hero }: Props) {
     }
     return () => clearInterval(slideInterval);
   }, [count]);
+
+  // useEffect(() => {
+  //   if (clickedHome) {
+  //     const element = document.getElementById("home");
+  //     if (element) {
+  //       element.scrollIntoView({ behavior: "smooth" });
+  //     }
+  //   }
+  // }, [clickedHome]);
 
   return (
     <section id="home" className="">

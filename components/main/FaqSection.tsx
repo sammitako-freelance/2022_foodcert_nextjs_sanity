@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
-import { useAtom } from "jotai";
-import { clickedMenuJotai } from "../../libs/jotai";
+import { useAtom, useAtomValue } from "jotai";
+import { clickedFaqJotai, clickedMenuJotai } from "../../libs/jotai";
 import TitleText from "../TitleText";
 import { FaqData } from "../../typings";
 import FaqAccordion from "./FaqAccordion";
+import { useEffect } from "react";
 
 type Props = {
   faq: FaqData[];
@@ -11,6 +12,17 @@ type Props = {
 
 const FaqSection = ({ faq }: Props) => {
   const [clickedMenu, setClickedMenu] = useAtom(clickedMenuJotai);
+  const [clickedFaq, setClickedFaq] = useAtom(clickedFaqJotai);
+
+  useEffect(() => {
+    if (clickedFaq) {
+      const element = document.getElementById("faq");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    return () => setClickedFaq(false);
+  }, [clickedFaq]);
 
   return (
     <section

@@ -10,6 +10,14 @@ import { NextSeo } from "next-seo";
 import { Suspense } from "react";
 import Loader from "../../components/Loader";
 
+import Router from "next/router";
+import NProgress from "nprogress";
+
+NProgress.configure({ showSpinner: false });
+Router.events.on("routeChangeStart", () => NProgress.start());
+Router.events.on("routeChangeComplete", () => NProgress.done());
+Router.events.on("routeChangeError", () => NProgress.done());
+
 export default function ClientLayout({
   children,
 }: {
@@ -25,14 +33,14 @@ export default function ClientLayout({
   return (
     <html>
       <body>
-        <Header />
+        {/* <Header /> */}
         {/* <div className="h-body-height">{children}</div> */}
         {/* page.tsx */}
-        <Suspense fallback={<Loader />}>
-          <div>{children}</div>
-        </Suspense>
+        {/* <Suspense fallback={<Loader />}> */}
+        <div>{children}</div>
+        {/* </Suspense> */}
         {/* <ChannelTalk /> */}
-        <ScrollToTop />
+        {/* <ScrollToTop />
         <Script
           id="channelTalk"
           strategy="lazyOnload"
@@ -77,8 +85,8 @@ export default function ClientLayout({
             });
             `,
           }}
-        />
-        <Footer />
+        /> */}
+        {/* <Footer /> */}
       </body>
     </html>
   );

@@ -7,17 +7,23 @@ import {
   clickedMenuJotai,
   showMenuJotai,
   isTopOfPageJotai,
+  clickedFaqJotai,
+  clickedServiceJotai,
+  clickedHomeJotai,
 } from "../../libs/jotai";
-import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
-  const path = usePathname();
   // console.log(path);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [showNavbar, setShowNavbar] = useState(true);
   const [isTopOfPage, setIsTopOfPage] = useAtom(isTopOfPageJotai);
   const [show, setShow] = useAtom(showMenuJotai);
   const [clickedMenu, setClickedMenu] = useAtom(clickedMenuJotai);
+  const [clickedFaq, setClickedFaq] = useAtom(clickedFaqJotai);
+  const [clickedService, setClickedService] = useAtom(clickedServiceJotai);
+  const [clickedHome, setClickedHome] = useAtom(clickedHomeJotai);
+  const router = useRouter();
 
   const flexBetween = "flex items-center justify-between";
   const navbarBackground = isTopOfPage
@@ -47,6 +53,25 @@ const Navbar = () => {
     }
   }, 100);
 
+  const pushPathAndScroll = (name: string, e: any) => {
+    if (name === "service") {
+      e.preventDefault();
+      setClickedMenu("services");
+      router.push("/");
+      setClickedService(true);
+    } else if (name === "faq") {
+      e.preventDefault();
+      setClickedMenu("faq");
+      router.push("/");
+      setClickedFaq(true);
+    } else if (name === "home") {
+      e.preventDefault();
+      setClickedMenu("home");
+      router.push("/");
+      setClickedHome(true);
+    }
+  };
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.addEventListener("scroll", controlNavbar);
@@ -69,7 +94,7 @@ const Navbar = () => {
         >
           <div className={`${flexBetween} mx-auto w-11/12`}>
             {/* LEFT SIDE */}
-            <Link href="/" onClick={() => setClickedMenu("home")}>
+            <Link href="/" onClick={(e) => pushPathAndScroll("home", e)}>
               <div
                 className={`hover:text-custom-black transition duration-200 uppercase `}
               >
@@ -116,11 +141,11 @@ const Navbar = () => {
                   className={`relative group cursor-pointer uppercase`}
                 >
                   <Link
-                    href="/services/efsa"
+                    href="/"
                     className={`
                   ${clickedMenu === "services" && borderLine}
                   `}
-                    onClick={() => setClickedMenu("services")}
+                    onClick={(e) => pushPathAndScroll("service", e)}
                   >
                     services
                   </Link>
@@ -177,7 +202,7 @@ const Navbar = () => {
                     clickedMenu === "faq" && borderLine
                   }`}
                 >
-                  <Link href="/" onClick={() => setClickedMenu("faq")}>
+                  <Link href="/" onClick={(e) => pushPathAndScroll("faq", e)}>
                     faq
                   </Link>
                 </div>

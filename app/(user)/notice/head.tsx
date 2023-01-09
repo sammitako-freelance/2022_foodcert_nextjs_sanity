@@ -7,6 +7,7 @@ const head = ({}: Props) => {
   return (
     <>
       <title>{title}</title>
+      <meta name="viewport" content="width=device-width" />
       <link rel="icon" href="/icons/favicon.ico" />
     </>
   );

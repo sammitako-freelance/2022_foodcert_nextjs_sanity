@@ -1,10 +1,19 @@
 "use client";
 import useScrollToggle from "../hooks/useScrollToggle";
 import { ChevronDoubleUpIcon } from "@heroicons/react/24/solid";
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
+import { useAtom } from "jotai";
+import { clickedMenuJotai } from "../libs/jotai";
 
 const ScrollToTop = () => {
+  const currentPath = usePathname();
+  const [clickedMenu, setClickedMenu] = useAtom(clickedMenuJotai);
   const isScrolled = useScrollToggle(false);
   const moveToTop = () => {
+    if (currentPath === "/") {
+      setClickedMenu("home");
+    }
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -12,6 +21,7 @@ const ScrollToTop = () => {
   };
   // right-8 xs:right-7 bottom-24
   // right-8 xs:right-7 bottom-10
+
   return isScrolled ? (
     <button
       onClick={moveToTop}

@@ -17,6 +17,14 @@ import {
   FaqData,
   MainContact,
 } from "../../typings";
+import Header from "../../components/header";
+import Footer from "../../components/footer";
+import ScrollToTop from "../../components/ScrollToTop";
+import Script from "next/script";
+import { Suspense } from "react";
+import Loader from "../../components/Loader";
+import SvgLoader from "../../components/SvgLoader";
+import dynamic from "next/dynamic";
 
 export const revalidate = 30;
 
@@ -74,6 +82,12 @@ export default async function Home() {
     );
   }
 
+  // if (document.referrer == location.href) {
+  //   // the page was opened in a new window or tab and accessed directly
+  // } else if (document.referrer.indexOf(location.hostname) == -1) {
+  //   // The page before this one was not a page on this site
+  // }
+
   //   const heroQuery = groq`
   //   *[_type=="mainHero"] {
   //   _id,
@@ -124,7 +138,8 @@ export default async function Home() {
   //   const contact: MainContact = await client.fetch(contactQuery);
 
   return (
-    <div>
+    <>
+      <Header />
       <MainPageLayout
         hero={hero}
         service={service}
@@ -133,7 +148,54 @@ export default async function Home() {
         faq={faq}
         contact={contact}
       />
-    </div>
+      <Footer />
+      <ScrollToTop />
+      <Script
+        id="channelTalk"
+        strategy="lazyOnload"
+        dangerouslySetInnerHTML={{
+          __html: `(function() {
+              var w = window;
+              if (w.ChannelIO) {
+                return (window.console.error || window.console.log || function(){})('ChannelIO script included twice.');
+              }
+              var ch = function() {
+                ch.c(arguments);
+              };
+              ch.q = [];
+              ch.c = function(args) {
+                ch.q.push(args);
+              };
+              w.ChannelIO = ch;
+              function l() {
+                if (w.ChannelIOInitialized) {
+                  return;
+                }
+                w.ChannelIOInitialized = true;
+                var s = document.createElement('script');
+                s.type = 'text/javascript';
+                s.async = true;
+                s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+                s.charset = 'UTF-8';
+                var x = document.getElementsByTagName('script')[0];
+                x.parentNode.insertBefore(s, x);
+              }
+              if (document.readyState === 'complete') {
+                l();
+              } else if (window.attachEvent) {
+                window.attachEvent('onload', l);
+              } else {
+                window.addEventListener('DOMContentLoaded', l, false);
+                window.addEventListener('load', l, false);
+              }
+            })();
+            ChannelIO('boot', {
+              "pluginKey": "${process.env.NEXT_PUBLIC_CHANNEL_IO_KEY}"
+            });
+            `,
+        }}
+      />
+    </>
   );
 }
 

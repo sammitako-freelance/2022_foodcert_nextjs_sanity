@@ -27,14 +27,13 @@
     "typeRoots": ["./node_modules/@types", "./@types"]
   },
   "include": [
+    "./@types/svg.d.ts",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
     "components/main/HeroSection.tsx",
     "components/header/libs/jotai.js",
-    "components/header/libs/jotai.js",
-    "components/ChannelTalk.jsx",
     "components/ChannelTalk.jsx"
   ],
   "exclude": ["node_modules"]

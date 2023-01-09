@@ -59,8 +59,9 @@ body,
   color: #243665;
 }
 
+/* PROGRESS BAR */
 #nprogress .bar {
-  background-color: #243665 !important;
+  background-color: #4c8381 !important;
 }
 
 /* MAP */
