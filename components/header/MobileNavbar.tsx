@@ -4,10 +4,16 @@ import {
   MdOutlineKeyboardArrowDown,
 } from "react-icons/md";
 import { XMarkIcon } from "@heroicons/react/24/solid";
-import { clickedMenuJotai, showMenuJotai } from "../../libs/jotai";
+import {
+  clickedFaqJotai,
+  clickedHomeJotai,
+  clickedMenuJotai,
+  clickedServiceJotai,
+  showMenuJotai,
+} from "../../libs/jotai";
 import { useAtom } from "jotai";
 import NewLink from "./NewLink";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const MobileNavbar = () => {
   const borderLine = "border-b-[3px] border-[#f1f1e7] inline-block";
@@ -16,10 +22,35 @@ const MobileNavbar = () => {
   const [subMenu, setSubmenu] = useState<boolean>(false);
   const [show, setShow] = useAtom(showMenuJotai);
   const [clickedMenu, setClickedMenu] = useAtom(clickedMenuJotai);
+  const [clickedFaq, setClickedFaq] = useAtom(clickedFaqJotai);
+  const [clickedService, setClickedService] = useAtom(clickedServiceJotai);
+  const [clickedHome, setClickedHome] = useAtom(clickedHomeJotai);
+  const router = useRouter();
 
   const chooseMenu = (name: string) => {
     setShow(false);
     setClickedMenu(name);
+  };
+
+  const pushPathAndScroll = (name: string, e: any) => {
+    if (name === "service") {
+      e.preventDefault();
+      setShow(false);
+      setClickedMenu(name);
+      router.push("/");
+      setClickedService(true);
+    } else if (name === "faq") {
+      e.preventDefault();
+      setShow(false);
+      setClickedMenu(name);
+      router.push("/");
+      setClickedFaq(true);
+    } else if (name === "home") {
+      e.preventDefault();
+      setClickedMenu("home");
+      router.push("/");
+      setClickedHome(true);
+    }
   };
 
   return (
@@ -114,7 +145,7 @@ const MobileNavbar = () => {
           </div>
           <div
             className={`cursor-pointer text-xl`}
-            onClick={() => chooseMenu("faq")}
+            onClick={(e) => pushPathAndScroll("faq", e)}
           >
             <div id={`${clickedMenu !== "faq" ? "hover-line" : ""}`}>
               <NewLink
