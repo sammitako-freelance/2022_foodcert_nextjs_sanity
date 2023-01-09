@@ -1,4 +1,6 @@
 "use client";
+import { useAtom } from "jotai";
+import { clickedMenuJotai } from "../libs/jotai";
 import Link from "next/link";
 
 const ClientSideRoute = ({
@@ -8,7 +10,12 @@ const ClientSideRoute = ({
   children: React.ReactNode;
   route: string;
 }) => {
-  return <Link href={route}>{children}</Link>;
+  const [clickedMenu, setClickedMenu] = useAtom(clickedMenuJotai);
+  return (
+    <Link href={route} onClick={() => setClickedMenu("news")}>
+      {children}
+    </Link>
+  );
 };
 
 export default ClientSideRoute;
