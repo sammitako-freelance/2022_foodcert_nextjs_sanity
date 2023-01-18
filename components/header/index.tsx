@@ -4,18 +4,23 @@ import Navbar from "./Navbar";
 import { showMenuJotai } from "../../libs/jotai";
 import { useAtom } from "jotai";
 import MobileNavbar from "./MobileNavbar";
+import { Category } from "../../typings";
 
-const Header = () => {
+type Props = {
+  category: Category[];
+};
+
+const Header = ({ category }: Props) => {
   const [show, setShow] = useAtom(showMenuJotai);
 
   return (
     <header>
       {show ? (
         <>
-          <MobileNavbar />
+          <MobileNavbar category={category} />
         </>
       ) : (
-        <Navbar />
+        <Navbar category={category} />
       )}
     </header>
   );

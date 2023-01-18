@@ -139,7 +139,7 @@ export default async function Home() {
 
   return (
     <>
-      <Header />
+      <Header category={category} />
       <MainPageLayout
         hero={hero}
         service={service}

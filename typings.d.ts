@@ -160,6 +160,7 @@ export interface Span {
 export interface Category extends Base {
   title: string;
   description: string;
+  slug: string;
 }
 
 export interface MainImage {

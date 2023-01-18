@@ -14,8 +14,13 @@ import {
 import { useAtom } from "jotai";
 import NewLink from "./NewLink";
 import { useRouter } from "next/navigation";
+import { Category } from "../../typings";
+import Link from "next/link";
 
-const MobileNavbar = () => {
+type Props = {
+  category: Category[];
+};
+const MobileNavbar = ({ category }: Props) => {
   const borderLine = "border-b-[3px] border-[#f1f1e7] inline-block";
   const centerScreen = "min-h-screen flex justify-center items-center";
   const sideBar = "fixed right-0 bottom-0 z-40 h-full w-full drop-shadow-xl";
@@ -103,30 +108,32 @@ const MobileNavbar = () => {
             {/* SUB SERVICES */}
             {subMenu && (
               <div className="text-lg text-center flex flex-col gap-5 mt-5">
-                <div
-                  className={`cursor-pointer `}
-                  onClick={() => chooseMenu("efsa")}
-                >
-                  <div id={`${clickedMenu !== "efsa" ? "hover-line" : ""}`}>
-                    <NewLink
-                      page="Efsa"
-                      clickedPage={clickedMenu}
-                      setClickedPage={setClickedMenu}
-                    />
+                {category.map((cat, idx) => (
+                  <div
+                    className={`cursor-pointer `}
+                    onClick={() => chooseMenu(cat.title.toLowerCase())}
+                  >
+                    <div
+                      id={`${
+                        clickedMenu !== cat.title.toLowerCase()
+                          ? "hover-line"
+                          : ""
+                      }`}
+                    >
+                      <Link
+                        className={`${
+                          clickedMenu === cat.title.toLowerCase()
+                            ? borderLine
+                            : ""
+                        }`}
+                        href={`/services/${cat.slug}`}
+                        onClick={() => setClickedMenu(clickedMenu)}
+                      >
+                        {cat.title.toUpperCase()}
+                      </Link>
+                    </div>
                   </div>
-                </div>
-                <div
-                  className={`cursor-pointer`}
-                  onClick={() => chooseMenu("fssai")}
-                >
-                  <div id={`${clickedMenu !== "fssai" ? "hover-line" : ""}`}>
-                    <NewLink
-                      page="Fssai"
-                      clickedPage={clickedMenu}
-                      setClickedPage={setClickedMenu}
-                    />
-                  </div>
-                </div>
+                ))}
               </div>
             )}
           </div>

@@ -9,6 +9,7 @@ import Header from "../../../../components/header";
 import Footer from "../../../../components/footer";
 import ScrollToTop from "../../../../components/ScrollToTop";
 import Script from "next/script";
+import { fetchCategories } from "../../../../libs/fetchCategories";
 
 type Props = {
   params: {
@@ -18,6 +19,11 @@ type Props = {
 
 export const revalidate = 60; // revalidate this page every 60 seconds
 
+async function getCategory() {
+  const data = await fetchCategories();
+  return data;
+}
+
 export async function generateStaticParams() {
   const query = groq`
     *[_type=='service'] {
@@ -25,13 +31,14 @@ export async function generateStaticParams() {
     }
   `;
   const slugs: ServicePage[] = await client.fetch(query);
-  const slugRoutes = slugs.map((slug) => slug.slug.current);
+  const slugRoutes = slugs.map((slug) => slug.slug?.current);
   return slugRoutes.map((slug) => ({
     slug,
   }));
 }
 
 export default async function Service({ params: { slug } }: Props) {
+  const category = await getCategory();
   const query = groq`
     *[_type=='service' && slug.current == $slug][0] {
       ...,
@@ -47,7 +54,7 @@ export default async function Service({ params: { slug } }: Props) {
 
   return (
     <Suspense fallback={<Loader />}>
-      <Header />
+      <Header category={category} />
       <About service={service} />
       <Footer />
       <ScrollToTop />

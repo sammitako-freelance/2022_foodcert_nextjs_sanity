@@ -12,9 +12,13 @@ import {
   clickedHomeJotai,
 } from "../../libs/jotai";
 import { useRouter } from "next/navigation";
+import { Category } from "../../typings";
 
-const Navbar = () => {
-  // console.log(path);
+type Props = {
+  category: Category[];
+};
+const Navbar = ({ category }: Props) => {
+  console.log(category);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [showNavbar, setShowNavbar] = useState(true);
   const [isTopOfPage, setIsTopOfPage] = useAtom(isTopOfPageJotai);
@@ -149,36 +153,32 @@ const Navbar = () => {
                   >
                     services
                   </Link>
-                  <div className="w-full absolute pt-2 hidden group-hover:block">
+                  <div className="min-w-full absolute pt-2 hidden group-hover:block">
                     <div className="bg-black rounded-lg py-4 text-center space-y-2">
-                      <p
-                        id={`${clickedMenu !== "efsa" ? "hover-line" : ""}`}
-                        className={`cursor-pointer !text-custom-beige`}
-                      >
-                        <Link
-                          className={`
-                  ${clickedMenu === "efsa" && borderLine}
-                  `}
-                          onClick={() => setClickedMenu("efsa")}
-                          href="/services/efsa"
+                      {category.map((cat, idx) => (
+                        <p
+                          key={cat._id}
+                          id={`${
+                            clickedMenu !== cat.title.toLowerCase()
+                              ? "hover-line"
+                              : ""
+                          }`}
+                          className={`cursor-pointer !text-custom-beige`}
                         >
-                          EFSA
-                        </Link>
-                      </p>
-                      <p
-                        id={`${clickedMenu !== "fssai" ? "hover-line" : ""}`}
-                        className={`cursor-pointer !text-custom-beige`}
-                      >
-                        <Link
-                          href="/services/fssai"
-                          className={`
-                        ${clickedMenu === "fssai" && borderLine}
-                        `}
-                          onClick={() => setClickedMenu("fssai")}
-                        >
-                          FSSAI
-                        </Link>
-                      </p>
+                          <Link
+                            className={`${
+                              clickedMenu === cat.title.toLowerCase() &&
+                              borderLine
+                            }`}
+                            onClick={() =>
+                              setClickedMenu(cat.title.toLowerCase())
+                            }
+                            href={`/services/${cat.slug}`}
+                          >
+                            {cat.title.toLowerCase()}
+                          </Link>
+                        </p>
+                      ))}
                     </div>
                   </div>
                 </div>
