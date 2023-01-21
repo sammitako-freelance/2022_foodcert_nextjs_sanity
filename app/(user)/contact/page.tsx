@@ -10,11 +10,18 @@ import Header from "../../../components/header";
 import Footer from "../../../components/footer";
 import Script from "next/script";
 import ScrollToTop from "../../../components/ScrollToTop";
+import { fetchCategories } from "../../../libs/fetchCategories";
 
 type Props = {};
 
+export const revalidate = 30;
 async function getContact() {
   const data = await fetchContactPage();
+  return data;
+}
+
+async function getCategory() {
+  const data = await fetchCategories();
   return data;
 }
 
@@ -28,9 +35,11 @@ export default async function Contact(props: Props) {
 
   //   const contact: ContactPage[] = await client.fetch(contactPageQuery);
   const contact = await getContact();
+  const category = await getCategory();
+
   return (
     <Suspense fallback={<Loader />}>
-      <Header />
+      <Header category={category} />
       <ContactForm contact={contact} />
       <Footer />
       <ScrollToTop />

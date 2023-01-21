@@ -11,11 +11,18 @@ import Header from "../../../components/header";
 import Footer from "../../../components/footer";
 import Script from "next/script";
 import ScrollToTop from "../../../components/ScrollToTop";
+import { fetchCategories } from "../../../libs/fetchCategories";
 
 type Props = {};
 
+export const revalidate = 30;
 async function getNoticeList() {
   const data = await fetchNoticeList();
+  return data;
+}
+
+async function getCategory() {
+  const data = await fetchCategories();
   return data;
 }
 
@@ -34,9 +41,11 @@ export default async function Notice(props: Props) {
   if (!list) {
     notFound();
   }
+  const category = await getCategory();
+
   return (
     <Suspense fallback={<Loader />}>
-      <Header />
+      <Header category={category} />
       <NoticeList list={list} />
       <Footer />
       <ScrollToTop />

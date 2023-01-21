@@ -11,6 +11,7 @@ import Header from "../../../../components/header";
 import Footer from "../../../../components/footer";
 import Script from "next/script";
 import ScrollToTop from "../../../../components/ScrollToTop";
+import { fetchCategories } from "../../../../libs/fetchCategories";
 
 type Props = {
   params: {
@@ -19,7 +20,11 @@ type Props = {
   // item: News;
 };
 
-export const revalidate = 60; // revalidate this page every 60 seconds
+export const revalidate = 30; // revalidate this page every 30 seconds
+async function getCategory() {
+  const data = await fetchCategories();
+  return data;
+}
 
 export async function generateStaticParams() {
   const query = groq`
@@ -35,6 +40,8 @@ export async function generateStaticParams() {
 }
 
 async function NewsItem({ params: { slug } }: Props) {
+  const category = await getCategory();
+
   const query = groq`
     *[_type=='news' && slug.current == $slug][0] {
       ...,
@@ -57,7 +64,7 @@ async function NewsItem({ params: { slug } }: Props) {
 
   return (
     <Suspense fallback={<Loader />}>
-      <Header />
+      <Header category={category} />
       <NoticeItem data={item} />
       <Footer />
       <ScrollToTop />
