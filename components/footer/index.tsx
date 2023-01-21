@@ -16,7 +16,7 @@ const Footer = () => {
           </div>
           <div className="text-xs">사업자등록번호: 881-86-01514</div>
           <div className="text-xs md:flex">
-            <div>TEL: 010 - 4250 - 3160</div>
+            <div>TEL: 070 - 7011 - 3131</div>
             <div className="hidden bg-[#f1f1e7] w-[1px] h-auto md:block md:mx-2"></div>
             <div>E-mail: info@house-boutique.net</div>
           </div>
@@ -25,14 +25,14 @@ const Footer = () => {
       <div className="text-xs text-center flex flex-col pt-4">
         <div className="pb-1">{year} © House Boutique. All rights reserved</div>
         {/* LOGIN PAGE */}
-        <Link
+        {/* <Link
           href="/studio"
           rel="noopener noreferrer"
           target="_blank"
           className="inline italic"
         >
           manager
-        </Link>
+        </Link> */}
       </div>
     </footer>
   );

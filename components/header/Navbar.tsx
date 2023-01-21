@@ -18,7 +18,6 @@ type Props = {
   category: Category[];
 };
 const Navbar = ({ category }: Props) => {
-  console.log(category);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [showNavbar, setShowNavbar] = useState(true);
   const [isTopOfPage, setIsTopOfPage] = useAtom(isTopOfPageJotai);

@@ -135,7 +135,7 @@ const ContactCard = (props: Props) => {
             htmlFor="uploadOne"
             className="input-file-button block text-sm font-medium text-gray-500"
           >
-            File upload 1*
+            File upload 1
           </label>
           <div id="uploadOne" className="mt-2 rounded-md mb-5 last:mb-0">
             <input
@@ -148,22 +148,22 @@ const ContactCard = (props: Props) => {
               hover:file:bg-opacity-70
               hover:cursor-pointer file:hover:cursor-pointer
               "
-              {...register("uploadOne", {
-                required: true,
-              })}
+              // {...register("uploadOne", {
+              //   required: true,
+              // })}
             />
-            {errors?.uploadOne && (
+            {/* {errors?.uploadOne && (
               <p className="text-red-400 mt-1 text-xs ml-1">
                 {errors?.uploadOne.type === "required" && "필수 항목 입니다."}
               </p>
-            )}
+            )} */}
           </div>
 
           <label
             htmlFor="uploadTwo"
             className="input-file-button block text-sm font-medium text-gray-500"
           >
-            File upload 2*
+            File upload 2
           </label>
           <div id="uploadTwo" className="mt-2 rounded-md mb-5 last:mb-0">
             <input
@@ -176,15 +176,15 @@ const ContactCard = (props: Props) => {
               hover:file:bg-opacity-70
               hover:cursor-pointer file:hover:cursor-pointer
               "
-              {...register("uploadTwo", {
-                required: true,
-              })}
+              // {...register("uploadTwo", {
+              //   required: true,
+              // })}
             />
-            {errors?.uploadTwo && (
+            {/* {errors?.uploadTwo && (
               <p className="text-red-400 mt-1 text-xs ml-1">
                 {errors?.uploadTwo.type === "required" && "필수 항목 입니다."}
               </p>
-            )}
+            )} */}
           </div>
 
           {/* SUBJECT */}

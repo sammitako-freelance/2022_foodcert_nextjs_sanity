@@ -10,6 +10,7 @@ type Props = {
 };
 
 const About = ({ service }: Props) => {
+  console.log(service);
   const image = service?.mainImageUrl;
   const contentContainer = "relative pt-[10px]";
   const contentBorder =

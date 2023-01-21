@@ -3,6 +3,7 @@ import LinkButton from "../LinkButton";
 import { motion } from "framer-motion";
 import { useAtom } from "jotai";
 import { clickedMenuJotai } from "../../libs/jotai";
+import { Category } from "../../typings";
 
 const childVariant = {
   hidden: { opacity: 0, scale: 0.9 },
@@ -10,22 +11,17 @@ const childVariant = {
 };
 
 type Props = {
-  category: string;
+  category: Category;
   list: Array<string>;
   title: string;
+  num: number;
 };
 
-const ServiceCard = ({ category, list, title }: Props) => {
-  const textColor =
-    category?.toLowerCase() === "efsa"
-      ? "text-custom-blue"
-      : "text-custom-green";
+const ServiceCard = ({ category, list, title, num }: Props) => {
+  const textColor = num % 2 !== 0 ? "text-custom-blue" : "text-custom-green";
   const borderColor =
-    category?.toLowerCase() === "efsa"
-      ? "border-custom-blue"
-      : "border-custom-green";
-  const backgroundColor =
-    category?.toLowerCase() === "efsa" ? "bg-custom-blue" : "bg-custom-green";
+    num % 2 !== 0 ? "border-custom-blue" : "border-custom-green";
+  const backgroundColor = num % 2 !== 0 ? "bg-custom-blue" : "bg-custom-green";
   const [clickedMenu, setClickedMenu] = useAtom(clickedMenuJotai);
 
   return (
@@ -36,7 +32,7 @@ const ServiceCard = ({ category, list, title }: Props) => {
       <div
         className={`inline-block self-start iuppercase py-1 px-2 rounded-3xl text-xs text-custom-beige ${backgroundColor}`}
       >
-        {category?.toUpperCase()}
+        {category?.title.toUpperCase()}
       </div>
 
       <div className="py-5 text-custom-black text-sm font-bold">{title}</div>
@@ -47,10 +43,10 @@ const ServiceCard = ({ category, list, title }: Props) => {
       </ul>
       <div
         className="flex justify-center items-center mt-auto pt-10"
-        onClick={() => setClickedMenu(category?.toLowerCase())}
+        onClick={() => setClickedMenu(category?.title.toLowerCase())}
       >
         <LinkButton
-          pathLink={`/services/${category?.toLowerCase()}`}
+          pathLink={`/services/${category?.slug}`}
           title="더 알아보기"
           textColor={textColor}
           borderColor={borderColor}
