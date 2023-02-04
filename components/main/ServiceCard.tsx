@@ -27,7 +27,7 @@ const ServiceCard = ({ category, list, title, num }: Props) => {
   return (
     <motion.div
       variants={childVariant}
-      className="min-h-max w-[315px] sm:w-[355px] md:w-[325px] px-6 py-8 shadow-md rounded-xl bg-white flex flex-col"
+      className="min-h-max w-[315px] sm:w-[355px] lg:w-[305px] xl:w-[325px] px-6 py-8 shadow-md rounded-xl bg-white flex flex-col"
     >
       <div
         className={`inline-block self-start iuppercase py-1 px-2 rounded-3xl text-xs text-custom-beige ${backgroundColor}`}

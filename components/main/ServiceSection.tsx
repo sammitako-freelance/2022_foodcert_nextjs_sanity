@@ -37,14 +37,14 @@ const ServiceSection = ({ service }: Props) => {
       <motion.div
       // onViewportEnter={() => setClickedMenu("services")}
       >
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center mx-auto">
           <TitleText textSize="">Our services</TitleText>
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={container}
-            className="py-10 space-y-8 md:space-y-0 md:flex md:space-x-10"
+            className="py-10 space-y-8 lg:space-y-0 lg:flex lg:space-x-6 xl:space-x-10"
           >
             {service.map((item, idx) => (
               <ServiceCard
