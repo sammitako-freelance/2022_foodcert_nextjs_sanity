@@ -34,7 +34,7 @@ const MainNewsList = ({ title, category, textColor, date, link }: Props) => {
           <div className="flex flex-col gap-1 font-bold truncate">
             <div className="text-sm text-black truncate">{title}</div>
             <div className="flex space-x-2">
-              <div className={`text-xs ${textColor}`}>{category}</div>
+              <div className={`text-xs uppercase ${textColor}`}>{category}</div>
               <div className="text-xs text-custom-dark-gray">{date}</div>
             </div>
           </div>

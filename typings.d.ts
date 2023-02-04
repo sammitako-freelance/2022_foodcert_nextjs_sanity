@@ -161,6 +161,7 @@ export interface Category extends Base {
   title: string;
   description: string;
   slug: string;
+  number: string;
 }
 
 export interface MainImage {

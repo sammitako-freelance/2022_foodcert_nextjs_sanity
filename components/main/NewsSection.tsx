@@ -53,7 +53,7 @@ const NewsSection = ({ news, category }: Props) => {
                       <li
                         key={idx}
                         className={`content group ${
-                          cat.title.toLowerCase() === "efsa"
+                          parseInt(cat.number) % 2 !== 0
                             ? "text-custom-blue"
                             : "text-custom-green"
                         }`}
@@ -85,7 +85,7 @@ const NewsSection = ({ news, category }: Props) => {
                     category={item.categories.title}
                     date={item.publishedAt}
                     textColor={
-                      item.categories.title.toLowerCase() === "efsa"
+                      parseInt(item.categories.number) % 2 !== 0
                         ? "text-custom-blue"
                         : "text-custom-green"
                     }

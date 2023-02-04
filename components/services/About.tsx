@@ -8,22 +8,20 @@ import DocumentItem from "./DocumentItem";
 type Props = {
   service: ServicePage;
 };
-
 const About = ({ service }: Props) => {
-  console.log(service);
   const image = service?.mainImageUrl;
   const contentContainer = "relative pt-[10px]";
   const contentBorder =
-    service?.categories?.title?.toLowerCase() === "efsa"
+    parseInt(service?.categories?.number) % 2 !== 0
       ? "before:content-[''] before:border-t-custom-blue before:border-t-[4px] before:absolute before:left-[47%] before:md:left-0 before:top-0 before:w-[20px]"
       : "before:content-[''] before:border-t-custom-green before:border-t-[4px] before:absolute before:left-[47%] before:md:left-0 before:top-0 before:w-[20px]";
   const contentContainerCenter = "relative pb-[10px]";
   const contentBorderCenter =
-    service?.categories?.title?.toLowerCase() === "efsa"
+    parseInt(service?.categories?.number) % 2 !== 0
       ? "after:content-[''] after:border-b-custom-blue after:border-b-[4px] after:absolute after:left-[48%] after:-bottom-1 after:md:-bottom-1 after:w-[20px]"
       : "after:content-[''] after:border-b-custom-green after:border-b-[4px] after:absolute after:left-[48%] after:-bottom-1 after:md:-bottom-1 after:w-[20px]";
   const textColor =
-    service?.categories?.title?.toLowerCase() === "efsa"
+    parseInt(service?.categories?.number) % 2 !== 0
       ? "text-custom-blue"
       : "text-custom-green";
   const container = {
@@ -68,7 +66,7 @@ const About = ({ service }: Props) => {
             <div
               className={`${contentBorder} ${textColor} mx-auto md:justify-start mb-10 md:mb-0 md:basis-1/3 font-bold text-lg tracking-widest`}
             >
-              {service?.categories?.title}
+              {service?.categories?.title.toUpperCase()}
             </div>
             <div className="md:basis-2/3">
               <div className="font-bold">{service?.title}</div>
@@ -122,6 +120,7 @@ const About = ({ service }: Props) => {
                         number={idx + 1}
                         title={data?.name}
                         subTitle={data?.info}
+                        color={service?.categories.number}
                       />
                     </div>
                     {((idx + 1) % 2 === 0 ||
@@ -214,6 +213,7 @@ const About = ({ service }: Props) => {
                   <LabelList
                     key={idx}
                     label={data}
+                    color={service?.categories.number}
                     category={service?.categories?.title}
                   />
                 ))}

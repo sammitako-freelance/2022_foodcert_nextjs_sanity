@@ -10,7 +10,7 @@ type Props = {
 
 const NewLink = ({ page, clickedPage, setClickedPage }: Props) => {
   const lowerCasePage = page.toLowerCase().replace(/ /g, "");
-  console.log(lowerCasePage);
+
   const link =
     lowerCasePage === "home"
       ? ""

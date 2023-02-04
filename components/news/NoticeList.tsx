@@ -51,6 +51,7 @@ const NoticeList = ({ list }: Props) => {
                 summary={item.summary}
                 date={item.publishedAt}
                 route={item.slug.current}
+                color={item.categories.number}
               />
             ))}
           </div>

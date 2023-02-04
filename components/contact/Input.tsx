@@ -9,7 +9,6 @@ type Props = {
 };
 
 const Input = ({ labelFor, labelName, type, placeholder, error }: Props) => {
-  console.log(error);
   return (
     <>
       {labelFor === "name" && (

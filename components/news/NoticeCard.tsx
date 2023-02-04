@@ -8,25 +8,29 @@ type Props = {
   summary: string;
   date: string;
   route: string;
+  color: string;
 };
 const childVariant = {
   hidden: { opacity: 0, scale: 0.9 },
   visible: { opacity: 1, scale: 1 },
 };
 
-const NoticeCard = ({ category, title, summary, date, route }: Props) => {
+const NoticeCard = ({
+  category,
+  title,
+  summary,
+  date,
+  route,
+  color,
+}: Props) => {
   const [clickedMenu, setClickedMenu] = useAtom(clickedMenuJotai);
 
   const textColor =
-    category?.toLowerCase() === "efsa"
-      ? "text-custom-blue"
-      : "text-custom-green";
+    parseInt(color) % 2 !== 0 ? "text-custom-blue" : "text-custom-green";
   const borderColor =
-    category?.toLowerCase() === "efsa"
-      ? "border-custom-blue"
-      : "border-custom-green";
+    parseInt(color) % 2 !== 0 ? "border-custom-blue" : "border-custom-green";
   const backgroundColor =
-    category?.toLowerCase() === "efsa" ? "bg-custom-blue" : "bg-custom-green";
+    parseInt(color) % 2 !== 0 ? "bg-custom-blue" : "bg-custom-green";
   return (
     <ClientSideRoute route={`/notice/${route}`}>
       <div

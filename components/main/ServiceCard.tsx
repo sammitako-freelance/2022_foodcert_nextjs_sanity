@@ -14,14 +14,16 @@ type Props = {
   category: Category;
   list: Array<string>;
   title: string;
-  num: number;
+  num: string;
 };
 
 const ServiceCard = ({ category, list, title, num }: Props) => {
-  const textColor = num % 2 !== 0 ? "text-custom-blue" : "text-custom-green";
+  const textColor =
+    parseInt(num) % 2 !== 0 ? "text-custom-blue" : "text-custom-green";
   const borderColor =
-    num % 2 !== 0 ? "border-custom-blue" : "border-custom-green";
-  const backgroundColor = num % 2 !== 0 ? "bg-custom-blue" : "bg-custom-green";
+    parseInt(num) % 2 !== 0 ? "border-custom-blue" : "border-custom-green";
+  const backgroundColor =
+    parseInt(num) % 2 !== 0 ? "bg-custom-blue" : "bg-custom-green";
   const [clickedMenu, setClickedMenu] = useAtom(clickedMenuJotai);
 
   return (

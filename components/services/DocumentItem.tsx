@@ -11,13 +11,12 @@ type Props = {
   title: string;
   subTitle: string;
   category: string;
+  color: string;
 };
 
-const DocumentItem = ({ number, title, subTitle, category }: Props) => {
+const DocumentItem = ({ number, title, subTitle, category, color }: Props) => {
   const textColor =
-    category?.toLowerCase() === "efsa"
-      ? "text-custom-blue"
-      : "text-custom-green";
+    parseInt(color) % 2 !== 0 ? "text-custom-blue" : "text-custom-green";
   const num = (n: number) => {
     const tmp = n.toString();
     const numDigit = tmp.length;

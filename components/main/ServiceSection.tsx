@@ -49,7 +49,7 @@ const ServiceSection = ({ service }: Props) => {
             {service.map((item, idx) => (
               <ServiceCard
                 key={idx}
-                num={idx + 1}
+                num={item?.categories.number}
                 category={item?.categories}
                 list={item?.list}
                 title={item?.title}
