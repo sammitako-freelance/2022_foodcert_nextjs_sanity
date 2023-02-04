@@ -19,7 +19,7 @@ module.exports = {
         "custom-blue": "#243665",
         "custom-green": "#4C8381",
         "custom-beige": "#F1F1E7",
-        "custom-dark-gray": "#A8AABA",
+        "custom-dark-gray": "#8C8EA3",
         "custom-light-gray": "#F7F7F7",
         "custom-mint": "#DDE8E7",
         "custom-black": "#000231",
