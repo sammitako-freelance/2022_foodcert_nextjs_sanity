@@ -26,4 +26,12 @@ export default defineType({
       type: "string",
     }),
   ],
+  preview: {
+    select: {
+      title: "address",
+    },
+    prepare(selection) {
+      return { ...selection };
+    },
+  },
 });

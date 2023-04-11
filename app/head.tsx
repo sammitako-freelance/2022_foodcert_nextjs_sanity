@@ -13,35 +13,23 @@ export default function Head() {
       />
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
-      <meta
-        property="og:url"
-        content="https://foodcert-nextjs-sanity-sammitako.vercel.app/"
-      />
+      <meta property="og:url" content="https://foodcert.kr" />
       <meta property="og:title" content="Foodcert - House Boutique" />
       <meta
         property="og:description"
         content="Beauty & Health | 최고의 해외 진출 파트너 House Boutique"
       />
-      <meta
-        property="og:image"
-        content="https://foodcert-nextjs-sanity-sammitako.vercel.app/api/og"
-      />
+      <meta property="og:image" content="https://foodcert.kr/api/og" />
 
       {/* TWITTER */}
       <meta property="twitter:card" content="summary_large_image" />
-      <meta
-        property="twitter:url"
-        content="https://foodcert-nextjs-sanity-sammitako.vercel.app/"
-      />
+      <meta property="twitter:url" content="https://foodcert.kr/" />
       <meta property="twitter:title" content="Foodcert - House Boutique" />
       <meta
         property="twitter:description"
         content="Beauty & Health | 최고의 해외 진출 파트너 House Boutique"
       />
-      <meta
-        property="twitter:image"
-        content="https://foodcert-nextjs-sanity-sammitako.vercel.app/api/og"
-      />
+      <meta property="twitter:image" content="https://foodcert.kr/api/og" />
     </>
   );
 }
