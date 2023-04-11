@@ -128,6 +128,13 @@ export interface Author extends Base {
   slug: Slug;
 }
 
+export interface Footer extends Base {
+  address: string;
+  registeration: string;
+  tel: string;
+  email: string;
+}
+
 export interface Image {
   _type: "image";
   asset: Reference;
