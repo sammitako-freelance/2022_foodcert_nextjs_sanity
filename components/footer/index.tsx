@@ -1,8 +1,14 @@
 import Link from "next/link";
+import { FooterSection } from "../../typings";
+
+type Props = {
+  footer: FooterSection;
+};
 
 const year = new Date().getFullYear();
 
-const Footer = () => {
+const Footer = ({ footer }: Props) => {
+  console.log(footer);
   return (
     <footer className=" bg-[#243665] text-[#f1f1e7] px-2 pt-6 pb-4 font-Noto space-y-1">
       <div className="justify-center items-center md:space-x-8 md:flex">

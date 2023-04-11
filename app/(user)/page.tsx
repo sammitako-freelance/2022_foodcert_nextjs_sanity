@@ -9,6 +9,7 @@ import { fetchMainNews } from "../../libs/fetchMainNews";
 import { fetchCategories } from "../../libs/fetchCategories";
 import { fetchMainFaq } from "../../libs/fetchMainFaq";
 import { fetchMainContact } from "../../libs/fetchMainContact";
+import { fetchFooter } from "../../libs/fetchFooter";
 import {
   MainHero,
   MainService,
@@ -16,6 +17,7 @@ import {
   Category,
   FaqData,
   MainContact,
+  FooterSection,
 } from "../../typings";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
@@ -58,6 +60,11 @@ async function getContact() {
   return data;
 }
 
+async function getFooter() {
+  const data = await fetchFooter();
+  return data;
+}
+
 export default async function Home() {
   const hero = await getHero();
   const service = await getService();
@@ -65,6 +72,7 @@ export default async function Home() {
   const category = await getCategory();
   const faq = await getFaq();
   const contact = await getContact();
+  const footer = await getFooter();
 
   if (previewData()) {
     return (
@@ -148,7 +156,7 @@ export default async function Home() {
         faq={faq}
         contact={contact}
       />
-      <Footer />
+      <Footer footer={footer} />
       <ScrollToTop />
       <Script
         id="channelTalk"
