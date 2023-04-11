@@ -128,20 +128,20 @@ export interface Author extends Base {
   slug: Slug;
 }
 
-export type Footer = {
-  address: string;
-  registeration: string;
-  tel: string;
-  email: string;
-};
+// export type Footer = {
+//   address: string;
+//   registeration: string;
+//   tel: string;
+//   email: string;
+// };
 
-export interface FooterSection extends Footer {
-  _id: string;
-  _type: "footer";
-  _createdAt: string;
-  _rev: string;
-  _updatedAt: string;
-}
+// export interface FooterSection extends Footer {
+//   _id: string;
+//   _type: "footer";
+//   _createdAt: string;
+//   _rev: string;
+//   _updatedAt: string;
+// }
 
 export interface Image {
   _type: "image";

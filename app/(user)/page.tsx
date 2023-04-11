@@ -17,7 +17,7 @@ import {
   Category,
   FaqData,
   MainContact,
-  FooterSection,
+  // FooterSection,
 } from "../../typings";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
@@ -60,10 +60,10 @@ async function getContact() {
   return data;
 }
 
-async function getFooter() {
-  const data = await fetchFooter();
-  return data;
-}
+// async function getFooter() {
+//   const data = await fetchFooter();
+//   return data;
+// }
 
 export default async function Home() {
   const hero = await getHero();
@@ -72,7 +72,7 @@ export default async function Home() {
   const category = await getCategory();
   const faq = await getFaq();
   const contact = await getContact();
-  const footer = await getFooter();
+  // const footer = await getFooter();
 
   if (previewData()) {
     return (
@@ -156,7 +156,7 @@ export default async function Home() {
         faq={faq}
         contact={contact}
       />
-      <Footer footer={footer} />
+      <Footer />
       <ScrollToTop />
       <Script
         id="channelTalk"
