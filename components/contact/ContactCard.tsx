@@ -27,7 +27,7 @@ const ContactCard = (props: Props) => {
   //       .replace(/[^0-9]/g, "")
   //       .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
   // };
-  // 37.570998599999996, 126.98141075331924
+  // 37.56989304057379, 126.97305914229369
 
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: apiKey,
@@ -273,14 +273,13 @@ export default ContactCard;
 
 function Map() {
   const center = useMemo(
-    () => ({ lat: 37.570998599999996, lng: 126.98141075331924 }),
+    // 37.56989304057379, 126.97305914229369
+    () => ({ lat: 37.56989304057379, lng: 126.97305914229369 }),
     []
   );
   return (
     <GoogleMap zoom={18} center={center} mapContainerClassName="map-container">
-      <MarkerF
-        position={{ lat: 37.570998599999996, lng: 126.98141075331924 }}
-      />
+      <MarkerF position={{ lat: 37.56989304057379, lng: 126.97305914229369 }} />
     </GoogleMap>
   );
 }
