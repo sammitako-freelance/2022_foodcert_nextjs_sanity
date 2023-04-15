@@ -18,7 +18,10 @@ const Footer = () => {
         <div className=" hidden w-[1px] h-16 md:h-12 bg-[#f1f1e7] md:block"></div>
         <div className="flex flex-col text-center mt-4 md:text-left md:mt-0">
           <div className="text-xs">
-            서울시 종로구 종로 33 그랑서울타워1, 7층 (03159)
+            사무실: 서울특별시 종로구 새문안로 76 콘코디언빌딩 3층 (우)03185
+          </div>
+          <div className="text-xs">
+            Lab: 경기도 구리시 갈매순환로166번길 45 아너시티 S-742호 (우)11901
           </div>
           <div className="text-xs">사업자등록번호: 881-86-01514</div>
           <div className="text-xs md:flex">
