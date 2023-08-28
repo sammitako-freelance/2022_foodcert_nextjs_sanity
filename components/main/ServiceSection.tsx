@@ -1,24 +1,50 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useAtom, useAtomValue } from "jotai";
 import { clickedMenuJotai, clickedServiceJotai } from "../../libs/jotai";
 import TitleText from "../TitleText";
 import { MainService } from "../../typings";
 import ServiceCard from "./ServiceCard";
+import classNames from "classnames";
 
 type Props = {
   service: MainService[];
 };
 
 const ServiceSection = ({ service }: Props) => {
+  const isOdd = service.length % 2 !== 0;
+
   const [clickedMenu, setClickedMenu] = useAtom(clickedMenuJotai);
   const [clickedService, setClickedService] = useAtom(clickedServiceJotai);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
   const container = {
     hidden: {},
     visible: {
       transition: { staggerChildren: 0.2 },
     },
   };
+
+  const gridClasses = classNames({
+    grid: true,
+    "grid-cols-3": isOdd && windowWidth > 1280, // 3 columns for odd number of cards on large screens
+    "grid-cols-4": !isOdd && windowWidth > 1280, // 4 columns for even number of cards on large screens
+    "grid-cols-2": !isOdd && windowWidth <= 1280 && windowWidth > 768, // 2 columns for even number of cards on medium screens
+    "grid-cols-1": windowWidth <= 768, // 1 column for all on small screens
+  });
+
+  // Update window width on resize
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     if (clickedService) {
@@ -44,7 +70,7 @@ const ServiceSection = ({ service }: Props) => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={container}
-            className="py-10 space-y-8 lg:space-y-0 lg:flex lg:space-x-6 xl:space-x-10"
+            className={`py-10 gap-8 xl:gap-5 ${gridClasses}`}
           >
             {service.map((item, idx) => (
               <ServiceCard
