@@ -16,7 +16,7 @@ const ServiceSection = ({ service }: Props) => {
 
   const [clickedMenu, setClickedMenu] = useAtom(clickedMenuJotai);
   const [clickedService, setClickedService] = useAtom(clickedServiceJotai);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(0);
 
   const container = {
     hidden: {},
@@ -35,15 +35,19 @@ const ServiceSection = ({ service }: Props) => {
 
   // Update window width on resize
   useEffect(() => {
-    const handleResize = () => {
+    if (typeof window !== "undefined") {
       setWindowWidth(window.innerWidth);
-    };
 
-    window.addEventListener("resize", handleResize);
+      const handleResize = () => {
+        setWindowWidth(window.innerWidth);
+      };
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+      window.addEventListener("resize", handleResize);
+
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+    }
   }, []);
 
   useEffect(() => {
