@@ -9,7 +9,6 @@ type Props = {
   service: ServicePage;
 };
 const About = ({ service }: Props) => {
-  const image = service?.mainImageUrl;
   const contentContainer = "relative pt-[10px]";
   const contentBorder =
     parseInt(service?.categories?.number) % 2 !== 0
@@ -37,7 +36,11 @@ const About = ({ service }: Props) => {
       <div
         className={`pt-10 md:pt-14 h-[230px] md:h-[300px] bg-cover bg-no-repeat	bg-center opacity-80`}
         style={{
-          backgroundImage: `url(${service?.mainImageUrl})`,
+          backgroundImage: `url(${
+            service?.mainImageUrl
+              ? service.mainImageUrl
+              : "/background/service-default.jpg"
+          })`,
         }}
       >
         <div
